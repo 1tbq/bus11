@@ -3,421 +3,486 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Southbound Roasters: Dispatch | External business environment</title>
-<meta name="description" content="A scored revision game for VCE Business Management Unit 1, external business environment and planning.">
+<title>Sambal Sisters: Clear the Board | Legal requirements and financial considerations</title>
+<meta name="description" content="A scored revision game for VCE Business Management Unit 2 Area of Study 1: legal requirements, financial considerations and external professionals.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  --ink: #16211d;
-  --ink2: #1e2c27;
-  --ink3: #27352f;
-  --panel: #f3eee2;
-  --panel2: #e6dcc7;
-  --amber: #e39b2c;
-  --rust: #b24a2e;
-  --teal: #2f8c7e;
-  --line: #3a4b43;
-  --muted: #93a49b;
-  --dim: #6d8078;
+  --paper: #e9ede6;
+  --card: #ffffff;
+  --ink: #16203a;
+  --ink2: #232f4f;
+  --soft: #56628a;
+  --faint: #7d879f;
+  --rule: #ccd4c8;
+  --rule2: #dfe5da;
+  --green: #2f8f52;
+  --green-bg: #e8f4ea;
+  --red: #c0392b;
+  --red-bg: #fbecea;
+  --blue: #2f5ad0;
+  --amber: #cf8f10;
   min-height: 100vh;
-  background: var(--ink);
-  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 4px);
-  color: var(--panel);
-  font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
-  font-size: 15px;
-  line-height: 1.55;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  font-size: 15px; line-height: 1.55;
   padding-bottom: 64px;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3 { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.02em; margin: 0; line-height: 1.05; }
-.mono { font-family: 'Space Mono', ui-monospace, monospace; }
+h1, h2, h3 { font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.015em; margin: 0; line-height: 1.08; }
+.mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
 button { font-family: inherit; cursor: pointer; }
-button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 
-.strip { position: sticky; top: 0; z-index: 30; background: var(--ink2); border-bottom: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
-.strip-in { max-width: 940px; margin: 0 auto; padding: 10px 18px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.brand { display: flex; align-items: baseline; gap: 9px; margin-right: auto; }
-.brand .mark { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--ink); background: var(--amber); padding: 3px 7px; border-radius: 2px; }
-.brand .nm { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15px; }
-.gauge { text-align: right; }
-.gauge .lab { font-family: 'Space Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; }
-.gauge .val { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 19px; }
-.gauge .val.hot { color: var(--amber); }
+/* header: application masthead */
+.mast { background: var(--ink); color: #eef1f6; border-bottom: 4px solid var(--amber); }
+.mast-in { max-width: 960px; margin: 0 auto; padding: 12px 18px; display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+.mast .who { margin-right: auto; }
+.mast .who .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #9aa6c4; }
+.mast .who .title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+.field { text-align: right; }
+.field .lab { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #9aa6c4; }
+.field .val { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 18px; color: #fff; }
+.field .val.hot { color: var(--amber); }
 
-.rail { max-width: 940px; margin: 0 auto; padding: 14px 18px 0; display: flex; gap: 5px; }
-.rail-seg { flex: 1; }
-.rail-bar { height: 5px; background: var(--ink3); border-radius: 2px; }
-.rail-bar.done { background: var(--teal); }
-.rail-bar.now { background: var(--amber); }
-.rail-lab { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--dim); margin-top: 5px; }
-.rail-lab.now { color: var(--amber); }
+/* approval board */
+.board { max-width: 960px; margin: 0 auto; padding: 16px 18px 0; }
+.board-in { display: flex; gap: 6px; background: var(--card); border: 1px solid var(--rule); padding: 12px 14px; }
+.lamp { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.dot { width: 15px; height: 15px; border-radius: 50%; border: 2.5px solid var(--red); background: transparent; flex: none; }
+.lamp.now .dot { border-color: var(--amber); background: var(--amber); box-shadow: 0 0 0 4px rgba(207,143,16,0.16); }
+.lamp.ok .dot { border-color: var(--green); background: var(--green); }
+.lamp .nm { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); text-align: center; line-height: 1.25; }
+.lamp.ok .nm { color: var(--green); }
+.lamp.now .nm { color: var(--ink); font-weight: 600; }
 
-.wrap { max-width: 940px; margin: 0 auto; padding: 22px 18px 0; }
-.docket { background: var(--panel); color: var(--ink); border-radius: 3px; border: 1px solid var(--panel2); box-shadow: 0 18px 44px rgba(0,0,0,0.4); overflow: hidden; animation: slidein 320ms ease-out; }
-@keyframes slidein { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.docket-head { padding: 16px 22px; border-bottom: 2px dashed var(--panel2); display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
-.docket-head .num { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; background: var(--ink); color: var(--amber); padding: 5px 9px; border-radius: 2px; white-space: nowrap; }
-.docket-head h2 { font-size: 25px; }
-.docket-head p { margin: 5px 0 0; font-size: 13.5px; color: #5c5245; max-width: 56ch; }
-.docket-body { padding: 22px; }
-.docket-foot { padding: 13px 22px; border-top: 2px dashed var(--panel2); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 11px; color: #6c6154; letter-spacing: 0.06em; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 16px 18px 0; }
 
-.btn { border: none; border-radius: 2px; padding: 12px 22px; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 14.5px; transition: transform 90ms ease, filter 120ms ease; }
+/* form card */
+.form { background: var(--card); border: 1px solid var(--rule); animation: fade 300ms ease-out; }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.form-head { padding: 15px 22px 14px; border-bottom: 1px solid var(--rule); background: linear-gradient(180deg, #f7f9f5, #fff); }
+.form-head .code { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 7px; }
+.form-head h2 { font-size: 25px; }
+.form-head p { margin: 6px 0 0; font-size: 13.5px; color: var(--soft); max-width: 58ch; }
+.form-body { padding: 22px; }
+.form-foot { padding: 12px 22px; border-top: 1px solid var(--rule); background: #f7f9f5; display: flex; gap: 14px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--soft); letter-spacing: 0.05em; }
+
+.btn { border: none; border-radius: 2px; padding: 12px 22px; font-family: 'Instrument Sans', sans-serif; font-weight: 600; font-size: 14.5px; transition: transform 90ms ease, filter 120ms ease; }
 .btn:active { transform: translateY(1px); }
-.btn-go { background: var(--ink); color: var(--amber); }
-.btn-go:hover:not(:disabled) { filter: brightness(1.35); }
+.btn-go { background: var(--ink); color: #fff; }
+.btn-go:hover:not(:disabled) { background: var(--ink2); }
 .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
-.btn-ghost:hover { background: rgba(22,33,29,0.07); }
+.btn-ghost:hover { background: rgba(22,32,58,0.06); }
 .btn-lite { background: var(--amber); color: var(--ink); }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-.opts { display: grid; gap: 9px; }
-.opt { width: 100%; text-align: left; background: #fff; color: var(--ink); border: 1.5px solid var(--panel2); border-radius: 3px; padding: 13px 15px; font-size: 14.5px; line-height: 1.45; display: flex; gap: 12px; align-items: flex-start; transition: border-color 110ms ease, background 110ms ease; }
-.opt:hover:not(:disabled) { border-color: var(--ink); background: #fffdf7; }
-.opt .key { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 11px; background: var(--panel2); color: #5c5245; border-radius: 2px; padding: 3px 7px; flex: none; margin-top: 1px; }
-.opt.right { border-color: var(--teal); background: #eef7f4; }
-.opt.right .key { background: var(--teal); color: #fff; }
-.opt.wrong { border-color: var(--rust); background: #fbefeb; }
-.opt.wrong .key { background: var(--rust); color: #fff; }
-.opt.sel { border-color: var(--ink); background: #fffdf7; }
-.opt.sel .key { background: var(--ink); color: var(--amber); }
+.opts { display: grid; gap: 8px; }
+.opt { width: 100%; text-align: left; background: #fbfcfa; color: var(--ink); border: 1px solid var(--rule); border-radius: 2px; padding: 13px 15px; font-size: 14.5px; line-height: 1.45; display: flex; gap: 12px; align-items: flex-start; transition: border-color 110ms, background 110ms; }
+.opt:hover:not(:disabled) { border-color: var(--ink); background: #fff; }
+.opt .key { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 11px; background: var(--rule2); color: var(--soft); border-radius: 2px; padding: 3px 7px; flex: none; margin-top: 1px; }
+.opt.right { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
+.opt.right .key { background: var(--green); color: #fff; }
+.opt.wrong { border-color: var(--red); border-width: 2px; background: var(--red-bg); }
+.opt.wrong .key { background: var(--red); color: #fff; }
+.opt.sel { border-color: var(--blue); border-width: 2px; background: #eef2fd; }
+.opt.sel .key { background: var(--blue); color: #fff; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { background: #fff; border: 1.5px solid var(--panel2); border-radius: 999px; padding: 9px 15px; font-size: 13.5px; color: var(--ink); font-weight: 500; }
-.chip:hover:not(:disabled) { border-color: var(--ink); }
-.chip.right { border-color: var(--teal); background: #eef7f4; }
-.chip.wrong { border-color: var(--rust); background: #fbefeb; }
+.chip { background: #fbfcfa; border: 1px solid var(--rule); border-radius: 2px; padding: 10px 15px; font-size: 13.5px; color: var(--ink); font-weight: 500; }
+.chip:hover:not(:disabled) { border-color: var(--ink); background: #fff; }
+.chip.right { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
+.chip.wrong { border-color: var(--red); border-width: 2px; background: var(--red-bg); }
 
-.stamp { display: inline-block; transform: rotate(-6deg); font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: 0.16em; padding: 6px 14px; border: 3px solid currentColor; border-radius: 3px; animation: thump 260ms cubic-bezier(.2,1.6,.4,1); }
-@keyframes thump { from { transform: rotate(-6deg) scale(1.7); opacity: 0; } to { transform: rotate(-6deg) scale(1); opacity: 1; } }
-.stamp.ok { color: var(--teal); }
-.stamp.no { color: var(--rust); }
+.stamp { display: inline-block; transform: rotate(-4deg); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 0.14em; padding: 7px 15px; border: 2.5px solid currentColor; box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3.5px currentColor; animation: bang 250ms cubic-bezier(.2,1.6,.4,1); }
+@keyframes bang { from { transform: rotate(-4deg) scale(1.6); opacity: 0; } to { transform: rotate(-4deg) scale(1); opacity: 1; } }
+.stamp.ok { color: var(--green); }
+.stamp.no { color: var(--red); }
 
-.feedback { margin-top: 16px; padding: 14px 16px; border-radius: 3px; background: var(--panel2); border-left: 4px solid var(--ink); font-size: 14px; color: #45403a; }
-.feedback strong { color: var(--ink); }
-.metaline { font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #7a6f60; }
-.qtext { font-size: 18px; font-weight: 600; line-height: 1.4; margin: 0 0 16px; font-family: 'Archivo', sans-serif; letter-spacing: -0.01em; }
+.fb { margin-top: 16px; padding: 14px 16px; background: #f4f7f2; border: 1px solid var(--rule); border-left: 4px solid var(--ink); font-size: 14px; color: #333e5c; }
+.fb strong { color: var(--ink); }
+.meta { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--soft); }
+.q { font-size: 18.5px; font-weight: 700; line-height: 1.36; margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.012em; }
+.item { background: #fbfcfa; border: 1px solid var(--rule); border-left: 5px solid var(--amber); padding: 18px 20px; font-size: 17px; line-height: 1.42; margin-bottom: 16px; font-weight: 500; }
 .bins { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.bin { padding: 20px 16px; border-radius: 3px; border: 2px solid var(--ink); background: #fff; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 16px; color: var(--ink); display: flex; flex-direction: column; gap: 4px; align-items: center; text-align: center; }
-.bin span { font-family: 'Public Sans', sans-serif; font-weight: 400; font-size: 12px; color: #6c6154; }
-.bin:hover:not(:disabled) { background: var(--amber); }
-.card-item { background: #fff; border: 1.5px solid var(--panel2); border-left: 5px solid var(--amber); border-radius: 3px; padding: 20px; font-size: 17px; line-height: 1.4; margin-bottom: 16px; font-weight: 500; }
-.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.tbl th, .tbl td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--panel2); vertical-align: top; }
-.tbl th { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #7a6f60; }
-.tbl td.num { font-family: 'Space Mono', monospace; }
-.supbox { background: #fff; border: 1.5px solid var(--panel2); border-radius: 3px; padding: 14px 16px; margin-bottom: 10px; }
-.ta { width: 100%; min-height: 260px; resize: vertical; padding: 15px; border: 1.5px solid var(--panel2); border-radius: 3px; background: #fff; color: var(--ink); font-family: 'Public Sans', sans-serif; font-size: 15px; line-height: 1.65; }
-.inp { padding: 11px 13px; border: 1.5px solid var(--panel2); border-radius: 3px; background: #fff; color: var(--ink); font-size: 14.5px; font-family: inherit; }
-.check { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: #fff; border: 1.5px solid var(--panel2); border-radius: 3px; margin-bottom: 8px; font-size: 14px; text-align: left; width: 100%; color: var(--ink); line-height: 1.45; }
-.check.on { border-color: var(--teal); background: #eef7f4; }
-.check .box { width: 20px; height: 20px; flex: none; border: 2px solid var(--ink); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; margin-top: 1px; }
-.check.on .box { background: var(--teal); border-color: var(--teal); color: #fff; }
-.ordrow { display: flex; gap: 10px; align-items: flex-start; background: #fff; border: 1.5px solid var(--panel2); border-radius: 3px; padding: 11px 13px; margin-bottom: 8px; font-size: 14px; color: var(--ink); }
-.ordrow.right { border-color: var(--teal); background: #eef7f4; }
-.ordrow.wrong { border-color: var(--rust); background: #fbefeb; }
-.ordbtns { display: flex; flex-direction: column; gap: 3px; flex: none; }
-.ordbtns button { width: 26px; height: 20px; border: 1px solid var(--panel2); background: var(--panel); border-radius: 2px; font-size: 11px; line-height: 1; color: var(--ink); }
-.ordbtns button:hover:not(:disabled) { background: var(--amber); }
-.ordnum { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 12px; color: #7a6f60; flex: none; margin-top: 3px; }
-.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.statbox { background: #fff; border: 1.5px solid var(--panel2); border-radius: 3px; padding: 14px; }
-.statbox .k { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: #7a6f60; }
-.statbox .v { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 26px; margin-top: 2px; }
-.bar { height: 8px; background: var(--panel2); border-radius: 99px; overflow: hidden; margin-top: 7px; }
-.bar i { display: block; height: 100%; background: var(--teal); border-radius: 99px; }
-.badge { display: inline-block; background: var(--ink); color: var(--amber); border-radius: 999px; padding: 6px 14px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.09em; margin: 0 6px 6px 0; }
-.note { font-size: 13px; color: #6c6154; }
-details.teach { background: var(--ink2); border: 1px solid var(--line); border-radius: 3px; padding: 14px 16px; margin-top: 16px; color: var(--panel); }
-details.teach summary { cursor: pointer; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 14px; }
-details.teach ul { margin: 12px 0 0; padding-left: 20px; font-size: 13.5px; color: #c8d3ce; }
-details.teach li { margin-bottom: 6px; }
-.rowbtn { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; }
+.bin { padding: 20px 16px; border: 2px solid var(--ink); background: #fbfcfa; border-radius: 2px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15.5px; color: var(--ink); display: flex; flex-direction: column; gap: 5px; align-items: center; text-align: center; line-height: 1.15; }
+.bin span { font-family: 'Instrument Sans', sans-serif; font-weight: 400; font-size: 12px; color: var(--soft); line-height: 1.35; }
+.bin:hover:not(:disabled) { background: var(--ink); color: #fff; }
+.bin:hover:not(:disabled) span { color: #c3ccdf; }
 
-@media (max-width: 620px) {
+.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.tbl th, .tbl td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--rule2); vertical-align: top; }
+.tbl th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.11em; text-transform: uppercase; color: var(--soft); border-bottom: 1px solid var(--rule); }
+.tbl td.num { font-family: 'IBM Plex Mono', monospace; }
+.box { background: #fbfcfa; border: 1px solid var(--rule); padding: 14px 16px; margin-bottom: 10px; }
+.ta { width: 100%; min-height: 260px; resize: vertical; padding: 15px; border: 1px solid var(--rule); border-radius: 2px; background: #fff; color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-size: 15px; line-height: 1.65; }
+.inp { padding: 11px 13px; border: 1px solid var(--rule); border-radius: 2px; background: #fff; color: var(--ink); font-size: 14.5px; font-family: inherit; }
+.chk { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: #fbfcfa; border: 1px solid var(--rule); border-radius: 2px; margin-bottom: 8px; font-size: 14px; text-align: left; width: 100%; color: var(--ink); line-height: 1.45; }
+.chk.on { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
+.chk .sq { width: 20px; height: 20px; flex: none; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; margin-top: 1px; }
+.chk.on .sq { background: var(--green); border-color: var(--green); color: #fff; }
+.ord { display: flex; gap: 10px; align-items: flex-start; background: #fbfcfa; border: 1px solid var(--rule); border-radius: 2px; padding: 11px 13px; margin-bottom: 8px; font-size: 14px; }
+.ord.right { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
+.ord.wrong { border-color: var(--red); border-width: 2px; background: var(--red-bg); }
+.ordb { display: flex; flex-direction: column; gap: 3px; flex: none; }
+.ordb button { width: 26px; height: 20px; border: 1px solid var(--rule); background: #fff; border-radius: 2px; font-size: 11px; line-height: 1; color: var(--ink); }
+.ordb button:hover:not(:disabled) { background: var(--amber); }
+.ordn { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 12px; color: var(--soft); flex: none; margin-top: 3px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.stat { background: #fbfcfa; border: 1px solid var(--rule); padding: 14px; }
+.stat .k { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); }
+.stat .v { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin-top: 2px; }
+.bar { height: 8px; background: var(--rule2); overflow: hidden; margin-top: 7px; }
+.bar i { display: block; height: 100%; background: var(--green); }
+.tag { display: inline-block; background: var(--ink); color: #fff; padding: 6px 13px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; margin: 0 6px 6px 0; }
+.note { font-size: 13px; color: var(--soft); }
+.rowb { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; }
+.seal { border: 3px double var(--ink); padding: 18px 20px; text-align: center; margin-bottom: 20px; background: #fbfcfa; }
+.seal .k { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); }
+.seal h3 { font-size: 27px; margin: 6px 0 4px; }
+.seal p { margin: 0; font-size: 13.5px; color: var(--soft); }
+details.teach { background: var(--ink); border: 1px solid var(--ink); padding: 14px 16px; margin-top: 16px; color: #eef1f6; }
+details.teach summary { cursor: pointer; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 14px; }
+details.teach ul { margin: 12px 0 0; padding-left: 20px; font-size: 13.5px; color: #c3ccdf; }
+details.teach li { margin-bottom: 6px; }
+
+@media (max-width: 640px) {
   .bins { grid-template-columns: 1fr; }
-  .docket-head h2 { font-size: 21px; }
-  .gauge .val { font-size: 16px; }
-  .docket-body { padding: 16px; }
+  .form-head h2 { font-size: 21px; }
+  .form-body { padding: 16px; }
+  .lamp .nm { display: none; }
+  .field .val { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
 
-<div class="strip">
-  <div class="strip-in">
-    <div class="brand"><span class="mark">SBR</span><span class="nm">DISPATCH</span></div>
-    <div class="gauge"><div class="lab">Score</div><div class="val hot" id="gScore">0</div></div>
-    <div class="gauge"><div class="lab">Round</div><div class="val" id="gRound">-</div></div>
-    <div class="gauge"><div class="lab">Elapsed</div><div class="val mono" id="gTime">00:00</div></div>
+<div class="mast">
+  <div class="mast-in">
+    <div class="who">
+      <div class="eyebrow">Application to trade</div>
+      <div class="title">Sambal Sisters &mdash; mobile food premises</div>
+    </div>
+    <div class="field"><div class="lab">Score</div><div class="val hot" id="gScore">0</div></div>
+    <div class="field"><div class="lab">Section</div><div class="val" id="gRound">-</div></div>
+    <div class="field"><div class="lab">Elapsed</div><div class="val mono" id="gTime">00:00</div></div>
   </div>
 </div>
-<div id="rail"></div>
+<div id="board"></div>
 <div class="wrap"><div id="app"></div></div>
 
 <script>
 "use strict";
 
-/* ====================== CONTENT ====================== */
-
-var BUSINESS = "Southbound Roasters";
+var BUSINESS = "Sambal Sisters";
 var KEYS = ["A","B","C","D","E"];
 
+/* ============ ROUND 1: registration run ============ */
 var SPRINT = [
- {q:"The external environment of a business is best defined as:",
-  o:["the departments and staff inside a business that managers control directly",
-     "all the factors outside a business that can affect it, and over which the business has little or no control",
-     "the building, equipment and premises a business operates from",
-     "the section of a business plan that lists start-up costs"],
-  a:1, why:"External factors sit outside the business. Managers can respond to them and sometimes influence them, but they cannot control them."},
- {q:"Which group belongs to the operating environment rather than the macro environment?",
-  o:["Economic conditions","Suppliers","Societal attitudes and behaviour","Technological developments"],
-  a:1, why:"The operating environment is customers, competitors, suppliers and special interest groups. A business deals with these groups directly and can influence them."},
- {q:"Suppliers are best described as:",
-  o:["the businesses or individuals that provide the materials, stock and resources a business needs to operate",
-     "the people who purchase the goods and services a business sells",
-     "groups that lobby a business to change its policies",
-     "the staff inside a business who place purchase orders"],
-  a:0, why:"Suppliers provide inputs. For Southbound Roasters that means green beans, packaging, milk, cups and roasting equipment."},
- {q:"Special interest groups include:",
-  o:["shareholders, directors and senior managers",
-     "lobby groups, unions and industry associations that try to influence business policy or practice",
-     "any customer who submits a complaint",
-     "government departments that collect tax"],
-  a:1, why:"Special interest groups apply pressure from outside. They can shift a plan even though they buy nothing from the business."},
- {q:"The Reserve Bank lifts the cash rate and household spending falls. This is an example of:",
-  o:["societal attitudes and behaviour","economic conditions","legal and government regulations","global considerations"],
-  a:1, why:"Economic conditions cover interest rates, inflation, unemployment, wage growth and consumer confidence."},
- {q:"Which is the clearest example of a corporate social responsibility consideration?",
-  o:["Paying employees the legally required minimum wage",
-     "Lodging the business activity statement by the due date",
-     "Choosing to pay bean growers above the market price when there is no legal requirement to do so",
-     "Registering the business name with ASIC"],
-  a:2, why:"CSR is what a business does above and beyond what the law requires. The other three options are legal obligations, not CSR."},
- {q:"A business is said to have limited control over its operating environment because:",
-  o:["it has no contact at all with these groups",
-     "it can influence these groups through its own decisions, but it cannot control what they do",
-     "the law prevents businesses from negotiating with suppliers",
-     "these groups are all located overseas"],
-  a:1, why:"Southbound can negotiate contracts with a supplier or run a loyalty offer for customers, but it cannot make either group do what it wants."},
- {q:"Competitors are:",
-  o:["other businesses that sell rival or substitute goods and services in the same market",
-     "the businesses that supply a firm with raw materials",
-     "any business operating in Victoria",
-     "the internal teams within a business competing for budget"],
-  a:0, why:"Competitors shape pricing, product range and location decisions in the plan long before a business opens."},
- {q:"Global considerations most directly include:",
-  o:["the number of staff a business rosters on a Saturday",
-     "exchange rate movements, overseas competition, offshore supply chains and world commodity prices",
-     "the layout of a shopfront",
-     "the personal savings the owner contributes as capital"],
-  a:1, why:"Anything crossing the border sits here. Coffee is imported, so exchange rates and world crop conditions hit Southbound directly."},
- {q:"Which is a legal and government regulation a new food business must plan for?",
-  o:["Choosing a logo colour","Deciding a staff uniform",
-     "Australian Consumer Law obligations and council food premises registration",
-     "Selecting which social media platform to use"],
-  a:2, why:"Legal and government regulations are compulsory. They set the floor a business plan has to clear before it can trade."}
+ {q:"An Australian Business Number (ABN) is:",
+  o:["a paid licence issued by the local council",
+     "a free identifier applied for through the Australian Business Register, used in dealings with the ATO and other businesses",
+     "the same thing as a company name",
+     "only available to businesses with more than five employees"],
+  a:1, why:"An ABN is free and comes from the Australian Business Register. Without one, other businesses must withhold tax from payments they make to you, and you cannot register for GST."},
+ {q:"The sisters want to trade as Sambal Sisters rather than under their own legal names. What must they do?",
+  o:["Nothing, any name can be used freely",
+     "Register the business name with ASIC",
+     "Register the name with WorkSafe Victoria",
+     "Apply to the ATO for a company name"],
+  a:1, why:"Business names are registered with ASIC. You only avoid this if you trade under your own legal name. Registering a business name is not the same as owning a trade mark."},
+ {q:"A business must register for GST once its annual turnover reaches:",
+  o:["$30,000","$50,000","$75,000","$150,000"],
+  a:2, why:"The threshold is $75,000 of current or projected annual turnover, and registration must happen within 21 days of becoming aware you will cross it."},
+ {q:"Before selling a single serve of food in Victoria, a mobile food van must:",
+  o:["obtain Food Act 1984 registration from its registering council",
+     "join an industry association",
+     "lodge a business plan with the state government",
+     "employ a qualified chef"],
+  a:0, why:"Every food premises in Victoria, fixed or mobile, needs Food Act registration from its registering council before it can sell food."},
+ {q:"Victorian mobile and temporary food premises apply for that registration through:",
+  o:["myGov","the FoodTrader portal, previously called Streatrader","the Australian Business Register","Fair Work Online"],
+  a:1, why:"FoodTrader is the statewide Department of Health portal for registering mobile and temporary food premises. Older textbooks still call it Streatrader."},
+ {q:"A Statement of Trade is:",
+  o:["a summary of profit and loss for the ATO",
+     "a notice telling each relevant council where and when you plan to trade in their area",
+     "a contract with a supplier",
+     "a permit to employ casual staff"],
+  a:1, why:"You lodge a Statement of Trade for every council area you intend to trade in. It can only be lodged after your registration has been granted, so you cannot trade while an application is pending."},
+ {q:"Sambal Sisters will handle high-risk foods needing temperature control, making it a class 2 premises. This means they must:",
+  o:["nominate a food safety supervisor","hire a minimum of three staff","register with ASIC as a company","pay payroll tax from day one"],
+  a:0, why:"Class 2 premises must nominate a food safety supervisor who holds the required competencies and oversees food handling."},
+ {q:"Once Sambal Sisters employs its first casual staff member in Victoria, it must:",
+  o:["take out WorkCover insurance through WorkSafe Victoria",
+     "register the employee with ASIC",
+     "apply for a new ABN",
+     "join a union"],
+  a:0, why:"Employing staff triggers WorkCover insurance obligations with WorkSafe Victoria, along with PAYG withholding, super and record keeping duties."},
+ {q:"From 1 July 2026, employer superannuation contributions must be:",
+  o:["paid once a year at tax time","paid quarterly as before","paid on each payday under the Payday Super rules","paid only to full-time staff"],
+  a:2, why:"Payday Super began on 1 July 2026. Contributions must now be paid at the same time as wages, at the 12 per cent super guarantee rate."},
+ {q:"Advertising the van's rendang as 'locally sourced' when the beef is imported would most likely breach:",
+  o:["the Food Act 1984","the Australian Consumer Law under the Competition and Consumer Act 2010","the Fair Work Act 2009","the Privacy Act 1988"],
+  a:1, why:"False or misleading claims about goods breach the Australian Consumer Law. The ACCC and Consumer Affairs Victoria both enforce it, and penalties are substantial."}
 ];
 
+/* ============ ROUND 2: who do you call ============ */
+var PROS = ["Accountant","Solicitor","Bank manager","Business adviser","Insurance broker","IT specialist","Marketing consultant"];
+
+var PRO_ITEMS = [
+ {t:"Setting up a chart of accounts and a schedule for lodging the quarterly BAS.", a:0,
+  why:"Accountant. Tax compliance, GST reporting and the design of the record keeping system are core accounting work."},
+ {t:"Drafting the written partnership agreement that sets out each sister's share of profit and what happens if one leaves.", a:1,
+  why:"Solicitor. A partnership agreement is a legal document, and getting it wrong is one of the most common causes of partnership disputes."},
+ {t:"Comparing a five year secured loan for the van against a finance lease, and arranging the facility.", a:2,
+  why:"Bank manager. Structuring and approving finance, and matching the product to the asset, sits with the lender."},
+ {t:"Working out the right level of public liability and product liability cover for trading at public markets.", a:4,
+  why:"Insurance broker. A broker assesses the specific risks of the business and compares policies and exclusions across insurers."},
+ {t:"Choosing a point of sale system that keeps taking payments when mobile reception at a market drops out.", a:5,
+  why:"IT specialist. System selection, offline capability, data backup and security are technology decisions."},
+ {t:"Testing whether the break-even figures in the business plan are realistic before the sisters commit their savings.", a:3,
+  why:"Business adviser. Advisers and consultants challenge the assumptions in a plan and bring experience of comparable businesses."},
+ {t:"Registering a trade mark over the business name and logo so a competitor cannot copy it.", a:1,
+  why:"Solicitor. Intellectual property registration and enforcement is legal work. Registering a business name with ASIC does not give you ownership of it."},
+ {t:"Arranging an overdraft facility so wages can still be paid in a slow fortnight.", a:2,
+  why:"Bank manager. Overdrafts and other short term facilities are negotiated with the bank."},
+ {t:"Identifying which suburbs and events have the strongest demand, and shaping the launch campaign.", a:6,
+  why:"Marketing consultant. Market research, target market definition and promotion planning are marketing work."},
+ {t:"Deciding whether operating as a partnership or a company would leave the sisters better off after tax.", a:0,
+  why:"Accountant. The tax consequences of a business structure are an accounting question, even though the paperwork to set it up may involve a solicitor."},
+ {t:"Reading the exclusions in the van's proposed policy to check whether a fire caused by the deep fryer would be covered.", a:4,
+  why:"Insurance broker. Interpreting cover and exclusions before signing is exactly what a broker is engaged for."},
+ {t:"Building a secure system for storing customer contact details collected through the online ordering form.", a:5,
+  why:"IT specialist. Data security and privacy compliance in the systems themselves is a technology responsibility."}
+];
+
+/* ============ ROUND 3: required or recommended ============ */
 var SORT_ITEMS = [
- {t:"A green bean importer lifts its wholesale price by 12 per cent.", cat:"op", why:"Suppliers sit in the operating environment. Southbound deals with them directly and can renegotiate or switch."},
- {t:"The Reserve Bank raises the cash rate for the third time this year.", cat:"macro", why:"Economic conditions. Broad, national, and completely outside the influence of one roastery."},
- {t:"A national coffee chain opens a drive-through 400 metres away.", cat:"op", why:"Competitors. Direct, local and something Southbound can respond to with pricing or product decisions."},
- {t:"Victoria bans single-use plastic-lined takeaway cups.", cat:"macro", why:"Legal and government regulations. Set by parliament, binding on every business in the state."},
- {t:"A union campaigns publicly over casual rostering in hospitality.", cat:"op", why:"Special interest groups are part of the operating environment. They target businesses directly."},
- {t:"The Australian dollar falls from 68 to 61 US cents.", cat:"macro", why:"Global considerations. Currency movements change the landed cost of every imported bag of beans."},
- {t:"Wholesale cafe clients ask for smaller, more frequent deliveries.", cat:"op", why:"Customers. Their expectations reshape the distribution section of the plan."},
- {t:"Surveys show more Australians are choosing ethically sourced products.", cat:"macro", why:"Societal attitudes and behaviour. A broad shift in values across the population, not one group's demand."},
- {t:"The only compostable cup manufacturer in Victoria has a factory fire.", cat:"op", why:"Suppliers again. Supply disruption is a direct operating environment risk."},
- {t:"New AI roast-profiling software halves the time to develop a blend.", cat:"macro", why:"Technological developments. Available across the industry, not something one business controls."},
- {t:"A frost destroys a large share of the Brazilian arabica crop.", cat:"macro", why:"Global considerations. It reaches Southbound through suppliers, but the cause is a world event."},
- {t:"An environmental group publishes a report on cafe waste and names local roasters.", cat:"op", why:"Special interest groups. Targeted, direct pressure the business must answer."},
- {t:"Unemployment in Melbourne's west falls and local incomes rise.", cat:"macro", why:"Economic conditions. This lifts discretionary spending on takeaway coffee across the whole catchment."},
- {t:"A rival roastery undercuts Southbound's wholesale price by 80 cents a kilogram.", cat:"op", why:"Competitors. Direct rivalry in the same market, and a live pricing decision for the plan."}
+ {t:"Obtaining Food Act registration from the registering council before the first day of trade.", cat:"req",
+  why:"Legally required. Selling food without registration is an offence under the Food Act 1984."},
+ {t:"Opening a separate bank account for the business rather than using a personal account.", cat:"rec",
+  why:"Strongly recommended rather than legally required for a partnership, but without it the records become unreliable and the BAS almost impossible to substantiate. A company must keep its funds separate."},
+ {t:"Lodging a Statement of Trade with every council the van will operate in.", cat:"req",
+  why:"Legally required. Trading in a council area without a lodged Statement of Trade risks a fine."},
+ {t:"Engaging a business mentor from a local business network.", cat:"rec",
+  why:"Strongly recommended. Valuable support, but no law requires it."},
+ {t:"Registering for GST once projected annual turnover reaches $75,000.", cat:"req",
+  why:"Legally required. Miss the 21 day window and the ATO can backdate registration, leaving the business to pay GST out of revenue it has already received."},
+ {t:"Taking out public liability insurance.", cat:"rec",
+  why:"Strictly speaking not required by law, so this belongs under recommended. In practice it is unavoidable, because councils and event organisers almost always make it a condition of the permit or contract."},
+ {t:"Nominating a food safety supervisor for a class 2 premises.", cat:"req",
+  why:"Legally required for class 2 premises under the Food Act."},
+ {t:"Buying cloud accounting software that links to the bank feed.", cat:"rec",
+  why:"Strongly recommended. The law requires records to be kept and retained, not any particular software."},
+ {t:"Taking out WorkCover insurance once staff are employed.", cat:"req",
+  why:"Legally required in Victoria through WorkSafe once the business employs and pays workers."},
+ {t:"Preparing a written business plan before approaching the bank.", cat:"rec",
+  why:"Strongly recommended, and usually demanded by a lender, but not a legal requirement."},
+ {t:"Keeping business records and retaining them for the period the ATO requires.", cat:"req",
+  why:"Legally required. Record keeping obligations sit under tax law, and penalties apply for failing to meet them."},
+ {t:"Running a trade mark search before printing the van's signage.", cat:"rec",
+  why:"Strongly recommended. Not compulsory, but far cheaper than rebranding after a letter of demand arrives."}
 ];
 
-var CHIPS = ["Customers","Competitors","Suppliers","Special interest groups","Legal and government regulations",
- "Societal attitudes and behaviour","Economic conditions","Technological developments","Global considerations","Corporate social responsibility"];
-
-var FACTOR_ITEMS = [
- {t:"Household incomes in Wyndham rise and more people buy takeaway coffee on weekdays.", a:6, why:"Economic conditions. Incomes, employment and confidence drive discretionary spending."},
- {t:"A waste-reduction group publicly campaigns against Southbound's use of disposable cups.", a:3, why:"Special interest groups. Organised pressure aimed at changing a specific business practice."},
- {t:"Southbound installs a roaster that logs bean temperature and moisture automatically.", a:7, why:"Technological developments. New equipment changes how the business plans production and quality control."},
- {t:"WorkSafe Victoria updates the rules for handling hot equipment in commercial kitchens.", a:4, why:"Legal and government regulations. Compliance is compulsory and must be budgeted for."},
- {t:"The only supplier of certified compostable cups raises prices by 18 per cent.", a:2, why:"Suppliers. A single-source input is a serious risk to costings in the plan."},
- {t:"A drought in Vietnam cuts world robusta supply and lifts import prices.", a:8, why:"Global considerations. An overseas event flows straight through to Southbound's input costs."},
- {t:"More customers say they will pay extra for coffee with a traceable origin.", a:5, why:"Societal attitudes and behaviour. A shift in what the wider community values."},
- {t:"Southbound decides to donate five per cent of profit to a Wyndham food relief charity, with no requirement to do so.", a:9, why:"Corporate social responsibility. Voluntary action that goes beyond legal obligations."},
- {t:"A national chain opens a drive-through nearby and prices its flat white 90 cents lower.", a:1, why:"Competitors. This forces Southbound to justify its price point in the plan."},
- {t:"Two large wholesale cafe clients demand 30-day payment terms instead of 14.", a:0, why:"Customers. Their demands directly affect the cash flow forecast in the business plan."}
+/* ============ ROUND 4: fund the van ============ */
+var COSTS = [
+ {item:"Van purchase and food-grade fit-out", amt:"$58,000", life:"7 years"},
+ {item:"Cooking equipment and refrigeration", amt:"$14,000", life:"5 years"},
+ {item:"Opening stock and packaging", amt:"$4,000", life:"Weeks"},
+ {item:"Registrations, permits and insurance", amt:"$6,000", life:"1 year"},
+ {item:"Working capital buffer", amt:"$10,000", life:"Ongoing"}
 ];
 
-var SUPPLIERS = [
- {name:"Yarra Bean Traders", sub:"Melbourne importer, holds local stock", price:"$9.20 / kg", lead:"3 days", rel:"96%", cert:"None", trace:"Blended, origin not traced"},
- {name:"Kopi Nusantara Direct", sub:"Indonesian growers co-operative, direct trade", price:"$11.80 / kg", lead:"28 days", rel:"88%", cert:"Fairtrade and organic", trace:"Single origin, farm level"},
- {name:"GlobalGreen Commodities", sub:"Multinational broker, 2 tonne minimum order", price:"$8.40 / kg", lead:"14 days", rel:"99%", cert:"None disclosed", trace:"Not available"}
-];
-
-var SUPPLIER_DECISIONS = [
- {q:"Southbound's draft business plan positions the roastery as a premium, ethically sourced, traceable brand aimed at customers who care where their coffee comes from. Which supplier best fits that plan?",
-  o:["Yarra Bean Traders","Kopi Nusantara Direct","GlobalGreen Commodities","Whichever is cheapest, since price decides everything"],
-  pts:[10,20,0,0], a:1,
-  why:"Supplier choice has to serve the plan, not just the budget. Kopi Nusantara is the only option that delivers the certification and traceability the positioning promises. Yarra Bean earns partial credit for reliability and short lead times, but it cannot back up the ethical claim."},
- {q:"Choose the TWO strongest reasons for that supplier decision. Select two.",
-  multi:2,
-  o:["Certification and farm-level traceability let the business substantiate its marketing claims",
-     "The higher price supports a premium price point rather than undermining it",
-     "It is the cheapest option per kilogram",
-     "It has the shortest lead time of the three",
-     "Buying overseas removes all currency risk"],
-  correct:[0,1],
-  why:"Reasons three and four are simply false for this supplier, and buying overseas increases currency risk rather than removing it. A strong justification links the choice back to the stated positioning and the price strategy in the plan."},
- {q:"Kopi Nusantara has a 28 day lead time and 88 per cent delivery reliability. Which planning response manages that risk best?",
-  o:["Hold a larger safety stock of green beans and keep Yarra Bean Traders as an approved back-up supplier",
-     "Switch entirely to GlobalGreen Commodities to remove the risk",
-     "Place orders less often so there is less to go wrong",
-     "Accept the risk without changing the plan, because certification matters more than supply"],
-  pts:[20,0,0,5], a:0,
-  why:"A business cannot control a supplier, so the plan manages the exposure instead. Safety stock plus a second approved supplier keeps the ethical positioning and protects continuity of supply."},
- {q:"During planning, the Australian dollar falls from 68 to 61 US cents. What does this mean for Southbound, and what should the plan do about it?",
-  o:["Nothing changes, because the business pays in Australian dollars",
-     "Imported beans become more expensive in Australian dollar terms, so the plan needs a currency buffer in costings and a scheduled price review",
-     "Imported beans become cheaper, so the plan should forecast higher profit",
-     "The business should stop importing and buy only Australian grown coffee"],
-  pts:[0,20,0,5], a:1,
-  why:"A weaker Australian dollar raises the cost of imports. This is a global consideration reaching the plan through the cost of goods sold, and it belongs in the financial forecasts as a buffer, not a surprise."},
- {q:"A special interest group publishes a report criticising labour conditions on plantations that GlobalGreen buys from. Southbound uses GlobalGreen for its cheaper blend. What is the best planning response?",
-  o:["Say nothing publicly and hope the story passes",
-     "Publicly blame the broker and take no further action",
-     "Introduce a supplier code of conduct, require evidence of compliance, and audit before renewing the contract",
-     "Terminate the contract immediately with no replacement supplier arranged"],
+var FIN_DECISIONS = [
+ {q:"The sisters put in $30,000 of their own savings. How is that source of finance classified, and why does the distinction matter?",
+  o:["Debt finance, because the money has to be repaid",
+     "Equity finance, because it is the owners' own funds and carries no repayment obligation or interest",
+     "Debt finance, because the bank is involved",
+     "Neither, because personal savings are not a source of business finance"],
+  pts:[0,20,0,0], a:1,
+  why:"Equity is funding contributed by the owners. It carries no interest and no repayment schedule, but it puts the owners' own money at risk and, if outside investors are brought in, dilutes ownership."},
+ {q:"They still need $58,000 for the van, an asset with a seven year working life. Which source suits that need best?",
+  o:["A bank overdraft",
+     "A credit card",
+     "A secured term loan or finance lease repaid over the van's useful life",
+     "Trade credit from the food supplier"],
   pts:[0,0,20,5], a:2,
-  why:"Special interest groups can reshape a plan quickly. A code of conduct with verification protects both the brand and continuity of supply. Terminating with nothing to replace it trades one risk for a worse one."}
+  why:"Match the term of the finance to the life of the asset. A long-life asset is funded with long-term finance, and securing the loan against the van itself usually brings a lower interest rate."},
+ {q:"Choose the TWO strongest reasons for matching the term of the finance to the life of the asset. Select two.",
+  multi:2,
+  o:["Repayments are spread across the years in which the asset actually earns revenue",
+     "Short-term facilities can be withdrawn or repriced, which would leave the business unable to fund an asset it still needs",
+     "Long-term finance is always cheaper in total interest than short-term finance",
+     "It removes the need to keep any financial records",
+     "It means no security has to be offered to the lender"],
+  correct:[0,1],
+  why:"Options C, D and E are false. Long-term finance usually costs more in total interest, records are required regardless, and a secured loan is precisely one where security is offered."},
+ {q:"Winter trading is quiet. The sisters expect cash flow gaps of two to three weeks at a time, several times a year. Which source fits?",
+  o:["A second term loan",
+     "A bank overdraft facility drawn on only when needed",
+     "Selling a share of the business to an investor",
+     "Delaying the super payments until cash improves"],
+  pts:[0,20,5,0], a:1,
+  why:"Overdrafts are designed for short-term, fluctuating shortfalls, and you only pay interest on what you draw. Deferring super is not a financing option, it is a breach with a penalty attached."},
+ {q:"An investor offers $40,000 for a 30 per cent share of the business. What is the main trade-off the sisters need to weigh?",
+  o:["There is no trade-off, equity finance is always better than debt",
+     "No repayments or interest, but they permanently give up 30 per cent of future profit and a say in decisions",
+     "They would have to repay the $40,000 with interest within twelve months",
+     "The investor becomes personally liable for all business debts"],
+  pts:[0,20,0,0], a:1,
+  why:"Equity costs no interest and improves cash flow, but ownership and control are given away permanently. Debt is repaid and then gone. That comparison is the answer a SAC is looking for."}
 ];
 
-var CHAIN_EVENTS = [
- {title:"Dispatch alert 01",
-  text:"The Victorian Government confirms that plastic-lined single-use cups will be banned from 1 July next year.",
+/* ============ ROUND 5: compliance crisis ============ */
+var CASES = [
+ {title:"Notice 01",
+  text:"Ten days before launch the sisters accept a paid booking at a festival in Geelong. Their premises is registered with Wyndham City Council and nothing has been lodged with the City of Greater Geelong.",
   steps:[
-   {q:"Which external environment factor is this?",
-    o:["Societal attitudes and behaviour","Legal and government regulations","Competitors","Economic conditions"], a:1,
-    why:"It is a rule made by government and compliance is compulsory, which makes it a legal and government regulation."},
-   {q:"What is the most likely impact on Southbound's business planning?",
-    o:["The plan must budget for compliant packaging and renegotiate packaging supply before the deadline",
-       "The plan can ignore packaging entirely","The business must change its target market","The plan must reduce the number of staff"], a:0,
-    why:"Regulation changes usually hit costs and supply arrangements first. Both belong in the financial and operations sections of the plan."},
-   {q:"Which planning response is strongest?",
-    o:["Wait until the ban starts and then look for a supplier",
-       "Secure a certified compostable cup supplier early, trial it, and build the higher unit cost into pricing",
-       "Stop selling takeaway coffee","Apply for an exemption from the ban"], a:1,
-    why:"Acting early turns a compliance cost into a competitive position and avoids paying panic prices in June."}]},
- {title:"Dispatch alert 02",
-  text:"A severe frost in Brazil destroys part of the arabica crop. World prices jump 40 per cent within a month.",
+   {q:"What is missing?",
+    o:["A second Food Act registration with Greater Geelong",
+       "A Statement of Trade lodged with the City of Greater Geelong",
+       "A new ABN for interstate trade",
+       "Nothing, one council registration covers the whole state"], a:1,
+    why:"Registration is held with one principal council under the statewide scheme. A Statement of Trade is what tells each other council where and when you will trade in their area."},
+   {q:"What is the consequence if they trade anyway?",
+    o:["Nothing, Statements of Trade are voluntary",
+       "They are trading unlawfully in that council's district and risk a fine",
+       "Their ABN is cancelled automatically",
+       "The ATO withholds their GST refund"], a:1,
+    why:"Trading without a lodged Statement of Trade in that district breaches the Food Act, and enforcement sits with the council."},
+   {q:"What should they do?",
+    o:["Lodge the Statement of Trade through FoodTrader before the event and check whether separate council approval is needed to occupy the public space",
+       "Ask the festival organiser to trade on their behalf",
+       "Trade under a friend's existing registration",
+       "Wait and lodge it after the festival"], a:0,
+    why:"Statements of Trade are free and lodged through FoodTrader. Note that food registration and permission to occupy a public place are two different approvals."}]},
+ {title:"Notice 02",
+  text:"By month four the van is averaging $6,800 in monthly sales. Sambal Sisters is not registered for GST and is not charging it.",
   steps:[
-   {q:"Which external environment factor is the root cause?",
-    o:["Suppliers","Global considerations","Technological developments","Special interest groups"], a:1,
-    why:"The supplier is the channel, but the cause is an overseas event affecting world supply, which makes it a global consideration."},
-   {q:"What is the most likely impact on the business plan?",
-    o:["Input costs rise, which squeezes the profit margins forecast in the plan",
-       "Customer numbers automatically fall to zero","The business must change its legal structure","Employee motivation drops"], a:0,
-    why:"Higher cost of goods sold flows straight into break-even and profit forecasts."},
-   {q:"Which planning response manages this best?",
-    o:["Absorb the full cost increase indefinitely and change nothing",
-       "Contract volume forward with more than one origin and review the wholesale price list",
-       "Reduce the quality of the roast without telling customers","Sell the business"], a:1,
-    why:"Spreading supply across origins reduces exposure to a single crop failure, and a scheduled price review protects the margin honestly."}]},
- {title:"Dispatch alert 03",
-  text:"A local survey finds 61 per cent of customers now choose a cafe partly on ethical sourcing. Three years ago the figure was 24 per cent.",
+   {q:"What triggers the obligation to register?",
+    o:["Employing a second staff member",
+       "Projected annual turnover reaching $75,000, which $6,800 a month clearly exceeds",
+       "Reaching $150,000 in sales",
+       "Nothing, food is GST free"], a:1,
+    why:"$6,800 a month annualises to about $81,600. Projected turnover, not just what has already been banked, is what counts."},
+   {q:"What is the likely consequence of leaving it?",
+    o:["The ATO can backdate the registration, so GST is owed on past sales the business never charged for",
+       "The business is simply fined $100",
+       "Nothing happens until an audit five years later",
+       "The council cancels their food registration"], a:0,
+    why:"Backdating means absorbing the GST out of revenue already received and spent, which is the reason this mistake hurts small businesses so much."},
+   {q:"What is the right response?",
+    o:["Wait until the end of the financial year and let the accountant sort it out",
+       "Register within 21 days, then work with the accountant to rebuild pricing so GST is collected properly",
+       "Keep turnover under $75,000 by turning away work",
+       "Register but keep charging the old prices"], a:1,
+    why:"Registration is required within 21 days of becoming aware. Pricing then has to be reset, because GST is a tax the business collects, not an expense it absorbs."}]},
+ {title:"Notice 03",
+  text:"A customer trips on a power lead at a market and fractures a wrist. The sisters hold van and public liability cover only for the days they trade at the one market they started with. They now trade at four.",
   steps:[
-   {q:"Which external environment factor is this?",
-    o:["Societal attitudes and behaviour","Legal and government regulations","Economic conditions","Suppliers"], a:0,
-    why:"A measurable shift in what the wider community values sits under societal attitudes and behaviour."},
-   {q:"What does this mean for the business plan?",
-    o:["The sourcing and marketing sections need to show verified origin, not just claim quality",
-       "The plan should remove all reference to sourcing","The business should raise prices without changing anything","The plan needs a new legal structure"], a:0,
-    why:"When attitudes shift, unverified claims become a risk. The plan needs evidence behind the promise."},
-   {q:"Which response best converts this into an opportunity?",
-    o:["Advertise more heavily using the word natural",
-       "Move to a certified supplier and display farm-level origin information at point of sale",
-       "Discount heavily to win price-sensitive customers instead","Do nothing until a competitor moves first"], a:1,
-    why:"Certification plus visible origin information gives customers the proof they are now asking for, and it justifies a premium price."}]},
- {title:"Dispatch alert 04",
-  text:"Interest rates rise again. Retail data shows discretionary spending in Melbourne's west has fallen for two consecutive quarters.",
+   {q:"What is the underlying problem?",
+    o:["The cover does not extend to the trading they are actually doing",
+       "Public liability insurance is illegal for mobile businesses",
+       "The customer is at fault so insurance is irrelevant",
+       "The van registration has expired"], a:0,
+    why:"Cover is only as wide as the policy says. Expanding where and how you trade without updating the policy leaves a gap."},
+   {q:"Why does this matter more because the business is a partnership?",
+    o:["Partnerships pay a higher rate of tax on claims",
+       "A partnership has unlimited liability, so the sisters are personally exposed to the claim and the legal costs",
+       "Partnerships cannot be sued",
+       "The council covers claims for partnerships"], a:1,
+    why:"Unlimited liability means personal assets, including the family home, can be pursued. This is one of the strongest arguments for incorporating, and for adequate cover either way."},
+   {q:"What should they do now, and with whose help?",
+    o:["Nothing until the claim arrives",
+       "Ask the market organiser to pay",
+       "Have the insurance broker review and extend the cover to all trading sites and activities, and check the requirements in each event contract",
+       "Cancel the policy and rely on careful setup"], a:2,
+    why:"The broker's job is matching cover to the actual risk. Event contracts and council permits usually specify a minimum level of public liability cover, so those documents set the floor."}]},
+ {title:"Notice 04",
+  text:"All takings, fuel, groceries and one sister's rent have gone through her personal bank account. Six months in, neither sister can say what the business actually earned.",
   steps:[
-   {q:"Which external environment factor is this?",
-    o:["Global considerations","Economic conditions","Competitors","Technological developments"], a:1,
-    why:"Interest rates and consumer spending are core economic conditions."},
-   {q:"What is the most likely impact on the plan?",
-    o:["Sales forecasts built on earlier spending levels are likely to be too optimistic",
-       "Suppliers will refuse to deliver","The business will be forced to close by regulation","Staff will resign automatically"], a:0,
-    why:"Falling discretionary spending undermines the revenue assumptions the whole plan rests on."},
-   {q:"Which planning response is most appropriate?",
-    o:["Revise sales forecasts down and plan an entry-level product at a lower price point",
-       "Increase all prices by 20 per cent to protect margin","Expand to a second site immediately","Remove the financial forecasts from the plan"], a:0,
-    why:"Realistic forecasts plus an accessible price option keeps volume through a soft period without abandoning the premium range."}]}
+   {q:"What has gone wrong?",
+    o:["Business and personal transactions have not been separated, so the records are unreliable",
+       "The business has been trading without an ABN",
+       "The business owes payroll tax",
+       "Nothing, sole records are acceptable for partnerships"], a:0,
+    why:"Mixing funds is not itself a crime for a partnership, but it destroys the records that tax and reporting obligations depend on, and it makes profit share between the partners impossible to calculate fairly."},
+   {q:"What follows from that?",
+    o:["They cannot substantiate deductions or prepare an accurate BAS, and a profit dispute between the partners is likely",
+       "The ATO will simply estimate their profit for them at no cost",
+       "The bank will refuse to hold their account",
+       "Their food registration lapses"], a:0,
+    why:"Poor records create tax exposure and partnership conflict at the same time. Both are avoidable with a system set up on day one."},
+   {q:"What is the strongest fix?",
+    o:["Keep receipts in a shoebox and reconcile at tax time",
+       "Open a separate business account, use accounting software with a bank feed, and have the accountant set up the record keeping system and BAS cycle",
+       "Ask the bank manager to reconstruct the accounts",
+       "Switch to cash only trading"], a:1,
+    why:"Separation plus a system plus professional set-up. This is the financial control side of Area of Study 1, and it is where the accountant does the most valuable work."}]}
 ];
 
+/* ============ ROUND 6 ============ */
 var ORDER_TASKS = [
- {prompt:"Explain how one external environment factor could affect Southbound Roasters' business planning.",
-  hint:"Structure: define the factor, apply it to the business, explain the impact on planning, then state a response.",
+ {prompt:"Explain the role of one external professional in helping a business meet its obligations when it is being established.",
+  hint:"Structure: define the professional's role, apply it to the business, explain what problem it solves, state the benefit, then link back.",
   correct:[
-   "Economic conditions refer to the broad state of the economy, including interest rates, employment and consumer confidence, which a business cannot control.",
-   "For Southbound Roasters, rising interest rates have reduced discretionary spending across Melbourne's west.",
-   "This means the sales forecasts in the business plan, which were based on earlier spending levels, are likely to be too optimistic.",
-   "In response, the plan should revise projected sales volumes downwards and introduce a lower priced entry product.",
-   "This allows Southbound to keep customer volume through a weaker period while protecting its premium range."]},
- {prompt:"Explain how suppliers could affect Southbound Roasters' business planning.",
-  hint:"Same structure: define, apply, impact, response, link.",
+   "An accountant is an external professional who advises a business on taxation, financial record keeping and the interpretation of financial information.",
+   "For Sambal Sisters, the accountant would set up the record keeping system and the schedule for lodging the quarterly business activity statement.",
+   "Without this, the sisters risk missing the point at which turnover requires GST registration, which would leave them owing GST on sales they never charged for.",
+   "The accountant therefore reduces the risk of penalties and gives the sisters accurate figures on which to base pricing decisions.",
+   "This means the business can meet its legal obligations while the owners concentrate on operating the van."]},
+ {prompt:"Explain the importance of one legal requirement that Sambal Sisters must meet before it begins trading.",
+  hint:"Same structure: define the requirement, apply it, explain the consequence of not meeting it, state the benefit, then link back.",
   correct:[
-   "Suppliers are the businesses or individuals that provide a business with the materials and resources it needs to operate.",
-   "Southbound Roasters currently relies on a single certified supplier for its compostable takeaway cups.",
-   "Because there is no alternative approved supplier, any price rise or delivery failure would directly disrupt the operations and costings set out in the plan.",
-   "The plan should therefore approve a second compostable cup supplier and hold a minimum four week buffer stock.",
-   "This reduces the risk of a single supplier interrupting trade or forcing an unplanned price increase."]}
+   "Under the Food Act 1984, every food premises in Victoria must be registered with its registering council before it sells any food.",
+   "Sambal Sisters must therefore complete registration for its mobile premises through the FoodTrader portal with Wyndham City Council.",
+   "If the sisters trade before that registration is granted they are committing an offence and can be fined or shut down on their opening day.",
+   "Meeting the requirement also forces the fit-out and food handling practices to be assessed against food safety standards before the public is served.",
+   "This protects both customers and the reputation the business will depend on in a small local market."]}
 ];
 
 var RUBRIC = [
- "I defined both external environment factors accurately using business terminology.",
- "I named the correct category for each factor (operating environment or macro environment).",
- "I applied each factor specifically to Southbound Roasters, not to businesses in general.",
- "I explained a clear impact on business planning for each factor, not just a general impact on the business.",
- "I proposed a realistic planning response for each factor.",
+ "I named and accurately defined the role of each external professional.",
+ "I applied each professional to Sambal Sisters specifically, not to businesses in general.",
+ "I linked each professional to a particular legal or financial requirement.",
+ "I explained a consequence the business avoids by using that professional.",
+ "I used correct terminology (for example GST, BAS, public liability, unlimited liability).",
  "I wrote at least 200 words in full sentences and paragraphs."
 ];
 
 var ROUNDS = [
- {id:"sprint",   name:"Terminology sprint", sub:"Ten questions, twenty seconds each. Answer fast for a speed bonus.", mins:7,  max:140},
- {id:"sort",     name:"Sort the board",     sub:"Operating environment or macro environment. Fourteen consignments to clear.", mins:6, max:112},
- {id:"factor",   name:"Name that factor",   sub:"Ten scenarios. Pick the exact external environment factor at work.", mins:7, max:150},
- {id:"supplier", name:"Supplier showdown",  sub:"Choose a green bean supplier and defend the decision.", mins:9, max:100},
- {id:"chain",    name:"Impact chain",       sub:"Four alerts. Identify the factor, the impact on planning, and the response.", mins:12, max:180},
- {id:"write",    name:"Build the response", sub:"Reassemble two model paragraphs, then write your own analysis.", mins:12, max:120}
+ {id:"sprint", name:"Registrations", full:"Registration run",       sub:"Ten questions, twenty seconds each. Answer quickly for a speed bonus.", mins:7, max:140},
+ {id:"pros",   name:"Professionals", full:"Who do you call?",       sub:"Twelve jobs. Send each one to the right external professional.", mins:8, max:120},
+ {id:"sort",   name:"Required?",     full:"Required or recommended", sub:"Twelve items. Sort what the law demands from what is merely wise.", mins:6, max:96},
+ {id:"fin",    name:"Finance",       full:"Fund the van",           sub:"Five funding decisions on a $92,000 start-up.", mins:9, max:100},
+ {id:"cases",  name:"Notices",       full:"Compliance notices",     sub:"Four notices. Diagnose, state the consequence, choose the fix.", mins:12, max:180},
+ {id:"write",  name:"Written",       full:"Build the response",     sub:"Reassemble two model paragraphs, then write your own analysis.", mins:12, max:120}
 ];
-var TOTAL_MAX = ROUNDS.reduce(function(s,r){return s+r.max;},0);
+var TOTAL_MAX = ROUNDS.reduce(function(s,r){ return s+r.max; },0);
 
 var TIERS = [
- {min:0.85, name:"Master roaster",           note:"You can define, classify, apply and respond. Take this straight into the SAC."},
- {min:0.70, name:"Operations lead",          note:"Strong control of the content. Tighten the impact-on-planning links and you are there."},
- {min:0.55, name:"Dispatch crew",            note:"The definitions are landing. Practise applying factors to the business rather than describing them."},
- {min:0.40, name:"Apprentice",               note:"Revise the operating and macro categories, then redo rounds two and three."},
- {min:0,    name:"Back to the loading dock", note:"Start with the terminology. Every round after that builds on it."}
+ {min:0.85, name:"Cleared to trade",            note:"Registrations, professionals and finance are all under control. Take this into the SAC."},
+ {min:0.70, name:"Approved with conditions",    note:"Solid grasp of the requirements. Tighten the link between each professional and the obligation they address."},
+ {min:0.55, name:"Further information required",note:"The definitions are landing. Work on the difference between what the law demands and what is merely good practice."},
+ {min:0.40, name:"Application deferred",        note:"Revise the registration list and the seven external professionals, then run sections one to three again."},
+ {min:0,    name:"Application refused",         note:"Start with the registrations and who does what. Everything else in this area of study builds on those two."}
 ];
 
 /* ====================== STATE ====================== */
-
 function freshState(){
  return {
   stage:"intro", ri:0, elapsed:0, results:{}, board:[],
   sp:{i:0,picked:null,left:20,pts:0,correct:0,streak:0,best:0,bonus:0},
+  pr:{i:0,picked:null,pts:0,correct:0},
   so:{i:0,picked:null,pts:0,correct:0},
-  fa:{i:0,picked:null,pts:0,correct:0},
-  su:{i:0,sel:[],locked:false,pts:0,earned:0},
-  ch:{e:0,s:0,picked:null,pts:0,correct:0},
+  fi:{i:0,sel:[],locked:false,pts:0,earned:0},
+  ca:{e:0,s:0,picked:null,pts:0,correct:0},
   wr:{phase:0,order:[],checked:false,pts:0,essay:"",rubric:[]},
   res:{name:"",added:false,copied:false}
  };
@@ -426,136 +491,128 @@ var S = freshState();
 var elapsedTimer = null, sprintTimer = null;
 
 /* ====================== HELPERS ====================== */
-
-function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+function esc(s){ return String(s).replace(/[&<>"']/g,function(c){
  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
-function fmt(sec){ return String(Math.floor(sec/60)).padStart(2,"0")+":"+String(sec%60).padStart(2,"0"); }
-function totalPoints(){ return ROUNDS.reduce(function(s,r){ return s + ((S.results[r.id]&&S.results[r.id].points)||0); },0); }
+function fmt(x){ return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0"); }
+function totalPoints(){ return ROUNDS.reduce(function(s,r){ return s+((S.results[r.id]&&S.results[r.id].points)||0); },0); }
 function shuffle(arr){
- var a = arr.slice();
+ var a=arr.slice();
  for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
- var same = a.every(function(v,i){ return v===arr[i]; });
- if (same){ var t2=a[0]; a[0]=a[1]; a[1]=t2; }
+ if (a.every(function(v,i){ return v===arr[i]; })){ var t2=a[0]; a[0]=a[1]; a[1]=t2; }
  return a;
 }
-function stamp(ok){ return '<span class="stamp '+(ok?"ok":"no")+'">'+(ok?"CLEARED":"HELD")+'</span>'; }
-function docket(num,title,sub,body,foot){
- return '<div class="docket"><div class="docket-head"><div class="num">'+esc(num)+'</div>'+
-  '<div style="flex:1;min-width:220px"><h2>'+title+'</h2>'+(sub?'<p>'+sub+'</p>':'')+'</div></div>'+
-  '<div class="docket-body">'+body+'</div>'+
-  (foot?'<div class="docket-foot">'+foot+'</div>':'')+'</div>';
+function stamp(ok){ return '<span class="stamp '+(ok?"ok":"no")+'">'+(ok?"APPROVED":"REJECTED")+'</span>'; }
+function form(code,title,sub,body,foot){
+ return '<div class="form"><div class="form-head"><span class="code">'+esc(code)+'</span><h2>'+title+'</h2>'+
+  (sub?'<p>'+sub+'</p>':'')+'</div><div class="form-body">'+body+'</div>'+
+  (foot?'<div class="form-foot">'+foot+'</div>':'')+'</div>';
 }
-function optList(opts, picked, answer, extra){
+function mcq(opts,picked,answer,act){
  return '<div class="opts">'+opts.map(function(o,i){
   var cls="opt";
-  if (extra && extra.sel && extra.sel.indexOf(i)>-1 && !extra.locked) cls+=" sel";
   if (picked!==null && picked!==undefined){
-   var good = (extra && extra.correctSet) ? extra.correctSet.indexOf(i)>-1 : i===answer;
-   if (good) cls+=" right";
-   else if (Array.isArray(picked) ? picked.indexOf(i)>-1 : i===picked) cls+=" wrong";
+   if (i===answer) cls+=" right"; else if (i===picked) cls+=" wrong";
   }
-  var dis = (picked!==null && picked!==undefined) ? " disabled" : "";
-  return '<button class="'+cls+'" data-act="'+extra.act+'" data-i="'+i+'"'+dis+'>'+
+  return '<button class="'+cls+'" data-act="'+act+'" data-i="'+i+'"'+((picked!==null&&picked!==undefined)?" disabled":"")+'>'+
    '<span class="key">'+KEYS[i]+'</span><span>'+esc(o)+'</span></button>';
  }).join("")+'</div>';
 }
+function nextBtn(act,label){ return '<div style="margin-top:18px"><button class="btn btn-go" data-act="'+act+'">'+label+'</button></div>'; }
 
-/* ====================== ROUND VIEWS ====================== */
-
+/* ====================== VIEWS ====================== */
 function viewIntro(){
  var rows = ROUNDS.map(function(r,i){
-  return '<tr><td><strong>'+(i+1)+'. '+esc(r.name)+'</strong></td><td style="color:#5c5245">'+esc(r.sub)+
+  return '<tr><td><strong>'+(i+1)+'. '+esc(r.full)+'</strong></td><td style="color:var(--soft)">'+esc(r.sub)+
    '</td><td class="num">'+r.mins+' min</td><td class="num">'+r.max+'</td></tr>';
  }).join("");
  var body =
-  '<div class="metaline" style="margin-bottom:10px">The run sheet</div>'+
-  '<table class="tbl" style="margin-bottom:20px"><thead><tr><th>Round</th><th>What you do</th><th>Time</th><th>Points</th></tr></thead>'+
-  '<tbody>'+rows+'<tr><td colspan="2"><strong>Total</strong></td><td class="num"><strong>53 min</strong></td><td class="num"><strong>'+TOTAL_MAX+'</strong></td></tr></tbody></table>'+
-  '<div class="feedback"><strong>Before you start. </strong>Round 1 is the only timed round, at twenty seconds per question. Everything else runs at your own pace, but the clock at the top is always counting. Read the feedback after each answer, that is where most of the revision happens. Nothing is saved when you close the page, so copy your written response out at the end.</div>'+
-  '<div style="margin-top:22px"><button class="btn btn-go" data-act="start">Start the run</button></div>';
+  '<div class="box"><strong>The brief.</strong> Two sisters are launching '+BUSINESS+
+  ', a mobile food van selling Malaysian and Indonesian street food from markets and events across Melbourne\'s west. '+
+  'They will trade as a partnership. They have $30,000 in savings and need $92,000 to open. '+
+  'You are the business adviser who has to get them cleared to trade.</div>'+
+  '<div class="meta" style="margin:18px 0 10px">Sections</div>'+
+  '<table class="tbl" style="margin-bottom:20px"><thead><tr><th>Section</th><th>What you do</th><th>Time</th><th>Points</th></tr></thead>'+
+  '<tbody>'+rows+'<tr><td colspan="2"><strong>Total</strong></td><td class="num"><strong>54 min</strong></td><td class="num"><strong>'+TOTAL_MAX+'</strong></td></tr></tbody></table>'+
+  '<div class="fb"><strong>Before you start. </strong>Section 1 is the only timed section, at twenty seconds a question. '+
+  'The rest run at your own pace, but the clock at the top keeps counting. Every lamp on the board above turns green as you clear a section. '+
+  'Read the feedback after each answer, that is where most of the revision happens. Nothing is saved when you close the page.</div>'+
+  nextBtn("start","Open the application");
  var teach =
   '<details class="teach"><summary>Teacher notes</summary><ul>'+
-  '<li>Built for VCE Business Management Unit 1, external business environment and planning. Under the 2023 to 2027 study design this content sits in Area of Study 3, so check the numbering against your school\'s sequence before you hand it out.</li>'+
-  '<li>Covers the operating environment (customers, competitors, suppliers, special interest groups) and the macro environment (legal and government regulations, societal attitudes and behaviour, economic conditions, technological developments, global considerations, corporate social responsibility considerations).</li>'+
-  '<li>Suggested run: one period. Round 1 is timed at twenty seconds per item, the rest are self-paced. Total run time is about fifty three minutes.</li>'+
-  '<li>Rounds 1 to 5 are fully auto-marked. Round 6 gives auto-marked sentence ordering plus a written response that appears on the results screen for you to read and mark properly.</li>'+
-  '<li>The round by round bars on the results screen show you where the class is weak. Low round 2 means the operating and macro split has not landed. Low round 5 means students can name factors but cannot link them to planning, which is the usual SAC problem.</li>'+
+  '<li>Built for VCE Business Management Unit 2, Area of Study 1: legal requirements and financial considerations, including the role of external professionals.</li>'+
+  '<li>Covers registrations (ABN, business name, GST, Food Act, Statement of Trade, food safety supervisor, WorkCover), the seven external professionals, the required versus recommended distinction, debt and equity sources of finance, bank accounts and record keeping.</li>'+
+  '<li>Two details students will not find in older textbooks: Victoria\'s Streatrader portal is now called FoodTrader, and Payday Super started on 1 July 2026, so super is paid each payday at 12 per cent rather than quarterly.</li>'+
+  '<li>Section 3 contains two deliberate teaching traps. Public liability insurance is not strictly required by law even though councils and event organisers almost always demand it, and a separate business bank account is not a legal requirement for a partnership. Both are worth stopping on as a class.</li>'+
+  '<li>Sections 1 to 5 are fully auto-marked. Section 6 auto-marks the sentence ordering and displays the written response on the results screen for you to mark properly.</li>'+
+  '<li>The section bars on the results screen show you where the class is weak. A low section 2 means students know the professionals exist but cannot match them to a task. A low section 4 usually means debt and equity are being confused.</li>'+
   '<li>Nothing is stored. Students should copy their result and their written response before closing the tab.</li>'+
   '</ul></details>';
- return docket("PRE-DEPARTURE","Southbound Roasters: Dispatch",
-  "You are the analyst on "+BUSINESS+", a Victorian coffee roasting and wholesale business drafting its business plan. Six rounds, roughly fifty minutes, every answer marked and explained.",
-  body) + teach;
+ return form("Application to trade / pre-lodgement", "Sambal Sisters: Clear the Board",
+  "Six sections. Nothing opens until every lamp is green.", body) + teach;
 }
 
 function viewSprint(){
  var st=S.sp, q=SPRINT[st.i];
- var body = '<p class="qtext">'+esc(q.q)+'</p>'+
-  optList(q.o, st.picked, q.a, {act:"sp-ans"});
+ var body = '<p class="q">'+esc(q.q)+'</p>'+mcq(q.o, st.picked, q.a, "sp-ans");
  if (st.picked!==null){
   var ok = st.picked===q.a;
   body += '<div style="margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">'+stamp(ok)+
-   (ok?'<span class="metaline">+10 base'+(st.bonus>0?' and +'+st.bonus+' speed bonus':'')+'</span>':'')+
-   (st.picked===-1?'<span class="metaline">Time expired</span>':'')+'</div>'+
-   '<div class="feedback"><strong>Why: </strong>'+esc(q.why)+'</div>'+
-   '<div style="margin-top:18px"><button class="btn btn-go" data-act="sp-next">'+
-   (st.i+1>=SPRINT.length?"Finish round":"Next item")+'</button></div>';
+   (ok?'<span class="meta">+10 base'+(st.bonus>0?' and +'+st.bonus+' speed bonus':'')+'</span>':'')+
+   (st.picked===-1?'<span class="meta">Time expired</span>':'')+'</div>'+
+   '<div class="fb"><strong>Why: </strong>'+esc(q.why)+'</div>'+
+   nextBtn("sp-next", st.i+1>=SPRINT.length?"Clear this section":"Next question");
  }
  var foot = '<span>SCORE '+st.pts+'</span><span>STREAK '+st.streak+'</span>'+
-  '<span id="spclock" style="margin-left:auto;font-weight:700'+((st.left<=5&&st.picked===null)?';color:#b24a2e':'')+'">'+
+  '<span id="spclock" style="margin-left:auto;font-weight:600'+((st.left<=5&&st.picked===null)?';color:var(--red)':'')+'">'+
   (st.picked===null?st.left+'s':'PAUSED')+'</span>';
- return docket("ROUND 1 / ITEM "+(st.i+1)+" OF "+SPRINT.length,"Terminology sprint",
-  "Twenty seconds each. Answering quickly adds up to four bonus points.", body, foot);
+ return form("Section 1 / question "+(st.i+1)+" of "+SPRINT.length, "Registration run",
+  "What must be registered, with whom, and when. Twenty seconds each.", body, foot);
+}
+
+function viewPros(){
+ var st=S.pr, it=PRO_ITEMS[st.i];
+ var chips = PROS.map(function(p,i){
+  var cls="chip";
+  if (st.picked!==null){ if(i===it.a) cls+=" right"; else if(i===st.picked) cls+=" wrong"; }
+  return '<button class="'+cls+'" data-act="pr-chip" data-i="'+i+'"'+(st.picked!==null?" disabled":"")+'>'+esc(p)+'</button>';
+ }).join("");
+ var body = '<div class="item">'+esc(it.t)+'</div><div class="chips">'+chips+'</div>';
+ if (st.picked!==null){
+  body += '<div style="margin-top:18px">'+stamp(st.picked===it.a)+'</div>'+
+   '<div class="fb"><strong>'+esc(PROS[it.a])+'. </strong>'+esc(it.why)+'</div>'+
+   nextBtn("pr-next", st.i+1>=PRO_ITEMS.length?"Clear this section":"Next job");
+ }
+ return form("Section 2 / job "+(st.i+1)+" of "+PRO_ITEMS.length, "Who do you call?",
+  "Ten points a job. Choose the professional whose expertise fits best, not just one who could help.", body,
+  '<span>SCORE '+st.pts+'</span><span>MATCHED '+st.correct+'</span>');
 }
 
 function viewSort(){
- var st=S.so, it=SORT_ITEMS[st.i];
- var dis = st.picked ? " disabled" : "";
- var body = '<div class="card-item">'+esc(it.t)+'</div><div class="bins">'+
-  '<button class="bin" data-act="so-bin" data-v="op"'+dis+'>OPERATING<span>Customers, competitors, suppliers, special interest groups</span></button>'+
-  '<button class="bin" data-act="so-bin" data-v="macro"'+dis+'>MACRO<span>Legal, societal, economic, technological, global, CSR</span></button></div>';
+ var st=S.so, it=SORT_ITEMS[st.i], dis = st.picked?" disabled":"";
+ var body = '<div class="item">'+esc(it.t)+'</div><div class="bins">'+
+  '<button class="bin" data-act="so-bin" data-v="req"'+dis+'>LEGALLY REQUIRED<span>A law, regulation or registration compels it</span></button>'+
+  '<button class="bin" data-act="so-bin" data-v="rec"'+dis+'>STRONGLY RECOMMENDED<span>Good practice, but no law demands it</span></button></div>';
  if (st.picked){
   body += '<div style="margin-top:18px">'+stamp(st.picked===it.cat)+'</div>'+
-   '<div class="feedback"><strong>'+(it.cat==="op"?"Operating environment. ":"Macro environment. ")+'</strong>'+esc(it.why)+'</div>'+
-   '<div style="margin-top:18px"><button class="btn btn-go" data-act="so-next">'+
-   (st.i+1>=SORT_ITEMS.length?"Finish round":"Next consignment")+'</button></div>';
+   '<div class="fb"><strong>'+(it.cat==="req"?"Legally required. ":"Strongly recommended. ")+'</strong>'+esc(it.why)+'</div>'+
+   nextBtn("so-next", st.i+1>=SORT_ITEMS.length?"Clear this section":"Next item");
  }
- return docket("ROUND 2 / ITEM "+(st.i+1)+" OF "+SORT_ITEMS.length,"Sort the board",
-  "Every consignment belongs in one of two holds. Operating environment groups deal with the business directly. Macro environment factors act on the whole market.",
-  body, '<span>SCORE '+st.pts+'</span><span>CLEARED '+st.correct+' / '+(st.i+(st.picked?1:0))+'</span>');
+ return form("Section 3 / item "+(st.i+1)+" of "+SORT_ITEMS.length, "Required or recommended",
+  "Students lose marks by calling everything a legal requirement. Eight points an item.", body,
+  '<span>SCORE '+st.pts+'</span><span>CORRECT '+st.correct+'</span>');
 }
 
-function viewFactor(){
- var st=S.fa, it=FACTOR_ITEMS[st.i];
- var chips = CHIPS.map(function(c,i){
-  var cls="chip";
-  if (st.picked!==null){ if(i===it.a) cls+=" right"; else if(i===st.picked) cls+=" wrong"; }
-  return '<button class="'+cls+'" data-act="fa-chip" data-i="'+i+'"'+(st.picked!==null?" disabled":"")+'>'+esc(c)+'</button>';
- }).join("");
- var body = '<div class="card-item">'+esc(it.t)+'</div><div class="chips">'+chips+'</div>';
- if (st.picked!==null){
-  body += '<div style="margin-top:18px">'+stamp(st.picked===it.a)+'</div>'+
-   '<div class="feedback"><strong>'+esc(CHIPS[it.a])+'. </strong>'+esc(it.why)+'</div>'+
-   '<div style="margin-top:18px"><button class="btn btn-go" data-act="fa-next">'+
-   (st.i+1>=FACTOR_ITEMS.length?"Finish round":"Next scenario")+'</button></div>';
- }
- return docket("ROUND 3 / ITEM "+(st.i+1)+" OF "+FACTOR_ITEMS.length,"Name that factor",
-  "Fifteen points each. Choose the single factor that best explains what is happening.",
-  body, '<span>SCORE '+st.pts+'</span>');
-}
-
-function viewSupplier(){
- var st=S.su, d=SUPPLIER_DECISIONS[st.i], multi=!!d.multi;
+function viewFin(){
+ var st=S.fi, d=FIN_DECISIONS[st.i], multi=!!d.multi;
  var body="";
  if (st.i===0){
-  body += '<div style="margin-bottom:20px;overflow-x:auto"><div class="metaline" style="margin-bottom:8px">Tender board</div>'+
-   '<table class="tbl"><thead><tr><th>Supplier</th><th>Price</th><th>Lead time</th><th>Reliability</th><th>Certification</th><th>Traceability</th></tr></thead><tbody>'+
-   SUPPLIERS.map(function(s){
-    return '<tr><td><strong>'+esc(s.name)+'</strong><div style="font-size:12px;color:#7a6f60">'+esc(s.sub)+'</div></td>'+
-     '<td class="num">'+esc(s.price)+'</td><td class="num">'+esc(s.lead)+'</td><td class="num">'+esc(s.rel)+'</td>'+
-     '<td>'+esc(s.cert)+'</td><td>'+esc(s.trace)+'</td></tr>';
-   }).join("")+'</tbody></table></div>';
+  body += '<div class="meta" style="margin-bottom:8px">Start-up costing</div>'+
+   '<table class="tbl" style="margin-bottom:20px"><thead><tr><th>Item</th><th>Amount</th><th>Working life</th></tr></thead><tbody>'+
+   COSTS.map(function(c){ return '<tr><td>'+esc(c.item)+'</td><td class="num">'+esc(c.amt)+'</td><td class="num">'+esc(c.life)+'</td></tr>'; }).join("")+
+   '<tr><td><strong>Total required</strong></td><td class="num"><strong>$92,000</strong></td><td class="num">Owners hold $30,000</td></tr>'+
+   '</tbody></table>';
  }
- body += '<p class="qtext">'+esc(d.q)+'</p>';
+ body += '<p class="q">'+esc(d.q)+'</p>';
  body += '<div class="opts">'+d.o.map(function(o,i){
   var cls="opt";
   if (!st.locked && st.sel.indexOf(i)>-1) cls+=" sel";
@@ -563,43 +620,40 @@ function viewSupplier(){
    var good = multi ? d.correct.indexOf(i)>-1 : i===d.a;
    if (good) cls+=" right"; else if (st.sel.indexOf(i)>-1) cls+=" wrong";
   }
-  return '<button class="'+cls+'" data-act="su-opt" data-i="'+i+'"'+(st.locked?" disabled":"")+'>'+
+  return '<button class="'+cls+'" data-act="fi-opt" data-i="'+i+'"'+(st.locked?" disabled":"")+'>'+
    '<span class="key">'+KEYS[i]+'</span><span>'+esc(o)+'</span></button>';
  }).join("")+'</div>';
  if (multi && !st.locked){
-  body += '<div style="margin-top:16px"><button class="btn btn-go" data-act="su-lock"'+
+  body += '<div style="margin-top:16px"><button class="btn btn-go" data-act="fi-lock"'+
    (st.sel.length!==d.multi?" disabled":"")+'>Lock in '+st.sel.length+' of '+d.multi+'</button></div>';
  }
  if (st.locked){
   var best = multi ? 20 : Math.max.apply(null,d.pts);
   body += '<div style="margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">'+stamp(st.earned>=best)+
-   '<span class="metaline">+'+st.earned+' points</span></div>'+
-   '<div class="feedback"><strong>Marker\'s note: </strong>'+esc(d.why)+'</div>'+
-   '<div style="margin-top:18px"><button class="btn btn-go" data-act="su-next">'+
-   (st.i+1>=SUPPLIER_DECISIONS.length?"Finish round":"Next decision")+'</button></div>';
+   '<span class="meta">+'+st.earned+' points</span></div>'+
+   '<div class="fb"><strong>Adviser\'s note: </strong>'+esc(d.why)+'</div>'+
+   nextBtn("fi-next", st.i+1>=FIN_DECISIONS.length?"Clear this section":"Next decision");
  }
- return docket("ROUND 4 / DECISION "+(st.i+1)+" OF "+SUPPLIER_DECISIONS.length,"Supplier showdown",
-  BUSINESS+" must lock in a green bean supplier before the plan goes to the bank. Read the tender board, then decide.",
-  body, '<span>SCORE '+st.pts+'</span>');
+ return form("Section 4 / decision "+(st.i+1)+" of "+FIN_DECISIONS.length, "Fund the van",
+  "Match each source of finance to the need it actually suits. Twenty points a decision.", body,
+  '<span>SCORE '+st.pts+'</span>');
 }
 
-function viewChain(){
- var st=S.ch, ev=CHAIN_EVENTS[st.e], step=ev.steps[st.s];
- var labels=["Identify the factor","Impact on planning","Planning response"];
- var body = '<div class="card-item"><div class="metaline" style="margin-bottom:6px">'+esc(ev.title)+'</div>'+esc(ev.text)+'</div>'+
-  '<div class="metaline" style="margin-bottom:8px">Link '+(st.s+1)+': '+labels[st.s]+'</div>'+
-  '<p class="qtext">'+esc(step.q)+'</p>'+
-  optList(step.o, st.picked, step.a, {act:"ch-opt"});
+function viewCases(){
+ var st=S.ca, c=CASES[st.e], step=c.steps[st.s];
+ var labels=["Diagnose it","State the consequence","Choose the fix"];
+ var body = '<div class="item"><div class="meta" style="margin-bottom:6px">'+esc(c.title)+'</div>'+esc(c.text)+'</div>'+
+  '<div class="meta" style="margin-bottom:8px">Step '+(st.s+1)+': '+labels[st.s]+'</div>'+
+  '<p class="q">'+esc(step.q)+'</p>'+mcq(step.o, st.picked, step.a, "ca-opt");
  if (st.picked!==null){
-  var last = (st.e+1===CHAIN_EVENTS.length && st.s+1===ev.steps.length);
+  var last = (st.e+1===CASES.length && st.s+1===c.steps.length);
   body += '<div style="margin-top:18px">'+stamp(st.picked===step.a)+'</div>'+
-   '<div class="feedback"><strong>Why: </strong>'+esc(step.why)+'</div>'+
-   '<div style="margin-top:18px"><button class="btn btn-go" data-act="ch-next">'+
-   (last?"Finish round":"Next link")+'</button></div>';
+   '<div class="fb"><strong>Why: </strong>'+esc(step.why)+'</div>'+
+   nextBtn("ca-next", last?"Clear this section":"Next step");
  }
- return docket("ROUND 5 / ALERT "+(st.e+1)+" OF "+CHAIN_EVENTS.length+" / STEP "+(st.s+1)+" OF 3","Impact chain",
-  "Every alert runs the same three links: name the factor, state the impact on planning, choose the response. This is exactly the chain a SAC answer needs.",
-  body, '<span>SCORE '+st.pts+'</span><span>LINKS HELD '+st.correct+'</span>');
+ return form("Section 5 / notice "+(st.e+1)+" of "+CASES.length+" / step "+(st.s+1)+" of 3","Compliance notices",
+  "Each notice runs the same three steps. That is the shape a case study answer needs.", body,
+  '<span>SCORE '+st.pts+'</span><span>STEPS CLEARED '+st.correct+'</span>');
 }
 
 function viewWrite(){
@@ -607,92 +661,88 @@ function viewWrite(){
  if (st.phase<2){
   var task=ORDER_TASKS[st.phase];
   var rows = st.order.map(function(line,i){
-   var cls="ordrow";
+   var cls="ord";
    if (st.checked) cls += (line===task.correct[i]) ? " right" : " wrong";
    var d = st.checked ? " disabled" : "";
-   return '<div class="'+cls+'"><span class="ordnum">'+(i+1)+'</span><div class="ordbtns">'+
+   return '<div class="'+cls+'"><span class="ordn">'+(i+1)+'</span><div class="ordb">'+
     '<button data-act="wr-move" data-i="'+i+'" data-d="-1" aria-label="Move up"'+(d||i===0?" disabled":"")+'>&#9650;</button>'+
     '<button data-act="wr-move" data-i="'+i+'" data-d="1" aria-label="Move down"'+(d||i===st.order.length-1?" disabled":"")+'>&#9660;</button>'+
     '</div><span>'+esc(line)+'</span></div>';
   }).join("");
-  var body = '<div class="card-item" style="font-size:15px">'+esc(task.prompt)+'</div>'+
-   '<div class="metaline" style="margin-bottom:10px">Reorder the sentences. Six points per sentence in the right place.</div>'+rows;
+  var body = '<div class="item" style="font-size:15px">'+esc(task.prompt)+'</div>'+
+   '<div class="meta" style="margin-bottom:10px">Reorder the sentences. Six points per sentence in the right place.</div>'+rows;
   if (!st.checked){
    body += '<div style="margin-top:16px"><button class="btn btn-go" data-act="wr-check">Mark this paragraph</button></div>';
   } else {
    var hits = st.order.filter(function(l,i){ return l===task.correct[i]; }).length;
    body += '<div style="margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">'+stamp(hits===task.correct.length)+
-    '<span class="metaline">'+hits+' of '+task.correct.length+' sentences in position, +'+(hits*6)+' points</span></div>'+
-    '<div class="feedback"><strong>Model order: </strong>define the factor, apply it to '+BUSINESS+
-    ', explain the impact on the plan, give a planning response, then link back to why the response works. Use that same spine in the SAC.</div>'+
-    '<div style="margin-top:18px"><button class="btn btn-go" data-act="wr-next">'+
-    (st.phase===0?"Next paragraph":"Go to the written task")+'</button></div>';
+    '<span class="meta">'+hits+' of '+task.correct.length+' in position, +'+(hits*6)+' points</span></div>'+
+    '<div class="fb"><strong>Model order: </strong>define, apply to '+BUSINESS+
+    ', explain the consequence of getting it wrong, state the benefit, then link back. Use that spine in the SAC.</div>'+
+    nextBtn("wr-next", st.phase===0?"Next paragraph":"Go to the written task");
   }
-  return docket("ROUND 6 / PARAGRAPH "+(st.phase+1)+" OF 2","Build the response", esc(task.hint), body,
+  return form("Section 6 / paragraph "+(st.phase+1)+" of 2","Build the response", esc(task.hint), body,
    '<span>SCORE '+st.pts+'</span>');
  }
  var words = st.essay.trim() ? st.essay.trim().split(/\s+/).length : 0;
  var checks = RUBRIC.map(function(r,i){
   var on = st.rubric.indexOf(i)>-1;
-  return '<button class="check'+(on?" on":"")+'" data-act="wr-rubric" data-i="'+i+'">'+
-   '<span class="box">'+(on?"&#10003;":"")+'</span><span>'+esc(r)+'</span></button>';
+  return '<button class="chk'+(on?" on":"")+'" data-act="wr-rubric" data-i="'+i+'">'+
+   '<span class="sq">'+(on?"&#10003;":"")+'</span><span>'+esc(r)+'</span></button>';
  }).join("");
- var body2 = '<div class="card-item" style="font-size:15px">Analyse how <strong>two</strong> external environment factors could affect the business planning of '+
-  BUSINESS+'. Use one operating environment factor and one macro environment factor. Refer to the business throughout.</div>'+
-  '<textarea class="ta" id="essay" placeholder="Start with a definition, then apply it to Southbound Roasters...">'+esc(st.essay)+'</textarea>'+
-  '<div class="metaline" style="margin:18px 0 10px">Self-check. Ten points for each statement you can honestly tick. Your teacher can see this response.</div>'+
+ var body2 = '<div class="item" style="font-size:15px">Analyse the role of <strong>two</strong> external professionals in helping '+
+  BUSINESS+' meet its legal and financial requirements when establishing the business. Refer to specific requirements throughout.</div>'+
+  '<textarea class="ta" id="essay" placeholder="Start by defining the first professional, then apply them to Sambal Sisters...">'+esc(st.essay)+'</textarea>'+
+  '<div class="meta" style="margin:18px 0 10px">Self-check. Ten points for each statement you can honestly tick. Your teacher can see this response.</div>'+
   checks+
   '<div style="margin-top:18px"><button class="btn btn-go" id="submitBtn" data-act="wr-finish"'+(words<40?" disabled":"")+'>'+
-  (words<40?"Write at least 40 words to submit":"Submit and see results")+'</button></div>';
- return docket("ROUND 6 / WRITTEN TASK","Your analysis",
-  "Ten minutes. Two factors. Write it the way you would write it under SAC conditions.",
-  body2, '<span>WORDS <b id="wordcount">'+words+'</b></span>');
+  (words<40?"Write at least 40 words to submit":"Submit and see the decision")+'</button></div>';
+ return form("Section 6 / written task","Your analysis",
+  "Ten minutes. Two professionals. Write it as you would under SAC conditions.", body2,
+  '<span>WORDS <b id="wordcount">'+words+'</b></span>');
 }
 
 function viewResults(){
- var total = totalPoints(), ratio = total/TOTAL_MAX;
+ var total=totalPoints(), ratio=total/TOTAL_MAX;
  var tier = TIERS.find(function(t){ return ratio>=t.min; });
  var w = S.results.write || {};
- var badges=[];
- if ((S.results.sprint||{}).best>=5) badges.push("Five in a row");
- if (S.results.sort && S.results.sort.correct===S.results.sort.of) badges.push("Zero defects, sorting");
- if (S.results.factor && S.results.factor.correct===S.results.factor.of) badges.push("Every factor named");
- if (S.results.chain && S.results.chain.correct>=10) badges.push("Chain holder");
- if (w.words>=250) badges.push("Full response written");
- if (S.elapsed<=45*60 && ratio>=0.7) badges.push("Ahead of dispatch");
+ var tags=[];
+ if ((S.results.sprint||{}).best>=5) tags.push("Five in a row");
+ if (S.results.pros && S.results.pros.correct===S.results.pros.of) tags.push("Every professional matched");
+ if (S.results.sort && S.results.sort.correct===S.results.sort.of) tags.push("Knew the traps");
+ if (S.results.cases && S.results.cases.correct>=10) tags.push("All notices answered");
+ if (w.words>=250) tags.push("Full response written");
+ if (S.elapsed<=45*60 && ratio>=0.7) tags.push("Lodged early");
 
- var body =
-  '<div class="grid2" style="margin-bottom:20px">'+
-   '<div class="statbox"><div class="k">Total score</div><div class="v">'+total+' <span style="font-size:15px;color:#7a6f60">/ '+TOTAL_MAX+'</span></div></div>'+
-   '<div class="statbox"><div class="k">Percentage</div><div class="v">'+Math.round(ratio*100)+'%</div></div>'+
-   '<div class="statbox"><div class="k">Time on task</div><div class="v mono">'+fmt(S.elapsed)+'</div></div>'+
+ var body = '<div class="seal"><div class="k">Determination</div><h3>'+esc(tier.name)+'</h3><p>'+esc(tier.note)+'</p></div>'+
+  '<div class="grid" style="margin-bottom:20px">'+
+   '<div class="stat"><div class="k">Total score</div><div class="v">'+total+' <span style="font-size:15px;color:var(--soft)">/ '+TOTAL_MAX+'</span></div></div>'+
+   '<div class="stat"><div class="k">Percentage</div><div class="v">'+Math.round(ratio*100)+'%</div></div>'+
+   '<div class="stat"><div class="k">Time on task</div><div class="v mono">'+fmt(S.elapsed)+'</div></div>'+
   '</div>'+
-  '<div class="metaline" style="margin-bottom:10px">Round by round</div>'+
+  '<div class="meta" style="margin-bottom:10px">Section by section</div>'+
   ROUNDS.map(function(r){
-   var p = (S.results[r.id]&&S.results[r.id].points)||0;
-   return '<div style="margin-bottom:12px"><div class="rowbtn"><span>'+esc(r.name)+'</span><span class="mono">'+p+' / '+r.max+'</span></div>'+
+   var p=(S.results[r.id]&&S.results[r.id].points)||0;
+   return '<div style="margin-bottom:12px"><div class="rowb"><span>'+esc(r.full)+'</span><span class="mono">'+p+' / '+r.max+'</span></div>'+
     '<div class="bar"><i style="width:'+Math.min(100,(p/r.max)*100)+'%"></i></div></div>';
   }).join("");
-
- if (badges.length){
-  body += '<div class="metaline" style="margin:20px 0 10px">Stamps earned</div><div>'+
-   badges.map(function(b){ return '<span class="badge">'+esc(b)+'</span>'; }).join("")+'</div>';
+ if (tags.length){
+  body += '<div class="meta" style="margin:20px 0 10px">Endorsements</div><div>'+
+   tags.map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join("")+'</div>';
  }
  if (w.essay){
-  body += '<div class="metaline" style="margin:20px 0 8px">Your written response ('+w.words+' words, '+w.rubric+' of '+RUBRIC.length+' self-checks)</div>'+
-   '<div class="supbox" style="white-space:pre-wrap;font-size:14px;line-height:1.6">'+esc(w.essay)+'</div>'+
+  body += '<div class="meta" style="margin:20px 0 8px">Your written response ('+w.words+' words, '+w.rubric+' of '+RUBRIC.length+' self-checks)</div>'+
+   '<div class="box" style="white-space:pre-wrap;font-size:14px;line-height:1.6">'+esc(w.essay)+'</div>'+
    '<p class="note">Copy this into your workbook before you close the page. Nothing here is saved.</p>';
  }
- body += '<div class="metaline" style="margin:24px 0 10px">Class board</div>'+
+ body += '<div class="meta" style="margin:24px 0 10px">Class board</div>'+
   '<p class="note" style="margin-top:0">This board lives on this device for this session only. Refreshing clears it.</p>'+
   '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">'+
    '<input class="inp" id="nameinp" placeholder="Your name" value="'+esc(S.res.name)+'" style="flex:1;min-width:180px">'+
-   '<button class="btn btn-lite" data-act="res-add"'+(S.res.added?" disabled":"")+'>'+(S.res.added?"Added":"Add my score")+'</button>'+
-  '</div>';
+   '<button class="btn btn-lite" data-act="res-add"'+(S.res.added?" disabled":"")+'>'+(S.res.added?"Added":"Add my score")+'</button></div>';
  if (S.board.length){
-  var sorted = S.board.slice().sort(function(a,b){ return b.total-a.total; });
   body += '<table class="tbl"><thead><tr><th>#</th><th>Name</th><th>Score</th><th>%</th><th>Time</th></tr></thead><tbody>'+
-   sorted.map(function(b,i){
+   S.board.slice().sort(function(a,b){ return b.total-a.total; }).map(function(b,i){
     return '<tr><td class="num">'+(i+1)+'</td><td>'+esc(b.name)+'</td><td class="num">'+b.total+
      '</td><td class="num">'+b.pct+'%</td><td class="num">'+fmt(b.time)+'</td></tr>';
    }).join("")+'</tbody></table>';
@@ -701,228 +751,191 @@ function viewResults(){
   '<button class="btn btn-go" data-act="res-copy">'+(S.res.copied?"Copied":"Copy my result")+'</button>'+
   '<button class="btn btn-ghost" data-act="res-restart">Run it again</button></div>';
 
- return docket("DISPATCH COMPLETE", esc(tier.name), esc(tier.note), body);
+ return form("Determination / all sections closed","Application determined", "", body);
 }
 
 /* ====================== RENDER ====================== */
-
-function renderRail(){
- var el=document.getElementById("rail");
+function renderBoard(){
+ var el=document.getElementById("board");
  if (S.stage==="intro"){ el.innerHTML=""; return; }
- el.innerHTML = '<div class="rail">'+ROUNDS.map(function(r,i){
-  var c = (i<S.ri || S.stage==="done") ? "done" : (i===S.ri ? "now" : "");
-  return '<div class="rail-seg"><div class="rail-bar '+c+'"></div>'+
-   '<div class="rail-lab'+((i===S.ri&&S.stage==="run")?" now":"")+'">'+(i+1)+'</div></div>';
- }).join("")+'</div>';
+ el.innerHTML = '<div class="board"><div class="board-in">'+ROUNDS.map(function(r,i){
+  var c = (i<S.ri || S.stage==="done") ? "ok" : (i===S.ri && S.stage==="run" ? "now" : "");
+  return '<div class="lamp '+c+'"><span class="dot"></span><span class="nm">'+esc(r.name)+'</span></div>';
+ }).join("")+'</div></div>';
 }
-
-function renderGauges(){
+function renderFields(){
  document.getElementById("gScore").textContent = totalPoints();
  document.getElementById("gRound").textContent = S.stage==="run" ? (S.ri+1)+"/6" : (S.stage==="done" ? "6/6" : "-");
  document.getElementById("gTime").textContent = fmt(S.elapsed);
 }
-
 function render(){
  var html;
- if (S.stage==="intro") html = viewIntro();
- else if (S.stage==="done") html = viewResults();
+ if (S.stage==="intro") html=viewIntro();
+ else if (S.stage==="done") html=viewResults();
  else {
-  var id = ROUNDS[S.ri].id;
-  html = id==="sprint" ? viewSprint()
-    : id==="sort" ? viewSort()
-    : id==="factor" ? viewFactor()
-    : id==="supplier" ? viewSupplier()
-    : id==="chain" ? viewChain()
-    : viewWrite();
+  var id=ROUNDS[S.ri].id;
+  html = id==="sprint"?viewSprint() : id==="pros"?viewPros() : id==="sort"?viewSort()
+       : id==="fin"?viewFin() : id==="cases"?viewCases() : viewWrite();
  }
  document.getElementById("app").innerHTML = html;
- renderRail();
- renderGauges();
- bindEssay();
+ renderBoard(); renderFields(); bindEssay();
 }
-
 function bindEssay(){
- var ta = document.getElementById("essay");
+ var ta=document.getElementById("essay");
  if (!ta) return;
  ta.addEventListener("input", function(){
   S.wr.essay = ta.value;
   var n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
-  var wc = document.getElementById("wordcount"); if (wc) wc.textContent = n;
-  var btn = document.getElementById("submitBtn");
-  if (btn){
-   btn.disabled = n < 40;
-   btn.textContent = n<40 ? "Write at least 40 words to submit" : "Submit and see results";
-  }
+  var wc=document.getElementById("wordcount"); if (wc) wc.textContent=n;
+  var b=document.getElementById("submitBtn");
+  if (b){ b.disabled = n<40; b.textContent = n<40 ? "Write at least 40 words to submit" : "Submit and see the decision"; }
  });
 }
 
 /* ====================== TIMERS ====================== */
-
 function startElapsed(){
  if (elapsedTimer) return;
  elapsedTimer = setInterval(function(){
   S.elapsed++;
-  var el=document.getElementById("gTime"); if (el) el.textContent = fmt(S.elapsed);
+  var el=document.getElementById("gTime"); if (el) el.textContent=fmt(S.elapsed);
  },1000);
 }
 function stopElapsed(){ clearInterval(elapsedTimer); elapsedTimer=null; }
-
 function startSprintClock(){
  stopSprintClock();
  sprintTimer = setInterval(function(){
   if (S.sp.picked!==null){ stopSprintClock(); return; }
   S.sp.left--;
-  if (S.sp.left<=0){
-   stopSprintClock();
-   S.sp.picked = -1; S.sp.streak = 0; S.sp.bonus = 0;
-   render();
-   return;
-  }
+  if (S.sp.left<=0){ stopSprintClock(); S.sp.picked=-1; S.sp.streak=0; S.sp.bonus=0; render(); return; }
   var el=document.getElementById("spclock");
-  if (el){ el.textContent = S.sp.left+"s"; if (S.sp.left<=5) el.style.color="#b24a2e"; }
+  if (el){ el.textContent=S.sp.left+"s"; if (S.sp.left<=5) el.style.color="var(--red)"; }
  },1000);
 }
 function stopSprintClock(){ clearInterval(sprintTimer); sprintTimer=null; }
 
-/* ====================== ROUND COMPLETION ====================== */
-
-function finishRound(id, payload){
- S.results[id] = payload;
- if (S.ri+1 >= ROUNDS.length){ S.stage="done"; stopElapsed(); }
- else { S.ri++; }
+function finishRound(id,payload){
+ S.results[id]=payload;
+ if (S.ri+1>=ROUNDS.length){ S.stage="done"; stopElapsed(); } else { S.ri++; }
  render();
  if (S.stage==="run" && ROUNDS[S.ri].id==="sprint") startSprintClock();
 }
 
 /* ====================== EVENTS ====================== */
-
-document.getElementById("app").addEventListener("click", function(ev){
- var btn = ev.target.closest("[data-act]");
+document.getElementById("app").addEventListener("click", function(e){
+ var btn = e.target.closest("[data-act]");
  if (!btn || btn.disabled) return;
  var act = btn.getAttribute("data-act");
  var i = parseInt(btn.getAttribute("data-i"),10);
 
  if (act==="start"){ S.stage="run"; startElapsed(); render(); startSprintClock(); return; }
 
- /* Round 1 */
  if (act==="sp-ans"){
-  var st=S.sp, q=SPRINT[st.i];
-  if (st.picked!==null) return;
+  var a=S.sp, q=SPRINT[a.i];
+  if (a.picked!==null) return;
   stopSprintClock();
   var ok = i===q.a;
-  st.bonus = ok ? Math.min(4, Math.ceil(st.left/5)) : 0;
-  if (ok){ st.pts += 10 + st.bonus; st.correct++; st.streak++; st.best=Math.max(st.best,st.streak); }
-  else st.streak = 0;
-  st.picked = i; render(); return;
+  a.bonus = ok ? Math.min(4, Math.ceil(a.left/5)) : 0;
+  if (ok){ a.pts += 10+a.bonus; a.correct++; a.streak++; a.best=Math.max(a.best,a.streak); } else a.streak=0;
+  a.picked=i; render(); return;
  }
  if (act==="sp-next"){
-  var s1=S.sp;
-  if (s1.i+1>=SPRINT.length){ finishRound("sprint",{points:s1.pts,correct:s1.correct,of:SPRINT.length,best:s1.best}); return; }
-  s1.i++; s1.picked=null; s1.left=20; s1.bonus=0; render(); startSprintClock(); return;
+  var b=S.sp;
+  if (b.i+1>=SPRINT.length){ finishRound("sprint",{points:b.pts,correct:b.correct,of:SPRINT.length,best:b.best}); return; }
+  b.i++; b.picked=null; b.left=20; b.bonus=0; render(); startSprintClock(); return;
  }
 
- /* Round 2 */
+ if (act==="pr-chip"){
+  var p=S.pr, it=PRO_ITEMS[p.i];
+  if (p.picked!==null) return;
+  if (i===it.a){ p.pts+=10; p.correct++; }
+  p.picked=i; render(); return;
+ }
+ if (act==="pr-next"){
+  var p2=S.pr;
+  if (p2.i+1>=PRO_ITEMS.length){ finishRound("pros",{points:p2.pts,correct:p2.correct,of:PRO_ITEMS.length}); return; }
+  p2.i++; p2.picked=null; render(); return;
+ }
+
  if (act==="so-bin"){
-  var s2=S.so, it=SORT_ITEMS[s2.i];
-  if (s2.picked) return;
+  var s=S.so, si=SORT_ITEMS[s.i];
+  if (s.picked) return;
   var v=btn.getAttribute("data-v");
-  if (v===it.cat){ s2.pts+=8; s2.correct++; }
-  s2.picked=v; render(); return;
+  if (v===si.cat){ s.pts+=8; s.correct++; }
+  s.picked=v; render(); return;
  }
  if (act==="so-next"){
-  var s2b=S.so;
-  if (s2b.i+1>=SORT_ITEMS.length){ finishRound("sort",{points:s2b.pts,correct:s2b.correct,of:SORT_ITEMS.length}); return; }
-  s2b.i++; s2b.picked=null; render(); return;
+  var s2=S.so;
+  if (s2.i+1>=SORT_ITEMS.length){ finishRound("sort",{points:s2.pts,correct:s2.correct,of:SORT_ITEMS.length}); return; }
+  s2.i++; s2.picked=null; render(); return;
  }
 
- /* Round 3 */
- if (act==="fa-chip"){
-  var s3=S.fa, it3=FACTOR_ITEMS[s3.i];
-  if (s3.picked!==null) return;
-  if (i===it3.a){ s3.pts+=15; s3.correct++; }
-  s3.picked=i; render(); return;
- }
- if (act==="fa-next"){
-  var s3b=S.fa;
-  if (s3b.i+1>=FACTOR_ITEMS.length){ finishRound("factor",{points:s3b.pts,correct:s3b.correct,of:FACTOR_ITEMS.length}); return; }
-  s3b.i++; s3b.picked=null; render(); return;
- }
-
- /* Round 4 */
- if (act==="su-opt"){
-  var s4=S.su, d=SUPPLIER_DECISIONS[s4.i];
-  if (s4.locked) return;
-  if (!d.multi){
-   s4.earned = d.pts[i]; s4.pts += s4.earned; s4.sel=[i]; s4.locked=true; render(); return;
-  }
-  var k = s4.sel.indexOf(i);
-  if (k>-1) s4.sel.splice(k,1);
-  else if (s4.sel.length < d.multi) s4.sel.push(i);
+ if (act==="fi-opt"){
+  var f=S.fi, d=FIN_DECISIONS[f.i];
+  if (f.locked) return;
+  if (!d.multi){ f.earned=d.pts[i]; f.pts+=f.earned; f.sel=[i]; f.locked=true; render(); return; }
+  var k=f.sel.indexOf(i);
+  if (k>-1) f.sel.splice(k,1); else if (f.sel.length<d.multi) f.sel.push(i);
   render(); return;
  }
- if (act==="su-lock"){
-  var s4b=S.su, d2=SUPPLIER_DECISIONS[s4b.i];
-  var hits = s4b.sel.filter(function(x){ return d2.correct.indexOf(x)>-1; }).length;
-  s4b.earned = hits===2?20:(hits===1?10:0);
-  s4b.pts += s4b.earned; s4b.locked=true; render(); return;
+ if (act==="fi-lock"){
+  var f2=S.fi, d2=FIN_DECISIONS[f2.i];
+  var hits=f2.sel.filter(function(x){ return d2.correct.indexOf(x)>-1; }).length;
+  f2.earned = hits===2?20:(hits===1?10:0);
+  f2.pts+=f2.earned; f2.locked=true; render(); return;
  }
- if (act==="su-next"){
-  var s4c=S.su;
-  if (s4c.i+1>=SUPPLIER_DECISIONS.length){ finishRound("supplier",{points:s4c.pts,of:SUPPLIER_DECISIONS.length}); return; }
-  s4c.i++; s4c.sel=[]; s4c.locked=false; s4c.earned=0; render(); return;
- }
-
- /* Round 5 */
- if (act==="ch-opt"){
-  var s5=S.ch, step=CHAIN_EVENTS[s5.e].steps[s5.s];
-  if (s5.picked!==null) return;
-  if (i===step.a){ s5.pts+=15; s5.correct++; }
-  s5.picked=i; render(); return;
- }
- if (act==="ch-next"){
-  var s5b=S.ch, ev5=CHAIN_EVENTS[s5b.e];
-  if (s5b.s+1<ev5.steps.length){ s5b.s++; s5b.picked=null; render(); return; }
-  if (s5b.e+1<CHAIN_EVENTS.length){ s5b.e++; s5b.s=0; s5b.picked=null; render(); return; }
-  finishRound("chain",{points:s5b.pts,correct:s5b.correct,of:CHAIN_EVENTS.length*3}); return;
+ if (act==="fi-next"){
+  var f3=S.fi;
+  if (f3.i+1>=FIN_DECISIONS.length){ finishRound("fin",{points:f3.pts,of:FIN_DECISIONS.length}); return; }
+  f3.i++; f3.sel=[]; f3.locked=false; f3.earned=0; render(); return;
  }
 
- /* Round 6 */
+ if (act==="ca-opt"){
+  var c=S.ca, step=CASES[c.e].steps[c.s];
+  if (c.picked!==null) return;
+  if (i===step.a){ c.pts+=15; c.correct++; }
+  c.picked=i; render(); return;
+ }
+ if (act==="ca-next"){
+  var c2=S.ca, cs=CASES[c2.e];
+  if (c2.s+1<cs.steps.length){ c2.s++; c2.picked=null; render(); return; }
+  if (c2.e+1<CASES.length){ c2.e++; c2.s=0; c2.picked=null; render(); return; }
+  finishRound("cases",{points:c2.pts,correct:c2.correct,of:CASES.length*3}); return;
+ }
+
  if (act==="wr-move"){
-  var s6=S.wr;
-  if (s6.checked) return;
-  var dir = parseInt(btn.getAttribute("data-d"),10);
-  var j=i+dir;
-  if (j<0||j>=s6.order.length) return;
-  var t=s6.order[i]; s6.order[i]=s6.order[j]; s6.order[j]=t;
+  var w=S.wr;
+  if (w.checked) return;
+  var dir=parseInt(btn.getAttribute("data-d"),10), j=i+dir;
+  if (j<0||j>=w.order.length) return;
+  var t=w.order[i]; w.order[i]=w.order[j]; w.order[j]=t;
   render(); return;
  }
  if (act==="wr-check"){
-  var s6b=S.wr, task=ORDER_TASKS[s6b.phase];
-  var hits6 = s6b.order.filter(function(l,idx){ return l===task.correct[idx]; }).length;
-  s6b.pts += hits6*6; s6b.checked=true; render(); return;
+  var w2=S.wr, task=ORDER_TASKS[w2.phase];
+  var hits2=w2.order.filter(function(l,idx){ return l===task.correct[idx]; }).length;
+  w2.pts += hits2*6; w2.checked=true; render(); return;
  }
  if (act==="wr-next"){
-  var s6c=S.wr;
-  if (s6c.phase===0){ s6c.phase=1; s6c.order=shuffle(ORDER_TASKS[1].correct); s6c.checked=false; }
-  else { s6c.phase=2; }
+  var w3=S.wr;
+  if (w3.phase===0){ w3.phase=1; w3.order=shuffle(ORDER_TASKS[1].correct); w3.checked=false; }
+  else w3.phase=2;
   render(); return;
  }
  if (act==="wr-rubric"){
-  var s6d=S.wr;
-  var ta=document.getElementById("essay"); if (ta) s6d.essay=ta.value;
-  var k6=s6d.rubric.indexOf(i);
-  if (k6>-1) s6d.rubric.splice(k6,1); else s6d.rubric.push(i);
+  var w4=S.wr, ta=document.getElementById("essay");
+  if (ta) w4.essay=ta.value;
+  var k4=w4.rubric.indexOf(i);
+  if (k4>-1) w4.rubric.splice(k4,1); else w4.rubric.push(i);
   render(); return;
  }
  if (act==="wr-finish"){
-  var s6e=S.wr;
-  var ta2=document.getElementById("essay"); if (ta2) s6e.essay=ta2.value;
-  var words = s6e.essay.trim() ? s6e.essay.trim().split(/\s+/).length : 0;
-  finishRound("write",{points:s6e.pts + s6e.rubric.length*10, essay:s6e.essay, rubric:s6e.rubric.length, words:words});
+  var w5=S.wr, ta2=document.getElementById("essay");
+  if (ta2) w5.essay=ta2.value;
+  var words = w5.essay.trim() ? w5.essay.trim().split(/\s+/).length : 0;
+  finishRound("write",{points:w5.pts + w5.rubric.length*10, essay:w5.essay, rubric:w5.rubric.length, words:words});
   return;
  }
 
- /* Results */
  if (act==="res-add"){
   var inp=document.getElementById("nameinp");
   var nm = inp ? inp.value.trim() : "";
@@ -933,40 +946,38 @@ document.getElementById("app").addEventListener("click", function(ev){
   render(); return;
  }
  if (act==="res-copy"){
-  var tot2=totalPoints();
-  var text = BUSINESS+": Dispatch result\n"+
+  var t2=totalPoints();
+  var text = BUSINESS+": Clear the Board result\n"+
    "Name: "+(S.res.name||"(unnamed)")+"\n"+
-   "Score: "+tot2+" of "+TOTAL_MAX+" ("+Math.round(tot2/TOTAL_MAX*100)+"%)\n"+
+   "Score: "+t2+" of "+TOTAL_MAX+" ("+Math.round(t2/TOTAL_MAX*100)+"%)\n"+
    "Time: "+fmt(S.elapsed)+"\n"+
-   ROUNDS.map(function(r){ return r.name+": "+((S.results[r.id]&&S.results[r.id].points)||0)+"/"+r.max; }).join("\n");
-  copyText(text);
-  S.res.copied=true; render();
+   ROUNDS.map(function(r){ return r.full+": "+((S.results[r.id]&&S.results[r.id].points)||0)+"/"+r.max; }).join("\n");
+  copyText(text); S.res.copied=true; render();
   setTimeout(function(){ S.res.copied=false; if (S.stage==="done") render(); },2200);
   return;
  }
  if (act==="res-restart"){
-  var keepBoard=S.board;
+  var keep=S.board;
   stopElapsed(); stopSprintClock();
-  S = freshState(); S.board=keepBoard;
-  S.wr.order = shuffle(ORDER_TASKS[0].correct);
+  S=freshState(); S.board=keep;
+  S.wr.order=shuffle(ORDER_TASKS[0].correct);
   render(); return;
  }
 });
 
-function copyText(text){
+function copyText(t){
  if (navigator.clipboard && navigator.clipboard.writeText){
-  navigator.clipboard.writeText(text).catch(function(){ fallbackCopy(text); });
- } else fallbackCopy(text);
+  navigator.clipboard.writeText(t).catch(function(){ fallbackCopy(t); });
+ } else fallbackCopy(t);
 }
-function fallbackCopy(text){
+function fallbackCopy(t){
  var ta=document.createElement("textarea");
- ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+ ta.value=t; ta.style.position="fixed"; ta.style.opacity="0";
  document.body.appendChild(ta); ta.select();
  try { document.execCommand("copy"); } catch(e){}
  document.body.removeChild(ta);
 }
 
-/* ====================== BOOT ====================== */
 S.wr.order = shuffle(ORDER_TASKS[0].correct);
 render();
 </script>
