@@ -1,985 +1,880 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sambal Sisters: Clear the Board | Legal requirements and financial considerations</title>
-<meta name="description" content="A scored revision game for VCE Business Management Unit 2 Area of Study 1: legal requirements, financial considerations and external professionals.">
+<title>Hire Week at Loop and Spoke Cycles | Staffing a business</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..900&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body {
-  --paper: #e9ede6;
-  --card: #ffffff;
-  --ink: #16203a;
-  --ink2: #232f4f;
-  --soft: #56628a;
-  --faint: #7d879f;
-  --rule: #ccd4c8;
-  --rule2: #dfe5da;
-  --green: #2f8f52;
-  --green-bg: #e8f4ea;
-  --red: #c0392b;
-  --red-bg: #fbecea;
-  --blue: #2f5ad0;
-  --amber: #cf8f10;
-  min-height: 100vh;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
-  font-size: 15px; line-height: 1.55;
-  padding-bottom: 64px;
-  -webkit-font-smoothing: antialiased;
-}
-h1, h2, h3 { font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.015em; margin: 0; line-height: 1.08; }
-.mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
-button { font-family: inherit; cursor: pointer; }
-button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  :root{
+    --navy:#1C2B4A; --navy-soft:#2D3F63; --hivis:#F3D530; --steel:#E4E8EF;
+    --paper:#FBFBF8; --go:#2F8A57; --stop:#C43D35; --ink:#1A1F2B;
+    --display:"Archivo","Arial Narrow",Arial,sans-serif;
+    --body:"Atkinson Hyperlegible",Verdana,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--steel);color:var(--ink);font-family:var(--body);font-size:1.05rem;line-height:1.55}
+  button{font:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--hivis);outline-offset:3px;box-shadow:0 0 0 6px var(--navy)}
 
-/* header: application masthead */
-.mast { background: var(--ink); color: #eef1f6; border-bottom: 4px solid var(--amber); }
-.mast-in { max-width: 960px; margin: 0 auto; padding: 12px 18px; display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
-.mast .who { margin-right: auto; }
-.mast .who .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #9aa6c4; }
-.mast .who .title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
-.field { text-align: right; }
-.field .lab { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #9aa6c4; }
-.field .val { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 18px; color: #fff; }
-.field .val.hot { color: var(--amber); }
+  header.bar{background:var(--navy);color:#fff;padding:.7rem 1.25rem;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+  .brand{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.25rem}
+  .brand span{color:var(--hivis)}
+  .stats{display:flex;gap:1.25rem;font-size:.95rem;align-items:center}
+  .stats b{font-family:var(--display);font-size:1.2rem;color:var(--hivis)}
+  .clock{background:var(--navy-soft);padding:.15rem .6rem;border-radius:4px}
+  .clock.over{background:var(--hivis);color:var(--ink)}
+  .clock.over b{color:var(--ink)}
+  .shift{display:flex;gap:4px;padding:0 1.25rem .8rem;background:var(--navy)}
+  .shift div{flex:1;height:8px;background:var(--navy-soft);border-radius:2px}
+  .shift div.done{background:var(--hivis)}
+  .shift div.now{background:#fff}
 
-/* approval board */
-.board { max-width: 960px; margin: 0 auto; padding: 16px 18px 0; }
-.board-in { display: flex; gap: 6px; background: var(--card); border: 1px solid var(--rule); padding: 12px 14px; }
-.lamp { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
-.dot { width: 15px; height: 15px; border-radius: 50%; border: 2.5px solid var(--red); background: transparent; flex: none; }
-.lamp.now .dot { border-color: var(--amber); background: var(--amber); box-shadow: 0 0 0 4px rgba(207,143,16,0.16); }
-.lamp.ok .dot { border-color: var(--green); background: var(--green); }
-.lamp .nm { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); text-align: center; line-height: 1.25; }
-.lamp.ok .nm { color: var(--green); }
-.lamp.now .nm { color: var(--ink); font-weight: 600; }
+  main{max-width:900px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+  h1,h2,h3{font-family:var(--display);font-stretch:78%;line-height:1.05;margin:0 0 .5rem}
+  h1{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:900}
+  h2{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:850}
+  h3{font-size:1.35rem;font-weight:750}
+  p{max-width:68ch;margin:.4rem 0 1rem}
+  .step{font-family:var(--display);font-stretch:85%;font-weight:700;color:var(--navy-soft);font-size:1rem;margin-bottom:.2rem}
+  .how{display:inline-block;background:var(--navy);color:#fff;font-size:.85rem;font-weight:700;padding:.1rem .55rem;border-radius:4px;margin-left:.4rem;vertical-align:middle}
+  .small{font-size:.92rem;color:var(--navy-soft)}
 
-.wrap { max-width: 960px; margin: 0 auto; padding: 16px 18px 0; }
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;margin-top:1rem}
+  .badge{background:#fff;border-radius:14px;box-shadow:0 18px 0 -8px var(--navy);border:3px solid var(--navy);overflow:hidden;transform:rotate(-3deg)}
+  .badge .clip{width:60px;height:14px;background:var(--steel);border:3px solid var(--navy);border-radius:8px;margin:12px auto 0}
+  .badge .top{background:var(--hivis);font-family:var(--display);font-stretch:80%;font-weight:800;padding:.5rem 1rem;margin-top:12px}
+  .badge .name{font-family:var(--display);font-weight:900;font-stretch:75%;font-size:clamp(2rem,5vw,3rem);padding:1rem 1rem .2rem;min-height:4.2rem;word-break:break-word;line-height:1}
+  .badge .role{padding:0 1rem 1.2rem;color:var(--navy-soft);font-weight:700}
+  @media (prefers-reduced-motion:no-preference){
+    .badge{animation:swing 1.1s ease-out 1}
+    @keyframes swing{0%{transform:rotate(9deg) translateY(-30px);opacity:0}60%{transform:rotate(-5deg)}100%{transform:rotate(-3deg)}}
+  }
+  label.field{display:block;font-weight:700;margin:1rem 0 .3rem}
+  input[type=text]{font:inherit;width:100%;max-width:26rem;padding:.7rem .8rem;border:2px solid var(--navy);border-radius:6px;background:#fff}
+  .brief{background:#fff;border-left:6px solid var(--hivis);padding:1rem 1.2rem;margin:1.5rem 0;border-radius:0 6px 6px 0}
+  .brief ul{margin:.3rem 0 0;padding-left:1.2rem}
+  table.run{border-collapse:collapse;width:100%;margin-top:.5rem;font-size:.95rem}
+  table.run td{padding:.35rem .5rem;border-bottom:1px solid #d5dae3;vertical-align:top}
+  table.run td:first-child{font-family:var(--display);font-weight:800;width:3.5rem}
+  table.run td:last-child{text-align:right;white-space:nowrap;font-weight:700}
 
-/* form card */
-.form { background: var(--card); border: 1px solid var(--rule); animation: fade 300ms ease-out; }
-@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.form-head { padding: 15px 22px 14px; border-bottom: 1px solid var(--rule); background: linear-gradient(180deg, #f7f9f5, #fff); }
-.form-head .code { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 7px; }
-.form-head h2 { font-size: 25px; }
-.form-head p { margin: 6px 0 0; font-size: 13.5px; color: var(--soft); max-width: 58ch; }
-.form-body { padding: 22px; }
-.form-foot { padding: 12px 22px; border-top: 1px solid var(--rule); background: #f7f9f5; display: flex; gap: 14px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--soft); letter-spacing: 0.05em; }
+  .btn{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:.75rem 1.3rem;font-weight:700}
+  .btn:hover{background:var(--navy-soft)}
+  .btn.hivis{background:var(--hivis);color:var(--ink)}
+  .btn.hivis:hover{background:#FFE14A}
+  .btn.ghostbtn{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:1rem}
+  .task{background:var(--paper);border:2px solid var(--navy);border-radius:10px;padding:1.3rem 1.4rem;margin-top:1rem}
+  .feedback{margin-top:1rem;padding:.8rem 1rem;border-radius:6px;background:#fff;border:2px dashed var(--navy-soft);display:none}
+  .feedback.show{display:block}
+  .feedback strong{font-family:var(--display);font-stretch:85%;font-size:1.15rem}
+  .feedback ul{margin:.4rem 0 0;padding-left:1.2rem}
 
-.btn { border: none; border-radius: 2px; padding: 12px 22px; font-family: 'Instrument Sans', sans-serif; font-weight: 600; font-size: 14.5px; transition: transform 90ms ease, filter 120ms ease; }
-.btn:active { transform: translateY(1px); }
-.btn-go { background: var(--ink); color: #fff; }
-.btn-go:hover:not(:disabled) { background: var(--ink2); }
-.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
-.btn-ghost:hover { background: rgba(22,32,58,0.06); }
-.btn-lite { background: var(--amber); color: var(--ink); }
-.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  /* Drag chips and zones */
+  .pool{min-height:3.4rem;display:flex;flex-wrap:wrap;gap:.5rem;padding:.7rem;border:2px dashed #aeb6c4;border-radius:8px;background:#fff;margin-bottom:1rem}
+  .pool:empty::after{content:"All placed. Check your answers when ready.";color:var(--navy-soft);font-size:.95rem;align-self:center}
+  .chip{background:#fff;border:2px solid var(--navy);border-left-width:8px;border-radius:6px;padding:.45rem .7rem;text-align:left;font-weight:700;color:var(--ink);touch-action:none;user-select:none;max-width:100%;line-height:1.3;font-size:.98rem}
+  .chip:hover{background:#FFF7C2}
+  .chip.sel{background:var(--hivis)}
+  .chip.dragging{opacity:.3}
+  .chip.ok{border-color:var(--go);background:#E3F2E9}
+  .chip.no{border-color:var(--stop);background:#F8E1DF}
+  .ghost{position:fixed;pointer-events:none;z-index:99;transform:rotate(2deg);box-shadow:0 10px 24px rgba(28,43,74,.35);margin:0}
+  .zones{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .zone{border:2px solid var(--navy);border-radius:8px;background:#fff;padding:.6rem;min-height:9rem}
+  .zone>.label{font-family:var(--display);font-stretch:82%;font-weight:800;font-size:1.15rem;background:var(--navy);color:#fff;margin:-.6rem -.6rem .6rem;padding:.4rem .6rem;border-radius:6px 6px 0 0}
+  .hold{display:flex;flex-direction:column;gap:.4rem;min-height:2.6rem}
+  .zone.hover,.zone:focus-visible{background:#FFF7C2}
+  .slotrow{display:grid;grid-template-columns:2.4rem 1fr;gap:.6rem;align-items:center;margin-bottom:.5rem}
+  .slotnum{font-family:var(--display);font-weight:900;font-size:1.6rem;text-align:center;color:var(--navy)}
+  .zone.slot{min-height:3.2rem;padding:.35rem;border-style:dashed}
+  .matchrow{display:grid;grid-template-columns:1.3fr 1fr;gap:.6rem;align-items:center;margin-bottom:.55rem}
+  .matchrow .def{background:#fff;border:2px solid #cdd3dd;border-radius:6px;padding:.5rem .7rem}
+  .blankline{background:#fff;border:2px solid #cdd3dd;border-radius:6px;padding:.6rem .8rem;margin-bottom:.55rem;line-height:2.4}
+  .zone.blank{display:inline-flex;min-height:2.4rem;min-width:9.5rem;vertical-align:middle;padding:.15rem;border-style:dashed;margin:0 .2rem}
+  .zone.blank .hold,.zone.slot .hold{min-height:0;width:100%}
 
-.opts { display: grid; gap: 8px; }
-.opt { width: 100%; text-align: left; background: #fbfcfa; color: var(--ink); border: 1px solid var(--rule); border-radius: 2px; padding: 13px 15px; font-size: 14.5px; line-height: 1.45; display: flex; gap: 12px; align-items: flex-start; transition: border-color 110ms, background 110ms; }
-.opt:hover:not(:disabled) { border-color: var(--ink); background: #fff; }
-.opt .key { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 11px; background: var(--rule2); color: var(--soft); border-radius: 2px; padding: 3px 7px; flex: none; margin-top: 1px; }
-.opt.right { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
-.opt.right .key { background: var(--green); color: #fff; }
-.opt.wrong { border-color: var(--red); border-width: 2px; background: var(--red-bg); }
-.opt.wrong .key { background: var(--red); color: #fff; }
-.opt.sel { border-color: var(--blue); border-width: 2px; background: #eef2fd; }
-.opt.sel .key { background: var(--blue); color: #fff; }
+  /* Job ad */
+  .ad{background:#fff;border:2px solid var(--navy);border-radius:6px;padding:1.2rem 1.4rem;line-height:2}
+  .phrase{background:none;border:0;border-bottom:2px dotted var(--navy-soft);padding:0 .1rem;color:var(--ink)}
+  .phrase:hover{background:#FFF4B0}
+  .phrase.flagged{background:var(--stop);color:#fff;border-radius:3px}
+  .phrase.okay{background:var(--go);color:#fff;border-radius:3px}
+  .phrase.missed{outline:3px solid var(--stop);border-radius:3px}
+  textarea{font:inherit;width:100%;min-height:6rem;padding:.7rem;border:2px solid var(--navy);border-radius:6px;background:#fff}
 
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { background: #fbfcfa; border: 1px solid var(--rule); border-radius: 2px; padding: 10px 15px; font-size: 13.5px; color: var(--ink); font-weight: 500; }
-.chip:hover:not(:disabled) { border-color: var(--ink); background: #fff; }
-.chip.right { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
-.chip.wrong { border-color: var(--red); border-width: 2px; background: var(--red-bg); }
+  /* Swipe */
+  .deck{position:relative;height:250px;max-width:520px;margin:1rem auto}
+  .card{position:absolute;inset:0;background:#fff;border:3px solid var(--navy);border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;justify-content:center;font-size:1.35rem;font-weight:700;touch-action:none;user-select:none;cursor:grab;box-shadow:0 8px 0 -2px var(--navy)}
+  .card .who{font-size:.9rem;color:var(--navy-soft);margin-bottom:.4rem}
+  .card.under{transform:translateY(10px) scale(.96);opacity:.6}
+  .card.fly{transition:transform .35s ease-in,opacity .35s}
+  .swipebtns{display:flex;justify-content:space-between;max-width:520px;margin:0 auto}
+  .btn.bin{background:var(--stop)}
+  .btn.keep{background:var(--go)}
 
-.stamp { display: inline-block; transform: rotate(-4deg); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 0.14em; padding: 7px 15px; border: 2.5px solid currentColor; box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3.5px currentColor; animation: bang 250ms cubic-bezier(.2,1.6,.4,1); }
-@keyframes bang { from { transform: rotate(-4deg) scale(1.6); opacity: 0; } to { transform: rotate(-4deg) scale(1); opacity: 1; } }
-.stamp.ok { color: var(--green); }
-.stamp.no { color: var(--red); }
+  /* Memory */
+  .mem{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+  .mcard{aspect-ratio:4/3;border:2px solid var(--navy);border-radius:8px;background:var(--navy);color:var(--navy);font-weight:700;font-size:.9rem;padding:.4rem;line-height:1.25;display:flex;align-items:center;justify-content:center;text-align:center}
+  .mcard.up{background:#fff;color:var(--ink)}
+  .mcard.term.up{font-family:var(--display);font-stretch:80%;font-size:1.25rem;font-weight:800}
+  .mcard.found{background:#E3F2E9;border-color:var(--go);color:var(--ink);cursor:default}
+  .mcard:not(.up):not(.found)::after{content:"?";color:var(--hivis);font-family:var(--display);font-size:2rem;font-weight:900}
 
-.fb { margin-top: 16px; padding: 14px 16px; background: #f4f7f2; border: 1px solid var(--rule); border-left: 4px solid var(--ink); font-size: 14px; color: #333e5c; }
-.fb strong { color: var(--ink); }
-.meta { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--soft); }
-.q { font-size: 18.5px; font-weight: 700; line-height: 1.36; margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.012em; }
-.item { background: #fbfcfa; border: 1px solid var(--rule); border-left: 5px solid var(--amber); padding: 18px 20px; font-size: 17px; line-height: 1.42; margin-bottom: 16px; font-weight: 500; }
-.bins { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.bin { padding: 20px 16px; border: 2px solid var(--ink); background: #fbfcfa; border-radius: 2px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15.5px; color: var(--ink); display: flex; flex-direction: column; gap: 5px; align-items: center; text-align: center; line-height: 1.15; }
-.bin span { font-family: 'Instrument Sans', sans-serif; font-weight: 400; font-size: 12px; color: var(--soft); line-height: 1.35; }
-.bin:hover:not(:disabled) { background: var(--ink); color: #fff; }
-.bin:hover:not(:disabled) span { color: #c3ccdf; }
+  /* Clock quiz */
+  .timerbar{height:12px;background:#cdd3dd;border-radius:6px;overflow:hidden;margin:.5rem 0 1rem}
+  .timerbar div{height:100%;background:var(--hivis);width:100%;transition:width 1s linear}
+  .choices{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .choice{background:#fff;border:2px solid var(--navy);border-radius:6px;padding:.75rem .9rem;text-align:left;font-weight:700;color:var(--ink)}
+  .choice:hover:not(:disabled){background:var(--hivis)}
+  .choice.right{background:var(--go);border-color:var(--go);color:#fff}
+  .choice.wrong{background:var(--stop);border-color:var(--stop);color:#fff}
+  .prompt{font-size:1.25rem;font-weight:700;margin:.5rem 0 1rem;max-width:60ch}
 
-.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.tbl th, .tbl td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--rule2); vertical-align: top; }
-.tbl th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.11em; text-transform: uppercase; color: var(--soft); border-bottom: 1px solid var(--rule); }
-.tbl td.num { font-family: 'IBM Plex Mono', monospace; }
-.box { background: #fbfcfa; border: 1px solid var(--rule); padding: 14px 16px; margin-bottom: 10px; }
-.ta { width: 100%; min-height: 260px; resize: vertical; padding: 15px; border: 1px solid var(--rule); border-radius: 2px; background: #fff; color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-size: 15px; line-height: 1.65; }
-.inp { padding: 11px 13px; border: 1px solid var(--rule); border-radius: 2px; background: #fff; color: var(--ink); font-size: 14.5px; font-family: inherit; }
-.chk { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: #fbfcfa; border: 1px solid var(--rule); border-radius: 2px; margin-bottom: 8px; font-size: 14px; text-align: left; width: 100%; color: var(--ink); line-height: 1.45; }
-.chk.on { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
-.chk .sq { width: 20px; height: 20px; flex: none; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; margin-top: 1px; }
-.chk.on .sq { background: var(--green); border-color: var(--green); color: #fff; }
-.ord { display: flex; gap: 10px; align-items: flex-start; background: #fbfcfa; border: 1px solid var(--rule); border-radius: 2px; padding: 11px 13px; margin-bottom: 8px; font-size: 14px; }
-.ord.right { border-color: var(--green); border-width: 2px; background: var(--green-bg); }
-.ord.wrong { border-color: var(--red); border-width: 2px; background: var(--red-bg); }
-.ordb { display: flex; flex-direction: column; gap: 3px; flex: none; }
-.ordb button { width: 26px; height: 20px; border: 1px solid var(--rule); background: #fff; border-radius: 2px; font-size: 11px; line-height: 1; color: var(--ink); }
-.ordb button:hover:not(:disabled) { background: var(--amber); }
-.ordn { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 12px; color: var(--soft); flex: none; margin-top: 3px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
-.stat { background: #fbfcfa; border: 1px solid var(--rule); padding: 14px; }
-.stat .k { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); }
-.stat .v { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; margin-top: 2px; }
-.bar { height: 8px; background: var(--rule2); overflow: hidden; margin-top: 7px; }
-.bar i { display: block; height: 100%; background: var(--green); }
-.tag { display: inline-block; background: var(--ink); color: #fff; padding: 6px 13px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; margin: 0 6px 6px 0; }
-.note { font-size: 13px; color: var(--soft); }
-.rowb { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; }
-.seal { border: 3px double var(--ink); padding: 18px 20px; text-align: center; margin-bottom: 20px; background: #fbfcfa; }
-.seal .k { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); }
-.seal h3 { font-size: 27px; margin: 6px 0 4px; }
-.seal p { margin: 0; font-size: 13.5px; color: var(--soft); }
-details.teach { background: var(--ink); border: 1px solid var(--ink); padding: 14px 16px; margin-top: 16px; color: #eef1f6; }
-details.teach summary { cursor: pointer; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 14px; }
-details.teach ul { margin: 12px 0 0; padding-left: 20px; font-size: 13.5px; color: #c3ccdf; }
-details.teach li { margin-bottom: 6px; }
+  .sides{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .model{display:none;margin-top:1rem;background:#fff;border-radius:6px;padding:1rem 1.2rem;border:2px solid var(--go)}
+  .model.show{display:block}
+  .model ul{margin:.3rem 0 .8rem;padding-left:1.2rem}
+  .result-title{font-family:var(--display);font-weight:900;font-stretch:75%;font-size:clamp(2.4rem,6vw,4rem);background:var(--hivis);display:inline-block;padding:.1rem .6rem;margin:.5rem 0 1rem;transform:rotate(-1.5deg)}
+  table.tally{border-collapse:collapse;margin:1rem 0;min-width:300px}
+  table.tally td{padding:.4rem .8rem;border-bottom:1px solid #c9ced8}
+  table.tally td:last-child{text-align:right;font-weight:700}
 
-@media (max-width: 640px) {
-  .bins { grid-template-columns: 1fr; }
-  .form-head h2 { font-size: 21px; }
-  .form-body { padding: 16px; }
-  .lamp .nm { display: none; }
-  .field .val { font-size: 16px; }
-}
-@media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
+  @media (max-width:680px){
+    .hero,.sides,.matchrow{grid-template-columns:1fr}
+    .badge{max-width:320px}
+    .mem{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){.card.fly{transition:none}}
 </style>
 </head>
 <body>
 
-<div class="mast">
-  <div class="mast-in">
-    <div class="who">
-      <div class="eyebrow">Application to trade</div>
-      <div class="title">Sambal Sisters &mdash; mobile food premises</div>
-    </div>
-    <div class="field"><div class="lab">Score</div><div class="val hot" id="gScore">0</div></div>
-    <div class="field"><div class="lab">Section</div><div class="val" id="gRound">-</div></div>
-    <div class="field"><div class="lab">Elapsed</div><div class="val mono" id="gTime">00:00</div></div>
+<header class="bar">
+  <div class="brand">Loop <span>&amp;</span> Spoke Cycles &nbsp;|&nbsp; Hire week</div>
+  <div class="stats" aria-live="polite">
+    <div>Points <b id="points">0</b></div>
+    <div>Accuracy <b id="acc">0%</b></div>
+    <div class="clock" id="clockWrap" hidden><b id="clock">0:00</b> <span id="clockTarget"></span></div>
   </div>
-</div>
-<div id="board"></div>
-<div class="wrap"><div id="app"></div></div>
+</header>
+<div class="shift" id="shift" aria-hidden="true"></div>
+<main id="app"></main>
 
 <script>
-"use strict";
-
-var BUSINESS = "Sambal Sisters";
-var KEYS = ["A","B","C","D","E"];
-
-/* ============ ROUND 1: registration run ============ */
-var SPRINT = [
- {q:"An Australian Business Number (ABN) is:",
-  o:["a paid licence issued by the local council",
-     "a free identifier applied for through the Australian Business Register, used in dealings with the ATO and other businesses",
-     "the same thing as a company name",
-     "only available to businesses with more than five employees"],
-  a:1, why:"An ABN is free and comes from the Australian Business Register. Without one, other businesses must withhold tax from payments they make to you, and you cannot register for GST."},
- {q:"The sisters want to trade as Sambal Sisters rather than under their own legal names. What must they do?",
-  o:["Nothing, any name can be used freely",
-     "Register the business name with ASIC",
-     "Register the name with WorkSafe Victoria",
-     "Apply to the ATO for a company name"],
-  a:1, why:"Business names are registered with ASIC. You only avoid this if you trade under your own legal name. Registering a business name is not the same as owning a trade mark."},
- {q:"A business must register for GST once its annual turnover reaches:",
-  o:["$30,000","$50,000","$75,000","$150,000"],
-  a:2, why:"The threshold is $75,000 of current or projected annual turnover, and registration must happen within 21 days of becoming aware you will cross it."},
- {q:"Before selling a single serve of food in Victoria, a mobile food van must:",
-  o:["obtain Food Act 1984 registration from its registering council",
-     "join an industry association",
-     "lodge a business plan with the state government",
-     "employ a qualified chef"],
-  a:0, why:"Every food premises in Victoria, fixed or mobile, needs Food Act registration from its registering council before it can sell food."},
- {q:"Victorian mobile and temporary food premises apply for that registration through:",
-  o:["myGov","the FoodTrader portal, previously called Streatrader","the Australian Business Register","Fair Work Online"],
-  a:1, why:"FoodTrader is the statewide Department of Health portal for registering mobile and temporary food premises. Older textbooks still call it Streatrader."},
- {q:"A Statement of Trade is:",
-  o:["a summary of profit and loss for the ATO",
-     "a notice telling each relevant council where and when you plan to trade in their area",
-     "a contract with a supplier",
-     "a permit to employ casual staff"],
-  a:1, why:"You lodge a Statement of Trade for every council area you intend to trade in. It can only be lodged after your registration has been granted, so you cannot trade while an application is pending."},
- {q:"Sambal Sisters will handle high-risk foods needing temperature control, making it a class 2 premises. This means they must:",
-  o:["nominate a food safety supervisor","hire a minimum of three staff","register with ASIC as a company","pay payroll tax from day one"],
-  a:0, why:"Class 2 premises must nominate a food safety supervisor who holds the required competencies and oversees food handling."},
- {q:"Once Sambal Sisters employs its first casual staff member in Victoria, it must:",
-  o:["take out WorkCover insurance through WorkSafe Victoria",
-     "register the employee with ASIC",
-     "apply for a new ABN",
-     "join a union"],
-  a:0, why:"Employing staff triggers WorkCover insurance obligations with WorkSafe Victoria, along with PAYG withholding, super and record keeping duties."},
- {q:"From 1 July 2026, employer superannuation contributions must be:",
-  o:["paid once a year at tax time","paid quarterly as before","paid on each payday under the Payday Super rules","paid only to full-time staff"],
-  a:2, why:"Payday Super began on 1 July 2026. Contributions must now be paid at the same time as wages, at the 12 per cent super guarantee rate."},
- {q:"Advertising the van's rendang as 'locally sourced' when the beef is imported would most likely breach:",
-  o:["the Food Act 1984","the Australian Consumer Law under the Competition and Consumer Act 2010","the Fair Work Act 2009","the Privacy Act 1988"],
-  a:1, why:"False or misleading claims about goods breach the Australian Consumer Law. The ACCC and Consumer Affairs Victoria both enforce it, and penalties are substantial."}
+/* ===================================================================
+   Content based on Jacaranda Key Concepts in VCE Business Management
+   Units 1 & 2 (7th ed.), Topic 6 Staffing a business.
+   =================================================================== */
+const STAGES = [
+  { id:"cycle", title:"Clock on", mins:4, type:"order", how:"Drag to order",
+    intro:"Priya, the owner of Loop & Spoke Cycles, is opening a new shop in Werribee. Before you do anything, show her you know the employment cycle. Put the stages in order.",
+    items:["Planning staffing needs","Recruitment","Selection","Induction","Performance management and development","Termination of employment"],
+    note:"The employment cycle covers every stage of employing staff, from initial planning through to the end of employment."
+  },
+  { id:"plan", title:"Plan the team", mins:5, type:"bins", how:"Drag into bins",
+    intro:"The shop needs a bike mechanic. Job analysis produces two documents. Drag each line into the right one.",
+    options:["Job description","Job specification"],
+    items:[
+      {q:"Service and repair customer bikes", a:0, why:"A duty of the job belongs in the job description."},
+      {q:"Certificate III in Bicycle Mechanics", a:1, why:"A qualification the person needs goes in the job specification."},
+      {q:"Two years of workshop experience", a:1, why:"Level of experience is part of the job specification."},
+      {q:"Order spare parts and update the stock list", a:0, why:"A task the employee performs is part of the job description."},
+      {q:"Reports to the workshop manager", a:0, why:"Responsibilities and reporting lines describe the job itself."},
+      {q:"Strong knowledge of e-bike electrical systems", a:1, why:"Knowledge needed to do the job sits in the job specification."},
+      {q:"Explain repair quotes to customers", a:0, why:"This is a duty of the role."},
+      {q:"Current driver licence for van deliveries", a:1, why:"A requirement the applicant must hold belongs in the job specification."}
+    ]
+  },
+  { id:"recruit", title:"Find applicants", mins:5, type:"bins", how:"Drag into bins",
+    intro:"Priya can't decide whether to promote from inside or advertise on SEEK. Each card is an advantage or a disadvantage. Drag it to the recruitment method it belongs to.",
+    options:["Internal recruitment","External recruitment"],
+    items:[
+      {q:"Already knows the shop's culture and processes", a:0, why:"Internal applicants are familiar with the business, its objectives and culture."},
+      {q:"Brings new ideas and fresh approaches", a:1, why:"Outside applicants can bring new ideas."},
+      {q:"Two staff apply and it causes rivalry", a:0, why:"Conflict between internal applicants is a disadvantage of internal recruitment."},
+      {q:"Advertising costs and agency fees add up", a:1, why:"Advertising and agency costs are a disadvantage of external recruitment."},
+      {q:"Creates a career path that rewards loyal staff", a:0, why:"Promoting from within rewards valued employees."},
+      {q:"A much wider range of applicants", a:1, why:"External recruitment widens the field of applicants."},
+      {q:"The promoted person's old job still needs filling", a:0, why:"The internal applicant's old role often has to be filled, so external recruitment may be needed anyway."},
+      {q:"Current staff resent an outsider coming in as supervisor", a:1, why:"Existing employees may resent outsiders, especially in supervisory roles."}
+    ]
+  },
+  { id:"select", title:"Pick your tools", mins:5, type:"match", how:"Drag to match",
+    intro:"Forty people applied. Priya needs to narrow the field. Drag each selection method onto its description.",
+    pairs:[
+      {term:"Application form", def:"Candidates outline their personal details, skills and experience"},
+      {term:"Psychological testing", def:"Reveals personality and how a candidate may respond to work situations"},
+      {term:"Work testing", def:"Checks the technical knowledge and skills needed for the actual job"},
+      {term:"Online selection", def:"Early screening such as a multiple-choice test completed on the internet"},
+      {term:"Interview", def:"The most common method, using the same questions for each candidate"},
+      {term:"Background check", def:"Contacting referees to verify experience, performance or record"}
+    ]
+  },
+  { id:"ad", title:"Fix the job ad", mins:5, type:"ad", how:"Click to flag",
+    intro:"Priya's nephew wrote this ad in five minutes. Some phrases could breach equal employment opportunity laws. Click every phrase that is a problem, then check."
+  },
+  { id:"interview", title:"Run the interview", mins:4, type:"swipe", how:"Swipe the cards",
+    intro:"You're on the interview panel. Questions should relate to skills and experience, not personal matters. Swipe right (or press the right arrow) to keep a question. Swipe left to bin it.",
+    items:[
+      {q:"Tell me about a time you dealt with an unhappy customer.", a:1, why:"This tests experience that relates directly to the job."},
+      {q:"Are you planning to start a family soon?", a:0, why:"Parental status, pregnancy and family responsibilities are protected attributes."},
+      {q:"The roster includes Saturdays. Can you work those shifts?", a:1, why:"Availability for the actual hours of the job is fair to ask every applicant."},
+      {q:"How old are you?", a:0, why:"Age is a protected attribute."},
+      {q:"How would you diagnose a slipping gear?", a:1, why:"This checks technical knowledge for the job."},
+      {q:"Which church do you go to?", a:0, why:"Religious belief or activity is protected under the Equal Opportunity Act 2010 (Vic)."},
+      {q:"Have you ever been part of union action?", a:0, why:"Industrial activity is a protected attribute."},
+      {q:"Can we contact your previous manager as a referee?", a:1, why:"Referee checks are a normal part of selection."}
+    ]
+  },
+  { id:"memory", title:"Smoko break", mins:5, type:"memory", how:"Flip to match",
+    intro:"Quick brain break. Flip two cards at a time to match each key term with its meaning. Fewer flips is better.",
+    pairs:[
+      {term:"Nepotism", def:"A family member is favoured for a position"},
+      {term:"Award", def:"Legally binding minimum wages and conditions for a group of employees"},
+      {term:"Enterprise agreement", def:"Negotiated directly between an employer and its employees"},
+      {term:"Job security", def:"The belief that the employee will not lose their job"},
+      {term:"Salary sacrifice", def:"Giving up salary to receive a non-cash benefit of equal value"},
+      {term:"Affirmative action", def:"Positive steps to overcome a historical lack of equal opportunity"}
+    ]
+  },
+  { id:"contract", title:"Sign them up", mins:4, type:"bins", how:"Drag into bins",
+    intro:"Six new hires, four kinds of employment arrangement. Drag each person to the right one.",
+    options:["Full-time permanent","Part-time permanent","Casual","Fixed-term"],
+    items:[
+      {q:"Mei covers the manager's 12 months of parental leave, then her contract ends", a:3, why:"Employment for a specific period is a fixed-term contract."},
+      {q:"Jack works an ongoing 38 hours a week with 4 weeks' annual leave", a:0, why:"Ongoing work of about 38 hours with full entitlements is full-time permanent."},
+      {q:"Sam, a Year 12 student, is called in for busy Saturdays and paid by the hour", a:2, why:"Casual employees are employed on an hourly basis."},
+      {q:"Ali works an ongoing three days a week with leave at 60 per cent", a:1, why:"Part-time permanent staff get entitlements on a pro rata basis."},
+      {q:"Tom is hired for 6 months to run a trial e-bike hire service", a:3, why:"A set period of employment is fixed-term."},
+      {q:"Zara fills in when someone calls in sick and gets no paid annual leave", a:2, why:"Casual employees are not entitled to annual leave."}
+    ]
+  },
+  { id:"nes", title:"Know the rules", mins:5, type:"blanks", how:"Drag words into gaps",
+    intro:"Priya wants to write a staff fact sheet about legal minimums. Drag words from the bank into the gaps. Watch out, some words are decoys.",
+    lines:[
+      "Employers can't require staff to work more than {38} hours a week unless the extra hours are reasonable.",
+      "Most full-time employees get {four weeks} of paid annual leave, but {casual} employees get none.",
+      "Employees can take {12 months} of unpaid parental leave for the birth or adoption of a child.",
+      "Full-time employees generally get {ten days} of personal or carer's leave each year.",
+      "In Victoria, occupational health and safety is administered by {WorkSafe Victoria}.",
+      "Every employer must take out {workers compensation} insurance."
+    ],
+    decoys:["40","two weeks","6 months","Fair Work Commission","permanent","private health"]
+  },
+  { id:"clock", title:"Beat the clock", mins:3, type:"clock", how:"75 second quiz", seconds:75,
+    intro:"Priya's accountant has a few quick questions. Answer as many as you can before the timer runs out.",
+    items:[
+      {q:"Attracting qualified job applicants is called", c:["Selection","Recruitment","Induction","Retention"], a:1, why:"Recruitment attracts applicants. Selection chooses one."},
+      {q:"Productivity is calculated as", c:["Inputs / outputs","Outputs / inputs","Revenue minus costs","Staff / sales"], a:1, why:"Productivity = outputs / inputs."},
+      {q:"A third party who can suggest solutions is part of", c:["Mediation","Conciliation","Arbitration","Induction"], a:1, why:"A conciliator can suggest solutions. A mediator does not."},
+      {q:"Sending business activities overseas is", c:["Offshoring","Outsourcing staff","Downsizing","Nepotism"], a:0, why:"Offshoring sends certain business activities overseas."},
+      {q:"Extra pay for working outside normal hours is a", c:["Salary","Bonus","Penalty rate","Wage"], a:2, why:"Penalty rates are paid for work outside normal hours."},
+      {q:"A fixed yearly amount divided into pay periods is a", c:["Wage","Salary","Commission","Loading"], a:1, why:"A salary is a fixed yearly amount. A wage is an hourly or weekly rate."},
+      {q:"Money paid into a fund for retirement is", c:["Superannuation","Remuneration","Long service leave","Salary sacrifice"], a:0, why:"Superannuation provides benefits after retirement."},
+      {q:"Achieving the right amount of time for work and personal life is", c:["Job security","Job design","Work-life balance","Flexible rostering"], a:2, why:"That is the definition of work-life balance."},
+      {q:"The detail of the number, kind and variety of tasks in a job is", c:["Job analysis","Job design","Job specification","Job security"], a:1, why:"Job design details the tasks and can add variety to keep staff motivated."},
+      {q:"An official authorisation to enter and stay in a country is a", c:["Visa","Passport","Award","Permit to work"], a:0, why:"A visa authorises an overseas visitor to enter and remain for a period."}
+    ]
+  },
+  { id:"induct", title:"First day, fair workplace", mins:5, type:"bins", how:"Drag into bins",
+    intro:"The new mechanic starts Monday. Sort each action: is it part of induction, a socially responsible staffing practice, or a red flag Priya should avoid?",
+    options:["Induction","Socially responsible practice","Red flag"],
+    items:[
+      {q:"A workshop tour showing fire exits and the first aid kit", a:0, why:"Safety is a typical induction topic."},
+      {q:"Pairing the new starter with a mentor", a:0, why:"A mentor system is an induction method."},
+      {q:"An employee handbook with policies and the shop's history", a:0, why:"Induction handbooks are a common method."},
+      {q:"Giving honest feedback to unsuccessful applicants", a:1, why:"Socially responsible recruitment gives every applicant a fair hearing and honest feedback."},
+      {q:"Consulting staff before changing the roster system", a:1, why:"Consulting employees on important workplace issues is socially responsible and supports industrial democracy."},
+      {q:"Letting carers request different start and finish times", a:1, why:"Balancing work and family responsibilities is socially responsible."},
+      {q:"Hiring Priya's nephew without advertising the job", a:2, why:"This is nepotism and denies other applicants a fair go."},
+      {q:"Firing a worker by text message", a:2, why:"A socially responsible employer handles dismissal in a sensitive and supportive way."},
+      {q:"Ignoring a bullying complaint because the shop is busy", a:2, why:"Socially responsible employers discourage workplace bullying and harassment."}
+    ]
+  },
+  { id:"evaluate", title:"Both sides of the desk", mins:8, type:"evaluate", how:"Team discussion" }
 ];
 
-/* ============ ROUND 2: who do you call ============ */
-var PROS = ["Accountant","Solicitor","Bank manager","Business adviser","Insurance broker","IT specialist","Marketing consultant"];
+const AD = {
+  heading:"Bike mechanic wanted, Werribee",
+  parts:[
+    {t:"Loop & Spoke Cycles is looking for a "},
+    {t:"young, energetic", bad:true, why:"Suggests an age preference."},
+    {t:" mechanic to join our growing team. You will need "},
+    {t:"a Certificate III in Bicycle Mechanics", bad:false, why:"A relevant qualification is fine."},
+    {t:" and "},
+    {t:"a current driver licence", bad:false, why:"Needed for van deliveries, so it relates to the job."},
+    {t:". This role would suit "},
+    {t:"a bloke who is good with his hands", bad:true, why:"Excludes applicants on the basis of sex."},
+    {t:" and has "},
+    {t:"no kids or family commitments", bad:true, why:"Family responsibilities and parental status are protected attributes."},
+    {t:". Applicants must be "},
+    {t:"Australian born", bad:true, why:"Discriminates on race or national origin. You can require the legal right to work, but not a birthplace."},
+    {t:" and able to work "},
+    {t:"Saturday shifts", bad:false, why:"The actual hours of the job can be stated."},
+    {t:". We want someone who is "},
+    {t:"attractive and presents well", bad:true, why:"Physical features are a protected attribute. Neat presentation is fine, attractive is not."},
+    {t:". Please include "},
+    {t:"two work referees", bad:false, why:"Referees support background checks."},
+    {t:"."}
+  ]
+};
 
-var PRO_ITEMS = [
- {t:"Setting up a chart of accounts and a schedule for lodging the quarterly BAS.", a:0,
-  why:"Accountant. Tax compliance, GST reporting and the design of the record keeping system are core accounting work."},
- {t:"Drafting the written partnership agreement that sets out each sister's share of profit and what happens if one leaves.", a:1,
-  why:"Solicitor. A partnership agreement is a legal document, and getting it wrong is one of the most common causes of partnership disputes."},
- {t:"Comparing a five year secured loan for the van against a finance lease, and arranging the facility.", a:2,
-  why:"Bank manager. Structuring and approving finance, and matching the product to the asset, sits with the lender."},
- {t:"Working out the right level of public liability and product liability cover for trading at public markets.", a:4,
-  why:"Insurance broker. A broker assesses the specific risks of the business and compares policies and exclusions across insurers."},
- {t:"Choosing a point of sale system that keeps taking payments when mobile reception at a market drops out.", a:5,
-  why:"IT specialist. System selection, offline capability, data backup and security are technology decisions."},
- {t:"Testing whether the break-even figures in the business plan are realistic before the sisters commit their savings.", a:3,
-  why:"Business adviser. Advisers and consultants challenge the assumptions in a plan and bring experience of comparable businesses."},
- {t:"Registering a trade mark over the business name and logo so a competitor cannot copy it.", a:1,
-  why:"Solicitor. Intellectual property registration and enforcement is legal work. Registering a business name with ASIC does not give you ownership of it."},
- {t:"Arranging an overdraft facility so wages can still be paid in a slow fortnight.", a:2,
-  why:"Bank manager. Overdrafts and other short term facilities are negotiated with the bank."},
- {t:"Identifying which suburbs and events have the strongest demand, and shaping the launch campaign.", a:6,
-  why:"Marketing consultant. Market research, target market definition and promotion planning are marketing work."},
- {t:"Deciding whether operating as a partnership or a company would leave the sisters better off after tax.", a:0,
-  why:"Accountant. The tax consequences of a business structure are an accounting question, even though the paperwork to set it up may involve a solicitor."},
- {t:"Reading the exclusions in the van's proposed policy to check whether a fire caused by the deep fryer would be covered.", a:4,
-  why:"Insurance broker. Interpreting cover and exclusions before signing is exactly what a broker is engaged for."},
- {t:"Building a secure system for storing customer contact details collected through the online ordering form.", a:5,
-  why:"IT specialist. Data security and privacy compliance in the systems themselves is a technology responsibility."}
-];
+const EVALUATE = {
+  scenario:"Summer is coming. Priya plans to staff the Werribee shop with casual employees only, instead of hiring two permanent part-time staff.",
+  employer:[
+    "Flexibility to roster more staff in busy periods and fewer in quiet ones",
+    "Lower costs in quiet weeks, with no paid annual leave",
+    "Easy to end the arrangement when summer finishes",
+    "However, casuals may be less loyal and may leave, so training new staff repeatedly costs time and money"
+  ],
+  employee:[
+    "Flexible hours can suit students or people with other commitments",
+    "Casual loading means a higher hourly rate",
+    "However, there is little job security and income can change week to week",
+    "No paid annual leave or paid personal leave, which can hurt work-life balance"
+  ],
+  judgement:"A strong answer weighs both sides and makes a judgement. For example, casuals suit the summer peak, but a small core of permanent part-time staff would protect service quality, loyalty and staff wellbeing, which supports business objectives in the long run."
+};
 
-/* ============ ROUND 3: required or recommended ============ */
-var SORT_ITEMS = [
- {t:"Obtaining Food Act registration from the registering council before the first day of trade.", cat:"req",
-  why:"Legally required. Selling food without registration is an offence under the Food Act 1984."},
- {t:"Opening a separate bank account for the business rather than using a personal account.", cat:"rec",
-  why:"Strongly recommended rather than legally required for a partnership, but without it the records become unreliable and the BAS almost impossible to substantiate. A company must keep its funds separate."},
- {t:"Lodging a Statement of Trade with every council the van will operate in.", cat:"req",
-  why:"Legally required. Trading in a council area without a lodged Statement of Trade risks a fine."},
- {t:"Engaging a business mentor from a local business network.", cat:"rec",
-  why:"Strongly recommended. Valuable support, but no law requires it."},
- {t:"Registering for GST once projected annual turnover reaches $75,000.", cat:"req",
-  why:"Legally required. Miss the 21 day window and the ATO can backdate registration, leaving the business to pay GST out of revenue it has already received."},
- {t:"Taking out public liability insurance.", cat:"rec",
-  why:"Strictly speaking not required by law, so this belongs under recommended. In practice it is unavoidable, because councils and event organisers almost always make it a condition of the permit or contract."},
- {t:"Nominating a food safety supervisor for a class 2 premises.", cat:"req",
-  why:"Legally required for class 2 premises under the Food Act."},
- {t:"Buying cloud accounting software that links to the bank feed.", cat:"rec",
-  why:"Strongly recommended. The law requires records to be kept and retained, not any particular software."},
- {t:"Taking out WorkCover insurance once staff are employed.", cat:"req",
-  why:"Legally required in Victoria through WorkSafe once the business employs and pays workers."},
- {t:"Preparing a written business plan before approaching the bank.", cat:"rec",
-  why:"Strongly recommended, and usually demanded by a lender, but not a legal requirement."},
- {t:"Keeping business records and retaining them for the period the ATO requires.", cat:"req",
-  why:"Legally required. Record keeping obligations sit under tax law, and penalties apply for failing to meet them."},
- {t:"Running a trade mark search before printing the van's signage.", cat:"rec",
-  why:"Strongly recommended. Not compulsory, but far cheaper than rebranding after a letter of demand arrives."}
-];
+/* ===================================================================
+   State and helpers
+   =================================================================== */
+const S = {team:"", stage:-1, points:0, got:0, of:0, tally:{}};
+const app = document.getElementById("app");
+let tick = null, stageStart = 0;
 
-/* ============ ROUND 4: fund the van ============ */
-var COSTS = [
- {item:"Van purchase and food-grade fit-out", amt:"$58,000", life:"7 years"},
- {item:"Cooking equipment and refrigeration", amt:"$14,000", life:"5 years"},
- {item:"Opening stock and packaging", amt:"$4,000", life:"Weeks"},
- {item:"Registrations, permits and insurance", amt:"$6,000", life:"1 year"},
- {item:"Working capital buffer", amt:"$10,000", life:"Ongoing"}
-];
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+const $ = id => document.getElementById(id);
 
-var FIN_DECISIONS = [
- {q:"The sisters put in $30,000 of their own savings. How is that source of finance classified, and why does the distinction matter?",
-  o:["Debt finance, because the money has to be repaid",
-     "Equity finance, because it is the owners' own funds and carries no repayment obligation or interest",
-     "Debt finance, because the bank is involved",
-     "Neither, because personal savings are not a source of business finance"],
-  pts:[0,20,0,0], a:1,
-  why:"Equity is funding contributed by the owners. It carries no interest and no repayment schedule, but it puts the owners' own money at risk and, if outside investors are brought in, dilutes ownership."},
- {q:"They still need $58,000 for the van, an asset with a seven year working life. Which source suits that need best?",
-  o:["A bank overdraft",
-     "A credit card",
-     "A secured term loan or finance lease repaid over the van's useful life",
-     "Trade credit from the food supplier"],
-  pts:[0,0,20,5], a:2,
-  why:"Match the term of the finance to the life of the asset. A long-life asset is funded with long-term finance, and securing the loan against the van itself usually brings a lower interest rate."},
- {q:"Choose the TWO strongest reasons for matching the term of the finance to the life of the asset. Select two.",
-  multi:2,
-  o:["Repayments are spread across the years in which the asset actually earns revenue",
-     "Short-term facilities can be withdrawn or repriced, which would leave the business unable to fund an asset it still needs",
-     "Long-term finance is always cheaper in total interest than short-term finance",
-     "It removes the need to keep any financial records",
-     "It means no security has to be offered to the lender"],
-  correct:[0,1],
-  why:"Options C, D and E are false. Long-term finance usually costs more in total interest, records are required regardless, and a secured loan is precisely one where security is offered."},
- {q:"Winter trading is quiet. The sisters expect cash flow gaps of two to three weeks at a time, several times a year. Which source fits?",
-  o:["A second term loan",
-     "A bank overdraft facility drawn on only when needed",
-     "Selling a share of the business to an investor",
-     "Delaying the super payments until cash improves"],
-  pts:[0,20,5,0], a:1,
-  why:"Overdrafts are designed for short-term, fluctuating shortfalls, and you only pay interest on what you draw. Deferring super is not a financing option, it is a breach with a penalty attached."},
- {q:"An investor offers $40,000 for a 30 per cent share of the business. What is the main trade-off the sisters need to weigh?",
-  o:["There is no trade-off, equity finance is always better than debt",
-     "No repayments or interest, but they permanently give up 30 per cent of future profit and a say in decisions",
-     "They would have to repay the $40,000 with interest within twelve months",
-     "The investor becomes personally liable for all business debts"],
-  pts:[0,20,0,0], a:1,
-  why:"Equity costs no interest and improves cash flow, but ownership and control are given away permanently. Debt is repaid and then gone. That comparison is the answer a SAC is looking for."}
-];
-
-/* ============ ROUND 5: compliance crisis ============ */
-var CASES = [
- {title:"Notice 01",
-  text:"Ten days before launch the sisters accept a paid booking at a festival in Geelong. Their premises is registered with Wyndham City Council and nothing has been lodged with the City of Greater Geelong.",
-  steps:[
-   {q:"What is missing?",
-    o:["A second Food Act registration with Greater Geelong",
-       "A Statement of Trade lodged with the City of Greater Geelong",
-       "A new ABN for interstate trade",
-       "Nothing, one council registration covers the whole state"], a:1,
-    why:"Registration is held with one principal council under the statewide scheme. A Statement of Trade is what tells each other council where and when you will trade in their area."},
-   {q:"What is the consequence if they trade anyway?",
-    o:["Nothing, Statements of Trade are voluntary",
-       "They are trading unlawfully in that council's district and risk a fine",
-       "Their ABN is cancelled automatically",
-       "The ATO withholds their GST refund"], a:1,
-    why:"Trading without a lodged Statement of Trade in that district breaches the Food Act, and enforcement sits with the council."},
-   {q:"What should they do?",
-    o:["Lodge the Statement of Trade through FoodTrader before the event and check whether separate council approval is needed to occupy the public space",
-       "Ask the festival organiser to trade on their behalf",
-       "Trade under a friend's existing registration",
-       "Wait and lodge it after the festival"], a:0,
-    why:"Statements of Trade are free and lodged through FoodTrader. Note that food registration and permission to occupy a public place are two different approvals."}]},
- {title:"Notice 02",
-  text:"By month four the van is averaging $6,800 in monthly sales. Sambal Sisters is not registered for GST and is not charging it.",
-  steps:[
-   {q:"What triggers the obligation to register?",
-    o:["Employing a second staff member",
-       "Projected annual turnover reaching $75,000, which $6,800 a month clearly exceeds",
-       "Reaching $150,000 in sales",
-       "Nothing, food is GST free"], a:1,
-    why:"$6,800 a month annualises to about $81,600. Projected turnover, not just what has already been banked, is what counts."},
-   {q:"What is the likely consequence of leaving it?",
-    o:["The ATO can backdate the registration, so GST is owed on past sales the business never charged for",
-       "The business is simply fined $100",
-       "Nothing happens until an audit five years later",
-       "The council cancels their food registration"], a:0,
-    why:"Backdating means absorbing the GST out of revenue already received and spent, which is the reason this mistake hurts small businesses so much."},
-   {q:"What is the right response?",
-    o:["Wait until the end of the financial year and let the accountant sort it out",
-       "Register within 21 days, then work with the accountant to rebuild pricing so GST is collected properly",
-       "Keep turnover under $75,000 by turning away work",
-       "Register but keep charging the old prices"], a:1,
-    why:"Registration is required within 21 days of becoming aware. Pricing then has to be reset, because GST is a tax the business collects, not an expense it absorbs."}]},
- {title:"Notice 03",
-  text:"A customer trips on a power lead at a market and fractures a wrist. The sisters hold van and public liability cover only for the days they trade at the one market they started with. They now trade at four.",
-  steps:[
-   {q:"What is the underlying problem?",
-    o:["The cover does not extend to the trading they are actually doing",
-       "Public liability insurance is illegal for mobile businesses",
-       "The customer is at fault so insurance is irrelevant",
-       "The van registration has expired"], a:0,
-    why:"Cover is only as wide as the policy says. Expanding where and how you trade without updating the policy leaves a gap."},
-   {q:"Why does this matter more because the business is a partnership?",
-    o:["Partnerships pay a higher rate of tax on claims",
-       "A partnership has unlimited liability, so the sisters are personally exposed to the claim and the legal costs",
-       "Partnerships cannot be sued",
-       "The council covers claims for partnerships"], a:1,
-    why:"Unlimited liability means personal assets, including the family home, can be pursued. This is one of the strongest arguments for incorporating, and for adequate cover either way."},
-   {q:"What should they do now, and with whose help?",
-    o:["Nothing until the claim arrives",
-       "Ask the market organiser to pay",
-       "Have the insurance broker review and extend the cover to all trading sites and activities, and check the requirements in each event contract",
-       "Cancel the policy and rely on careful setup"], a:2,
-    why:"The broker's job is matching cover to the actual risk. Event contracts and council permits usually specify a minimum level of public liability cover, so those documents set the floor."}]},
- {title:"Notice 04",
-  text:"All takings, fuel, groceries and one sister's rent have gone through her personal bank account. Six months in, neither sister can say what the business actually earned.",
-  steps:[
-   {q:"What has gone wrong?",
-    o:["Business and personal transactions have not been separated, so the records are unreliable",
-       "The business has been trading without an ABN",
-       "The business owes payroll tax",
-       "Nothing, sole records are acceptable for partnerships"], a:0,
-    why:"Mixing funds is not itself a crime for a partnership, but it destroys the records that tax and reporting obligations depend on, and it makes profit share between the partners impossible to calculate fairly."},
-   {q:"What follows from that?",
-    o:["They cannot substantiate deductions or prepare an accurate BAS, and a profit dispute between the partners is likely",
-       "The ATO will simply estimate their profit for them at no cost",
-       "The bank will refuse to hold their account",
-       "Their food registration lapses"], a:0,
-    why:"Poor records create tax exposure and partnership conflict at the same time. Both are avoidable with a system set up on day one."},
-   {q:"What is the strongest fix?",
-    o:["Keep receipts in a shoebox and reconcile at tax time",
-       "Open a separate business account, use accounting software with a bank feed, and have the accountant set up the record keeping system and BAS cycle",
-       "Ask the bank manager to reconstruct the accounts",
-       "Switch to cash only trading"], a:1,
-    why:"Separation plus a system plus professional set-up. This is the financial control side of Area of Study 1, and it is where the accountant does the most valuable work."}]}
-];
-
-/* ============ ROUND 6 ============ */
-var ORDER_TASKS = [
- {prompt:"Explain the role of one external professional in helping a business meet its obligations when it is being established.",
-  hint:"Structure: define the professional's role, apply it to the business, explain what problem it solves, state the benefit, then link back.",
-  correct:[
-   "An accountant is an external professional who advises a business on taxation, financial record keeping and the interpretation of financial information.",
-   "For Sambal Sisters, the accountant would set up the record keeping system and the schedule for lodging the quarterly business activity statement.",
-   "Without this, the sisters risk missing the point at which turnover requires GST registration, which would leave them owing GST on sales they never charged for.",
-   "The accountant therefore reduces the risk of penalties and gives the sisters accurate figures on which to base pricing decisions.",
-   "This means the business can meet its legal obligations while the owners concentrate on operating the van."]},
- {prompt:"Explain the importance of one legal requirement that Sambal Sisters must meet before it begins trading.",
-  hint:"Same structure: define the requirement, apply it, explain the consequence of not meeting it, state the benefit, then link back.",
-  correct:[
-   "Under the Food Act 1984, every food premises in Victoria must be registered with its registering council before it sells any food.",
-   "Sambal Sisters must therefore complete registration for its mobile premises through the FoodTrader portal with Wyndham City Council.",
-   "If the sisters trade before that registration is granted they are committing an offence and can be fined or shut down on their opening day.",
-   "Meeting the requirement also forces the fit-out and food handling practices to be assessed against food safety standards before the public is served.",
-   "This protects both customers and the reputation the business will depend on in a small local market."]}
-];
-
-var RUBRIC = [
- "I named and accurately defined the role of each external professional.",
- "I applied each professional to Sambal Sisters specifically, not to businesses in general.",
- "I linked each professional to a particular legal or financial requirement.",
- "I explained a consequence the business avoids by using that professional.",
- "I used correct terminology (for example GST, BAS, public liability, unlimited liability).",
- "I wrote at least 200 words in full sentences and paragraphs."
-];
-
-var ROUNDS = [
- {id:"sprint", name:"Registrations", full:"Registration run",       sub:"Ten questions, twenty seconds each. Answer quickly for a speed bonus.", mins:7, max:140},
- {id:"pros",   name:"Professionals", full:"Who do you call?",       sub:"Twelve jobs. Send each one to the right external professional.", mins:8, max:120},
- {id:"sort",   name:"Required?",     full:"Required or recommended", sub:"Twelve items. Sort what the law demands from what is merely wise.", mins:6, max:96},
- {id:"fin",    name:"Finance",       full:"Fund the van",           sub:"Five funding decisions on a $92,000 start-up.", mins:9, max:100},
- {id:"cases",  name:"Notices",       full:"Compliance notices",     sub:"Four notices. Diagnose, state the consequence, choose the fix.", mins:12, max:180},
- {id:"write",  name:"Written",       full:"Build the response",     sub:"Reassemble two model paragraphs, then write your own analysis.", mins:12, max:120}
-];
-var TOTAL_MAX = ROUNDS.reduce(function(s,r){ return s+r.max; },0);
-
-var TIERS = [
- {min:0.85, name:"Cleared to trade",            note:"Registrations, professionals and finance are all under control. Take this into the SAC."},
- {min:0.70, name:"Approved with conditions",    note:"Solid grasp of the requirements. Tighten the link between each professional and the obligation they address."},
- {min:0.55, name:"Further information required",note:"The definitions are landing. Work on the difference between what the law demands and what is merely good practice."},
- {min:0.40, name:"Application deferred",        note:"Revise the registration list and the seven external professionals, then run sections one to three again."},
- {min:0,    name:"Application refused",         note:"Start with the registrations and who does what. Everything else in this area of study builds on those two."}
-];
-
-/* ====================== STATE ====================== */
-function freshState(){
- return {
-  stage:"intro", ri:0, elapsed:0, results:{}, board:[],
-  sp:{i:0,picked:null,left:20,pts:0,correct:0,streak:0,best:0,bonus:0},
-  pr:{i:0,picked:null,pts:0,correct:0},
-  so:{i:0,picked:null,pts:0,correct:0},
-  fi:{i:0,sel:[],locked:false,pts:0,earned:0},
-  ca:{e:0,s:0,picked:null,pts:0,correct:0},
-  wr:{phase:0,order:[],checked:false,pts:0,essay:"",rubric:[]},
-  res:{name:"",added:false,copied:false}
- };
+function drawShift(){
+  $("shift").innerHTML = STAGES.map((s,i)=>`<div class="${i<S.stage?'done':i===S.stage?'now':''}"></div>`).join("");
 }
-var S = freshState();
-var elapsedTimer = null, sprintTimer = null;
+function updateStats(){
+  $("points").textContent = S.points;
+  $("acc").textContent = S.of ? Math.round(100*S.got/S.of)+"%" : "0%";
+}
+function award(ok, id, pts=10){
+  const t = S.tally[id] = S.tally[id] || {got:0,of:0};
+  t.of++; S.of++;
+  if(ok){ t.got++; S.got++; S.points += pts; }
+  updateStats();
+}
+function startClock(mins){
+  clearInterval(tick);
+  stageStart = Date.now();
+  $("clockWrap").hidden = false;
+  $("clockTarget").textContent = "of " + mins + " min";
+  const run = () => {
+    const s = Math.floor((Date.now()-stageStart)/1000);
+    $("clock").textContent = Math.floor(s/60) + ":" + String(s%60).padStart(2,"0");
+    $("clockWrap").classList.toggle("over", s > mins*60);
+  };
+  run(); tick = setInterval(run, 1000);
+}
+function head(st){
+  return `<div class="step">Shift ${S.stage+1} of ${STAGES.length}</div>
+  <h2>${esc(st.title)} <span class="how">${esc(st.how)}</span></h2>
+  ${st.intro ? `<p>${esc(st.intro)}</p>` : ""}`;
+}
+function nextButton(label="Next shift"){
+  return `<div class="row"><button class="btn" id="next" hidden>${label}</button></div>`;
+}
+function showNext(){
+  const n = $("next"); n.hidden = false; n.focus();
+  n.onclick = () => { S.stage++; renderStage(); };
+}
 
-/* ====================== HELPERS ====================== */
-function esc(s){ return String(s).replace(/[&<>"']/g,function(c){
- return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
-function fmt(x){ return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0"); }
-function totalPoints(){ return ROUNDS.reduce(function(s,r){ return s+((S.results[r.id]&&S.results[r.id].points)||0); },0); }
-function shuffle(arr){
- var a=arr.slice();
- for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
- if (a.every(function(v,i){ return v===arr[i]; })){ var t2=a[0]; a[0]=a[1]; a[1]=t2; }
- return a;
-}
-function stamp(ok){ return '<span class="stamp '+(ok?"ok":"no")+'">'+(ok?"APPROVED":"REJECTED")+'</span>'; }
-function form(code,title,sub,body,foot){
- return '<div class="form"><div class="form-head"><span class="code">'+esc(code)+'</span><h2>'+title+'</h2>'+
-  (sub?'<p>'+sub+'</p>':'')+'</div><div class="form-body">'+body+'</div>'+
-  (foot?'<div class="form-foot">'+foot+'</div>':'')+'</div>';
-}
-function mcq(opts,picked,answer,act){
- return '<div class="opts">'+opts.map(function(o,i){
-  var cls="opt";
-  if (picked!==null && picked!==undefined){
-   if (i===answer) cls+=" right"; else if (i===picked) cls+=" wrong";
+/* ===================================================================
+   Drag board: works with mouse, touch and keyboard.
+   Drag a chip onto a zone, or click/Enter a chip then click/Enter a zone.
+   =================================================================== */
+function dragBoard(root, onChange){
+  const pool = root.querySelector(".pool");
+  let sel = null, drag = null;
+
+  const holderOf = z => z.querySelector(".hold") || z;
+  function place(chip, target){
+    if(!target) return;
+    const from = chip.parentElement;
+    if(target.classList.contains("zone")){
+      const holder = holderOf(target), cap = +target.dataset.cap || 99;
+      const others = [...holder.querySelectorAll(".chip")].filter(c=>c!==chip);
+      if(others.length >= cap) (from === holder ? pool : from).appendChild(others[0]);
+      holder.appendChild(chip);
+    } else {
+      pool.appendChild(chip);
+    }
+    clearSel(); onChange && onChange();
   }
-  return '<button class="'+cls+'" data-act="'+act+'" data-i="'+i+'"'+((picked!==null&&picked!==undefined)?" disabled":"")+'>'+
-   '<span class="key">'+KEYS[i]+'</span><span>'+esc(o)+'</span></button>';
- }).join("")+'</div>';
-}
-function nextBtn(act,label){ return '<div style="margin-top:18px"><button class="btn btn-go" data-act="'+act+'">'+label+'</button></div>'; }
-
-/* ====================== VIEWS ====================== */
-function viewIntro(){
- var rows = ROUNDS.map(function(r,i){
-  return '<tr><td><strong>'+(i+1)+'. '+esc(r.full)+'</strong></td><td style="color:var(--soft)">'+esc(r.sub)+
-   '</td><td class="num">'+r.mins+' min</td><td class="num">'+r.max+'</td></tr>';
- }).join("");
- var body =
-  '<div class="box"><strong>The brief.</strong> Two sisters are launching '+BUSINESS+
-  ', a mobile food van selling Malaysian and Indonesian street food from markets and events across Melbourne\'s west. '+
-  'They will trade as a partnership. They have $30,000 in savings and need $92,000 to open. '+
-  'You are the business adviser who has to get them cleared to trade.</div>'+
-  '<div class="meta" style="margin:18px 0 10px">Sections</div>'+
-  '<table class="tbl" style="margin-bottom:20px"><thead><tr><th>Section</th><th>What you do</th><th>Time</th><th>Points</th></tr></thead>'+
-  '<tbody>'+rows+'<tr><td colspan="2"><strong>Total</strong></td><td class="num"><strong>54 min</strong></td><td class="num"><strong>'+TOTAL_MAX+'</strong></td></tr></tbody></table>'+
-  '<div class="fb"><strong>Before you start. </strong>Section 1 is the only timed section, at twenty seconds a question. '+
-  'The rest run at your own pace, but the clock at the top keeps counting. Every lamp on the board above turns green as you clear a section. '+
-  'Read the feedback after each answer, that is where most of the revision happens. Nothing is saved when you close the page.</div>'+
-  nextBtn("start","Open the application");
- var teach =
-  '<details class="teach"><summary>Teacher notes</summary><ul>'+
-  '<li>Built for VCE Business Management Unit 2, Area of Study 1: legal requirements and financial considerations, including the role of external professionals.</li>'+
-  '<li>Covers registrations (ABN, business name, GST, Food Act, Statement of Trade, food safety supervisor, WorkCover), the seven external professionals, the required versus recommended distinction, debt and equity sources of finance, bank accounts and record keeping.</li>'+
-  '<li>Two details students will not find in older textbooks: Victoria\'s Streatrader portal is now called FoodTrader, and Payday Super started on 1 July 2026, so super is paid each payday at 12 per cent rather than quarterly.</li>'+
-  '<li>Section 3 contains two deliberate teaching traps. Public liability insurance is not strictly required by law even though councils and event organisers almost always demand it, and a separate business bank account is not a legal requirement for a partnership. Both are worth stopping on as a class.</li>'+
-  '<li>Sections 1 to 5 are fully auto-marked. Section 6 auto-marks the sentence ordering and displays the written response on the results screen for you to mark properly.</li>'+
-  '<li>The section bars on the results screen show you where the class is weak. A low section 2 means students know the professionals exist but cannot match them to a task. A low section 4 usually means debt and equity are being confused.</li>'+
-  '<li>Nothing is stored. Students should copy their result and their written response before closing the tab.</li>'+
-  '</ul></details>';
- return form("Application to trade / pre-lodgement", "Sambal Sisters: Clear the Board",
-  "Six sections. Nothing opens until every lamp is green.", body) + teach;
-}
-
-function viewSprint(){
- var st=S.sp, q=SPRINT[st.i];
- var body = '<p class="q">'+esc(q.q)+'</p>'+mcq(q.o, st.picked, q.a, "sp-ans");
- if (st.picked!==null){
-  var ok = st.picked===q.a;
-  body += '<div style="margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">'+stamp(ok)+
-   (ok?'<span class="meta">+10 base'+(st.bonus>0?' and +'+st.bonus+' speed bonus':'')+'</span>':'')+
-   (st.picked===-1?'<span class="meta">Time expired</span>':'')+'</div>'+
-   '<div class="fb"><strong>Why: </strong>'+esc(q.why)+'</div>'+
-   nextBtn("sp-next", st.i+1>=SPRINT.length?"Clear this section":"Next question");
- }
- var foot = '<span>SCORE '+st.pts+'</span><span>STREAK '+st.streak+'</span>'+
-  '<span id="spclock" style="margin-left:auto;font-weight:600'+((st.left<=5&&st.picked===null)?';color:var(--red)':'')+'">'+
-  (st.picked===null?st.left+'s':'PAUSED')+'</span>';
- return form("Section 1 / question "+(st.i+1)+" of "+SPRINT.length, "Registration run",
-  "What must be registered, with whom, and when. Twenty seconds each.", body, foot);
-}
-
-function viewPros(){
- var st=S.pr, it=PRO_ITEMS[st.i];
- var chips = PROS.map(function(p,i){
-  var cls="chip";
-  if (st.picked!==null){ if(i===it.a) cls+=" right"; else if(i===st.picked) cls+=" wrong"; }
-  return '<button class="'+cls+'" data-act="pr-chip" data-i="'+i+'"'+(st.picked!==null?" disabled":"")+'>'+esc(p)+'</button>';
- }).join("");
- var body = '<div class="item">'+esc(it.t)+'</div><div class="chips">'+chips+'</div>';
- if (st.picked!==null){
-  body += '<div style="margin-top:18px">'+stamp(st.picked===it.a)+'</div>'+
-   '<div class="fb"><strong>'+esc(PROS[it.a])+'. </strong>'+esc(it.why)+'</div>'+
-   nextBtn("pr-next", st.i+1>=PRO_ITEMS.length?"Clear this section":"Next job");
- }
- return form("Section 2 / job "+(st.i+1)+" of "+PRO_ITEMS.length, "Who do you call?",
-  "Ten points a job. Choose the professional whose expertise fits best, not just one who could help.", body,
-  '<span>SCORE '+st.pts+'</span><span>MATCHED '+st.correct+'</span>');
-}
-
-function viewSort(){
- var st=S.so, it=SORT_ITEMS[st.i], dis = st.picked?" disabled":"";
- var body = '<div class="item">'+esc(it.t)+'</div><div class="bins">'+
-  '<button class="bin" data-act="so-bin" data-v="req"'+dis+'>LEGALLY REQUIRED<span>A law, regulation or registration compels it</span></button>'+
-  '<button class="bin" data-act="so-bin" data-v="rec"'+dis+'>STRONGLY RECOMMENDED<span>Good practice, but no law demands it</span></button></div>';
- if (st.picked){
-  body += '<div style="margin-top:18px">'+stamp(st.picked===it.cat)+'</div>'+
-   '<div class="fb"><strong>'+(it.cat==="req"?"Legally required. ":"Strongly recommended. ")+'</strong>'+esc(it.why)+'</div>'+
-   nextBtn("so-next", st.i+1>=SORT_ITEMS.length?"Clear this section":"Next item");
- }
- return form("Section 3 / item "+(st.i+1)+" of "+SORT_ITEMS.length, "Required or recommended",
-  "Students lose marks by calling everything a legal requirement. Eight points an item.", body,
-  '<span>SCORE '+st.pts+'</span><span>CORRECT '+st.correct+'</span>');
-}
-
-function viewFin(){
- var st=S.fi, d=FIN_DECISIONS[st.i], multi=!!d.multi;
- var body="";
- if (st.i===0){
-  body += '<div class="meta" style="margin-bottom:8px">Start-up costing</div>'+
-   '<table class="tbl" style="margin-bottom:20px"><thead><tr><th>Item</th><th>Amount</th><th>Working life</th></tr></thead><tbody>'+
-   COSTS.map(function(c){ return '<tr><td>'+esc(c.item)+'</td><td class="num">'+esc(c.amt)+'</td><td class="num">'+esc(c.life)+'</td></tr>'; }).join("")+
-   '<tr><td><strong>Total required</strong></td><td class="num"><strong>$92,000</strong></td><td class="num">Owners hold $30,000</td></tr>'+
-   '</tbody></table>';
- }
- body += '<p class="q">'+esc(d.q)+'</p>';
- body += '<div class="opts">'+d.o.map(function(o,i){
-  var cls="opt";
-  if (!st.locked && st.sel.indexOf(i)>-1) cls+=" sel";
-  if (st.locked){
-   var good = multi ? d.correct.indexOf(i)>-1 : i===d.a;
-   if (good) cls+=" right"; else if (st.sel.indexOf(i)>-1) cls+=" wrong";
+  function clearSel(){ if(sel) sel.classList.remove("sel"); sel = null; }
+  function toggleSel(chip){
+    if(sel === chip){ clearSel(); return; }
+    clearSel(); sel = chip; chip.classList.add("sel");
   }
-  return '<button class="'+cls+'" data-act="fi-opt" data-i="'+i+'"'+(st.locked?" disabled":"")+'>'+
-   '<span class="key">'+KEYS[i]+'</span><span>'+esc(o)+'</span></button>';
- }).join("")+'</div>';
- if (multi && !st.locked){
-  body += '<div style="margin-top:16px"><button class="btn btn-go" data-act="fi-lock"'+
-   (st.sel.length!==d.multi?" disabled":"")+'>Lock in '+st.sel.length+' of '+d.multi+'</button></div>';
- }
- if (st.locked){
-  var best = multi ? 20 : Math.max.apply(null,d.pts);
-  body += '<div style="margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">'+stamp(st.earned>=best)+
-   '<span class="meta">+'+st.earned+' points</span></div>'+
-   '<div class="fb"><strong>Adviser\'s note: </strong>'+esc(d.why)+'</div>'+
-   nextBtn("fi-next", st.i+1>=FIN_DECISIONS.length?"Clear this section":"Next decision");
- }
- return form("Section 4 / decision "+(st.i+1)+" of "+FIN_DECISIONS.length, "Fund the van",
-  "Match each source of finance to the need it actually suits. Twenty points a decision.", body,
-  '<span>SCORE '+st.pts+'</span>');
-}
+  const locked = () => root.dataset.locked === "1";
 
-function viewCases(){
- var st=S.ca, c=CASES[st.e], step=c.steps[st.s];
- var labels=["Diagnose it","State the consequence","Choose the fix"];
- var body = '<div class="item"><div class="meta" style="margin-bottom:6px">'+esc(c.title)+'</div>'+esc(c.text)+'</div>'+
-  '<div class="meta" style="margin-bottom:8px">Step '+(st.s+1)+': '+labels[st.s]+'</div>'+
-  '<p class="q">'+esc(step.q)+'</p>'+mcq(step.o, st.picked, step.a, "ca-opt");
- if (st.picked!==null){
-  var last = (st.e+1===CASES.length && st.s+1===c.steps.length);
-  body += '<div style="margin-top:18px">'+stamp(st.picked===step.a)+'</div>'+
-   '<div class="fb"><strong>Why: </strong>'+esc(step.why)+'</div>'+
-   nextBtn("ca-next", last?"Clear this section":"Next step");
- }
- return form("Section 5 / notice "+(st.e+1)+" of "+CASES.length+" / step "+(st.s+1)+" of 3","Compliance notices",
-  "Each notice runs the same three steps. That is the shape a case study answer needs.", body,
-  '<span>SCORE '+st.pts+'</span><span>STEPS CLEARED '+st.correct+'</span>');
-}
-
-function viewWrite(){
- var st=S.wr;
- if (st.phase<2){
-  var task=ORDER_TASKS[st.phase];
-  var rows = st.order.map(function(line,i){
-   var cls="ord";
-   if (st.checked) cls += (line===task.correct[i]) ? " right" : " wrong";
-   var d = st.checked ? " disabled" : "";
-   return '<div class="'+cls+'"><span class="ordn">'+(i+1)+'</span><div class="ordb">'+
-    '<button data-act="wr-move" data-i="'+i+'" data-d="-1" aria-label="Move up"'+(d||i===0?" disabled":"")+'>&#9650;</button>'+
-    '<button data-act="wr-move" data-i="'+i+'" data-d="1" aria-label="Move down"'+(d||i===st.order.length-1?" disabled":"")+'>&#9660;</button>'+
-    '</div><span>'+esc(line)+'</span></div>';
-  }).join("");
-  var body = '<div class="item" style="font-size:15px">'+esc(task.prompt)+'</div>'+
-   '<div class="meta" style="margin-bottom:10px">Reorder the sentences. Six points per sentence in the right place.</div>'+rows;
-  if (!st.checked){
-   body += '<div style="margin-top:16px"><button class="btn btn-go" data-act="wr-check">Mark this paragraph</button></div>';
-  } else {
-   var hits = st.order.filter(function(l,i){ return l===task.correct[i]; }).length;
-   body += '<div style="margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">'+stamp(hits===task.correct.length)+
-    '<span class="meta">'+hits+' of '+task.correct.length+' in position, +'+(hits*6)+' points</span></div>'+
-    '<div class="fb"><strong>Model order: </strong>define, apply to '+BUSINESS+
-    ', explain the consequence of getting it wrong, state the benefit, then link back. Use that spine in the SAC.</div>'+
-    nextBtn("wr-next", st.phase===0?"Next paragraph":"Go to the written task");
+  root.addEventListener("pointerdown", e => {
+    const chip = e.target.closest(".chip");
+    if(!chip || locked() || e.button > 0) return;
+    drag = {chip, x:e.clientX, y:e.clientY, id:e.pointerId, moving:false};
+    try{ chip.setPointerCapture(e.pointerId); }catch(_){}
+  });
+  root.addEventListener("pointermove", e => {
+    if(!drag || e.pointerId !== drag.id) return;
+    if(!drag.moving && Math.hypot(e.clientX-drag.x, e.clientY-drag.y) > 6){
+      drag.moving = true;
+      const r = drag.chip.getBoundingClientRect();
+      drag.ox = e.clientX - r.left; drag.oy = e.clientY - r.top;
+      const g = drag.chip.cloneNode(true);
+      g.classList.add("ghost"); g.classList.remove("sel"); g.style.width = r.width + "px";
+      document.body.appendChild(g); drag.ghost = g;
+      drag.chip.classList.add("dragging");
+    }
+    if(drag.moving){
+      drag.ghost.style.left = (e.clientX - drag.ox) + "px";
+      drag.ghost.style.top = (e.clientY - drag.oy) + "px";
+      root.querySelectorAll(".zone.hover").forEach(z=>z.classList.remove("hover"));
+      const over = document.elementFromPoint(e.clientX, e.clientY);
+      const z = over && over.closest(".zone");
+      if(z && root.contains(z)) z.classList.add("hover");
+    }
+  });
+  function endDrag(e, cancelled){
+    if(!drag) return;
+    const d = drag; drag = null;
+    root.querySelectorAll(".zone.hover").forEach(z=>z.classList.remove("hover"));
+    if(d.moving){
+      d.ghost.remove(); d.chip.classList.remove("dragging");
+      if(!cancelled){
+        const over = document.elementFromPoint(e.clientX, e.clientY);
+        const t = over && over.closest(".zone, .pool");
+        if(t && root.contains(t)) place(d.chip, t);
+      }
+    } else if(!cancelled){
+      toggleSel(d.chip);
+    }
   }
-  return form("Section 6 / paragraph "+(st.phase+1)+" of 2","Build the response", esc(task.hint), body,
-   '<span>SCORE '+st.pts+'</span>');
- }
- var words = st.essay.trim() ? st.essay.trim().split(/\s+/).length : 0;
- var checks = RUBRIC.map(function(r,i){
-  var on = st.rubric.indexOf(i)>-1;
-  return '<button class="chk'+(on?" on":"")+'" data-act="wr-rubric" data-i="'+i+'">'+
-   '<span class="sq">'+(on?"&#10003;":"")+'</span><span>'+esc(r)+'</span></button>';
- }).join("");
- var body2 = '<div class="item" style="font-size:15px">Analyse the role of <strong>two</strong> external professionals in helping '+
-  BUSINESS+' meet its legal and financial requirements when establishing the business. Refer to specific requirements throughout.</div>'+
-  '<textarea class="ta" id="essay" placeholder="Start by defining the first professional, then apply them to Sambal Sisters...">'+esc(st.essay)+'</textarea>'+
-  '<div class="meta" style="margin:18px 0 10px">Self-check. Ten points for each statement you can honestly tick. Your teacher can see this response.</div>'+
-  checks+
-  '<div style="margin-top:18px"><button class="btn btn-go" id="submitBtn" data-act="wr-finish"'+(words<40?" disabled":"")+'>'+
-  (words<40?"Write at least 40 words to submit":"Submit and see the decision")+'</button></div>';
- return form("Section 6 / written task","Your analysis",
-  "Ten minutes. Two professionals. Write it as you would under SAC conditions.", body2,
-  '<span>WORDS <b id="wordcount">'+words+'</b></span>');
+  root.addEventListener("pointerup", e => endDrag(e, false));
+  root.addEventListener("pointercancel", e => endDrag(e, true));
+
+  // Keyboard and tap-to-place
+  root.addEventListener("click", e => {
+    if(locked()) return;
+    const chip = e.target.closest(".chip");
+    if(chip){ if(e.detail === 0) toggleSel(chip); return; }
+    const t = e.target.closest(".zone, .pool");
+    if(t && sel) place(sel, t);
+  });
+  root.addEventListener("keydown", e => {
+    if(locked()) return;
+    const z = e.target.closest(".zone, .pool");
+    if(z && e.target === z && sel && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); place(sel, z); }
+  });
+}
+const chipHTML = (text, ans, why="") => `<button class="chip" data-ans="${esc(ans)}" data-why="${esc(why)}">${esc(text)}</button>`;
+const zoneAttrs = (zoneKey, cap) => `class="zone" data-zone="${esc(zoneKey)}" data-cap="${cap}" tabindex="0" role="button"`;
+
+/* Generic check for chip-based stages */
+function wireCheck(st, board, mode){
+  const btn = $("check");
+  const ready = () => mode === "zones"
+    ? [...board.querySelectorAll(".zone")].every(z=>z.querySelector(".chip"))
+    : !board.querySelector(".pool .chip");
+  const refresh = () => btn.disabled = !ready();
+  dragBoard(board, refresh); refresh();
+
+  btn.onclick = () => {
+    board.dataset.locked = "1"; btn.disabled = true;
+    const misses = [];
+    if(mode === "zones"){
+      board.querySelectorAll(".zone").forEach(z=>{
+        const chip = z.querySelector(".chip");
+        const ok = chip.dataset.ans === z.dataset.zone;
+        chip.classList.add(ok ? "ok" : "no");
+        award(ok, st.id);
+        if(!ok) misses.push(`<li>The gap needed <b>${esc(z.dataset.zone)}</b>, not ${esc(chip.textContent)}.</li>`);
+      });
+    } else {
+      board.querySelectorAll(".chip").forEach(chip=>{
+        const z = chip.closest(".zone");
+        const ok = z && z.dataset.zone === chip.dataset.ans;
+        chip.classList.add(ok ? "ok" : "no");
+        award(ok, st.id);
+        if(!ok) misses.push(`<li><b>${esc(chip.textContent)}</b>: ${esc(chip.dataset.why)}</li>`);
+      });
+    }
+    const t = S.tally[st.id];
+    $("fb").innerHTML = `<strong>${t.got} of ${t.of} correct.</strong> ${
+      misses.length ? "Green is right, red needs fixing. Here's why:<ul>"+misses.join("")+"</ul>" : "Perfect shift."}
+      ${st.note ? `<p style="margin-bottom:0">${esc(st.note)}</p>` : ""}`;
+    $("fb").classList.add("show");
+    showNext();
+  };
 }
 
-function viewResults(){
- var total=totalPoints(), ratio=total/TOTAL_MAX;
- var tier = TIERS.find(function(t){ return ratio>=t.min; });
- var w = S.results.write || {};
- var tags=[];
- if ((S.results.sprint||{}).best>=5) tags.push("Five in a row");
- if (S.results.pros && S.results.pros.correct===S.results.pros.of) tags.push("Every professional matched");
- if (S.results.sort && S.results.sort.correct===S.results.sort.of) tags.push("Knew the traps");
- if (S.results.cases && S.results.cases.correct>=10) tags.push("All notices answered");
- if (w.words>=250) tags.push("Full response written");
- if (S.elapsed<=45*60 && ratio>=0.7) tags.push("Lodged early");
-
- var body = '<div class="seal"><div class="k">Determination</div><h3>'+esc(tier.name)+'</h3><p>'+esc(tier.note)+'</p></div>'+
-  '<div class="grid" style="margin-bottom:20px">'+
-   '<div class="stat"><div class="k">Total score</div><div class="v">'+total+' <span style="font-size:15px;color:var(--soft)">/ '+TOTAL_MAX+'</span></div></div>'+
-   '<div class="stat"><div class="k">Percentage</div><div class="v">'+Math.round(ratio*100)+'%</div></div>'+
-   '<div class="stat"><div class="k">Time on task</div><div class="v mono">'+fmt(S.elapsed)+'</div></div>'+
-  '</div>'+
-  '<div class="meta" style="margin-bottom:10px">Section by section</div>'+
-  ROUNDS.map(function(r){
-   var p=(S.results[r.id]&&S.results[r.id].points)||0;
-   return '<div style="margin-bottom:12px"><div class="rowb"><span>'+esc(r.full)+'</span><span class="mono">'+p+' / '+r.max+'</span></div>'+
-    '<div class="bar"><i style="width:'+Math.min(100,(p/r.max)*100)+'%"></i></div></div>';
-  }).join("");
- if (tags.length){
-  body += '<div class="meta" style="margin:20px 0 10px">Endorsements</div><div>'+
-   tags.map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join("")+'</div>';
- }
- if (w.essay){
-  body += '<div class="meta" style="margin:20px 0 8px">Your written response ('+w.words+' words, '+w.rubric+' of '+RUBRIC.length+' self-checks)</div>'+
-   '<div class="box" style="white-space:pre-wrap;font-size:14px;line-height:1.6">'+esc(w.essay)+'</div>'+
-   '<p class="note">Copy this into your workbook before you close the page. Nothing here is saved.</p>';
- }
- body += '<div class="meta" style="margin:24px 0 10px">Class board</div>'+
-  '<p class="note" style="margin-top:0">This board lives on this device for this session only. Refreshing clears it.</p>'+
-  '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">'+
-   '<input class="inp" id="nameinp" placeholder="Your name" value="'+esc(S.res.name)+'" style="flex:1;min-width:180px">'+
-   '<button class="btn btn-lite" data-act="res-add"'+(S.res.added?" disabled":"")+'>'+(S.res.added?"Added":"Add my score")+'</button></div>';
- if (S.board.length){
-  body += '<table class="tbl"><thead><tr><th>#</th><th>Name</th><th>Score</th><th>%</th><th>Time</th></tr></thead><tbody>'+
-   S.board.slice().sort(function(a,b){ return b.total-a.total; }).map(function(b,i){
-    return '<tr><td class="num">'+(i+1)+'</td><td>'+esc(b.name)+'</td><td class="num">'+b.total+
-     '</td><td class="num">'+b.pct+'%</td><td class="num">'+fmt(b.time)+'</td></tr>';
-   }).join("")+'</tbody></table>';
- }
- body += '<div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">'+
-  '<button class="btn btn-go" data-act="res-copy">'+(S.res.copied?"Copied":"Copy my result")+'</button>'+
-  '<button class="btn btn-ghost" data-act="res-restart">Run it again</button></div>';
-
- return form("Determination / all sections closed","Application determined", "", body);
+/* ===================================================================
+   Stage renderers
+   =================================================================== */
+function renderStage(){
+  drawShift();
+  const st = STAGES[S.stage];
+  if(!st) return finish();
+  startClock(st.mins);
+  ({order:renderOrder, bins:renderBins, match:renderMatch, ad:renderAd, swipe:renderSwipe,
+    memory:renderMemory, blanks:renderBlanks, clock:renderClock, evaluate:renderEvaluate})[st.type](st);
+  window.scrollTo({top:0});
 }
 
-/* ====================== RENDER ====================== */
-function renderBoard(){
- var el=document.getElementById("board");
- if (S.stage==="intro"){ el.innerHTML=""; return; }
- el.innerHTML = '<div class="board"><div class="board-in">'+ROUNDS.map(function(r,i){
-  var c = (i<S.ri || S.stage==="done") ? "ok" : (i===S.ri && S.stage==="run" ? "now" : "");
-  return '<div class="lamp '+c+'"><span class="dot"></span><span class="nm">'+esc(r.name)+'</span></div>';
- }).join("")+'</div></div>';
-}
-function renderFields(){
- document.getElementById("gScore").textContent = totalPoints();
- document.getElementById("gRound").textContent = S.stage==="run" ? (S.ri+1)+"/6" : (S.stage==="done" ? "6/6" : "-");
- document.getElementById("gTime").textContent = fmt(S.elapsed);
-}
-function render(){
- var html;
- if (S.stage==="intro") html=viewIntro();
- else if (S.stage==="done") html=viewResults();
- else {
-  var id=ROUNDS[S.ri].id;
-  html = id==="sprint"?viewSprint() : id==="pros"?viewPros() : id==="sort"?viewSort()
-       : id==="fin"?viewFin() : id==="cases"?viewCases() : viewWrite();
- }
- document.getElementById("app").innerHTML = html;
- renderBoard(); renderFields(); bindEssay();
-}
-function bindEssay(){
- var ta=document.getElementById("essay");
- if (!ta) return;
- ta.addEventListener("input", function(){
-  S.wr.essay = ta.value;
-  var n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
-  var wc=document.getElementById("wordcount"); if (wc) wc.textContent=n;
-  var b=document.getElementById("submitBtn");
-  if (b){ b.disabled = n<40; b.textContent = n<40 ? "Write at least 40 words to submit" : "Submit and see the decision"; }
- });
+function renderOrder(st){
+  const chips = shuffle(st.items.map((t,i)=>chipHTML(t, String(i), "This stage is number "+(i+1)+" in the cycle.")));
+  app.innerHTML = `${head(st)}
+  <div class="task" id="board">
+    <div class="pool" tabindex="0" role="button" aria-label="Card pool">${chips.join("")}</div>
+    ${st.items.map((_,i)=>`<div class="slotrow"><div class="slotnum">${i+1}</div><div ${zoneAttrs(String(i),1).replace('class="zone"','class="zone slot"')}><div class="hold"></div></div></div>`).join("")}
+    <div class="row"><button class="btn hivis" id="check">Check the order</button></div>
+    <div class="feedback" id="fb" aria-live="polite"></div>${nextButton()}
+  </div>`;
+  wireCheck(st, $("board"), "chips");
 }
 
-/* ====================== TIMERS ====================== */
-function startElapsed(){
- if (elapsedTimer) return;
- elapsedTimer = setInterval(function(){
-  S.elapsed++;
-  var el=document.getElementById("gTime"); if (el) el.textContent=fmt(S.elapsed);
- },1000);
-}
-function stopElapsed(){ clearInterval(elapsedTimer); elapsedTimer=null; }
-function startSprintClock(){
- stopSprintClock();
- sprintTimer = setInterval(function(){
-  if (S.sp.picked!==null){ stopSprintClock(); return; }
-  S.sp.left--;
-  if (S.sp.left<=0){ stopSprintClock(); S.sp.picked=-1; S.sp.streak=0; S.sp.bonus=0; render(); return; }
-  var el=document.getElementById("spclock");
-  if (el){ el.textContent=S.sp.left+"s"; if (S.sp.left<=5) el.style.color="var(--red)"; }
- },1000);
-}
-function stopSprintClock(){ clearInterval(sprintTimer); sprintTimer=null; }
-
-function finishRound(id,payload){
- S.results[id]=payload;
- if (S.ri+1>=ROUNDS.length){ S.stage="done"; stopElapsed(); } else { S.ri++; }
- render();
- if (S.stage==="run" && ROUNDS[S.ri].id==="sprint") startSprintClock();
+function renderBins(st){
+  const chips = shuffle(st.items.map(it=>chipHTML(it.q, String(it.a), it.why)));
+  app.innerHTML = `${head(st)}
+  <div class="task" id="board">
+    <div class="pool" tabindex="0" role="button" aria-label="Card pool">${chips.join("")}</div>
+    <div class="zones">${st.options.map((o,i)=>`<div ${zoneAttrs(String(i),99)}><div class="label">${esc(o)}</div><div class="hold"></div></div>`).join("")}</div>
+    <div class="row"><button class="btn hivis" id="check">Check answers</button></div>
+    <div class="feedback" id="fb" aria-live="polite"></div>${nextButton()}
+  </div>`;
+  wireCheck(st, $("board"), "chips");
 }
 
-/* ====================== EVENTS ====================== */
-document.getElementById("app").addEventListener("click", function(e){
- var btn = e.target.closest("[data-act]");
- if (!btn || btn.disabled) return;
- var act = btn.getAttribute("data-act");
- var i = parseInt(btn.getAttribute("data-i"),10);
-
- if (act==="start"){ S.stage="run"; startElapsed(); render(); startSprintClock(); return; }
-
- if (act==="sp-ans"){
-  var a=S.sp, q=SPRINT[a.i];
-  if (a.picked!==null) return;
-  stopSprintClock();
-  var ok = i===q.a;
-  a.bonus = ok ? Math.min(4, Math.ceil(a.left/5)) : 0;
-  if (ok){ a.pts += 10+a.bonus; a.correct++; a.streak++; a.best=Math.max(a.best,a.streak); } else a.streak=0;
-  a.picked=i; render(); return;
- }
- if (act==="sp-next"){
-  var b=S.sp;
-  if (b.i+1>=SPRINT.length){ finishRound("sprint",{points:b.pts,correct:b.correct,of:SPRINT.length,best:b.best}); return; }
-  b.i++; b.picked=null; b.left=20; b.bonus=0; render(); startSprintClock(); return;
- }
-
- if (act==="pr-chip"){
-  var p=S.pr, it=PRO_ITEMS[p.i];
-  if (p.picked!==null) return;
-  if (i===it.a){ p.pts+=10; p.correct++; }
-  p.picked=i; render(); return;
- }
- if (act==="pr-next"){
-  var p2=S.pr;
-  if (p2.i+1>=PRO_ITEMS.length){ finishRound("pros",{points:p2.pts,correct:p2.correct,of:PRO_ITEMS.length}); return; }
-  p2.i++; p2.picked=null; render(); return;
- }
-
- if (act==="so-bin"){
-  var s=S.so, si=SORT_ITEMS[s.i];
-  if (s.picked) return;
-  var v=btn.getAttribute("data-v");
-  if (v===si.cat){ s.pts+=8; s.correct++; }
-  s.picked=v; render(); return;
- }
- if (act==="so-next"){
-  var s2=S.so;
-  if (s2.i+1>=SORT_ITEMS.length){ finishRound("sort",{points:s2.pts,correct:s2.correct,of:SORT_ITEMS.length}); return; }
-  s2.i++; s2.picked=null; render(); return;
- }
-
- if (act==="fi-opt"){
-  var f=S.fi, d=FIN_DECISIONS[f.i];
-  if (f.locked) return;
-  if (!d.multi){ f.earned=d.pts[i]; f.pts+=f.earned; f.sel=[i]; f.locked=true; render(); return; }
-  var k=f.sel.indexOf(i);
-  if (k>-1) f.sel.splice(k,1); else if (f.sel.length<d.multi) f.sel.push(i);
-  render(); return;
- }
- if (act==="fi-lock"){
-  var f2=S.fi, d2=FIN_DECISIONS[f2.i];
-  var hits=f2.sel.filter(function(x){ return d2.correct.indexOf(x)>-1; }).length;
-  f2.earned = hits===2?20:(hits===1?10:0);
-  f2.pts+=f2.earned; f2.locked=true; render(); return;
- }
- if (act==="fi-next"){
-  var f3=S.fi;
-  if (f3.i+1>=FIN_DECISIONS.length){ finishRound("fin",{points:f3.pts,of:FIN_DECISIONS.length}); return; }
-  f3.i++; f3.sel=[]; f3.locked=false; f3.earned=0; render(); return;
- }
-
- if (act==="ca-opt"){
-  var c=S.ca, step=CASES[c.e].steps[c.s];
-  if (c.picked!==null) return;
-  if (i===step.a){ c.pts+=15; c.correct++; }
-  c.picked=i; render(); return;
- }
- if (act==="ca-next"){
-  var c2=S.ca, cs=CASES[c2.e];
-  if (c2.s+1<cs.steps.length){ c2.s++; c2.picked=null; render(); return; }
-  if (c2.e+1<CASES.length){ c2.e++; c2.s=0; c2.picked=null; render(); return; }
-  finishRound("cases",{points:c2.pts,correct:c2.correct,of:CASES.length*3}); return;
- }
-
- if (act==="wr-move"){
-  var w=S.wr;
-  if (w.checked) return;
-  var dir=parseInt(btn.getAttribute("data-d"),10), j=i+dir;
-  if (j<0||j>=w.order.length) return;
-  var t=w.order[i]; w.order[i]=w.order[j]; w.order[j]=t;
-  render(); return;
- }
- if (act==="wr-check"){
-  var w2=S.wr, task=ORDER_TASKS[w2.phase];
-  var hits2=w2.order.filter(function(l,idx){ return l===task.correct[idx]; }).length;
-  w2.pts += hits2*6; w2.checked=true; render(); return;
- }
- if (act==="wr-next"){
-  var w3=S.wr;
-  if (w3.phase===0){ w3.phase=1; w3.order=shuffle(ORDER_TASKS[1].correct); w3.checked=false; }
-  else w3.phase=2;
-  render(); return;
- }
- if (act==="wr-rubric"){
-  var w4=S.wr, ta=document.getElementById("essay");
-  if (ta) w4.essay=ta.value;
-  var k4=w4.rubric.indexOf(i);
-  if (k4>-1) w4.rubric.splice(k4,1); else w4.rubric.push(i);
-  render(); return;
- }
- if (act==="wr-finish"){
-  var w5=S.wr, ta2=document.getElementById("essay");
-  if (ta2) w5.essay=ta2.value;
-  var words = w5.essay.trim() ? w5.essay.trim().split(/\s+/).length : 0;
-  finishRound("write",{points:w5.pts + w5.rubric.length*10, essay:w5.essay, rubric:w5.rubric.length, words:words});
-  return;
- }
-
- if (act==="res-add"){
-  var inp=document.getElementById("nameinp");
-  var nm = inp ? inp.value.trim() : "";
-  if (!nm) return;
-  var tot=totalPoints();
-  S.res.name=nm; S.res.added=true;
-  S.board.push({name:nm,total:tot,pct:Math.round(tot/TOTAL_MAX*100),time:S.elapsed});
-  render(); return;
- }
- if (act==="res-copy"){
-  var t2=totalPoints();
-  var text = BUSINESS+": Clear the Board result\n"+
-   "Name: "+(S.res.name||"(unnamed)")+"\n"+
-   "Score: "+t2+" of "+TOTAL_MAX+" ("+Math.round(t2/TOTAL_MAX*100)+"%)\n"+
-   "Time: "+fmt(S.elapsed)+"\n"+
-   ROUNDS.map(function(r){ return r.full+": "+((S.results[r.id]&&S.results[r.id].points)||0)+"/"+r.max; }).join("\n");
-  copyText(text); S.res.copied=true; render();
-  setTimeout(function(){ S.res.copied=false; if (S.stage==="done") render(); },2200);
-  return;
- }
- if (act==="res-restart"){
-  var keep=S.board;
-  stopElapsed(); stopSprintClock();
-  S=freshState(); S.board=keep;
-  S.wr.order=shuffle(ORDER_TASKS[0].correct);
-  render(); return;
- }
-});
-
-function copyText(t){
- if (navigator.clipboard && navigator.clipboard.writeText){
-  navigator.clipboard.writeText(t).catch(function(){ fallbackCopy(t); });
- } else fallbackCopy(t);
-}
-function fallbackCopy(t){
- var ta=document.createElement("textarea");
- ta.value=t; ta.style.position="fixed"; ta.style.opacity="0";
- document.body.appendChild(ta); ta.select();
- try { document.execCommand("copy"); } catch(e){}
- document.body.removeChild(ta);
+function renderMatch(st){
+  const chips = shuffle(st.pairs.map((p,i)=>chipHTML(p.term, String(i), "It matches: "+p.def)));
+  const rows = shuffle(st.pairs.map((p,i)=>({p,i})));
+  app.innerHTML = `${head(st)}
+  <div class="task" id="board">
+    <div class="pool" tabindex="0" role="button" aria-label="Card pool">${chips.join("")}</div>
+    ${rows.map(({p,i})=>`<div class="matchrow"><div class="def">${esc(p.def)}</div><div ${zoneAttrs(String(i),1).replace('class="zone"','class="zone slot"')}><div class="hold"></div></div></div>`).join("")}
+    <div class="row"><button class="btn hivis" id="check">Check matches</button></div>
+    <div class="feedback" id="fb" aria-live="polite"></div>${nextButton()}
+  </div>`;
+  wireCheck(st, $("board"), "chips");
 }
 
-S.wr.order = shuffle(ORDER_TASKS[0].correct);
-render();
+function renderBlanks(st){
+  const answers = [];
+  const lines = st.lines.map(l => esc(l).replace(/\{([^}]+)\}/g, (_,w)=>{
+    answers.push(w);
+    return `<span ${zoneAttrs(w,1).replace('class="zone"','class="zone blank"')}><span class="hold"></span></span>`;
+  }));
+  const bank = shuffle([...answers, ...st.decoys]).map(w=>chipHTML(w, w));
+  app.innerHTML = `${head(st)}
+  <div class="task" id="board">
+    <div class="pool" tabindex="0" role="button" aria-label="Word bank">${bank.join("")}</div>
+    ${lines.map(l=>`<div class="blankline">${l}</div>`).join("")}
+    <div class="row"><button class="btn hivis" id="check">Check the fact sheet</button></div>
+    <div class="feedback" id="fb" aria-live="polite"></div>${nextButton()}
+  </div>`;
+  wireCheck(st, $("board"), "zones");
+}
+
+function renderAd(st){
+  const body = AD.parts.map((p,i)=> p.bad===undefined ? esc(p.t)
+    : `<button class="phrase" data-i="${i}" aria-pressed="false">${esc(p.t)}</button>`).join("");
+  app.innerHTML = `${head(st)}
+  <div class="task">
+    <div class="ad"><h3>${esc(AD.heading)}</h3><div>${body}</div></div>
+    <p class="small" style="margin-top:.8rem">Hint: there are more than three problems.</p>
+    <div class="row"><button class="btn hivis" id="check">Check the ad</button></div>
+    <div class="feedback" id="fb" aria-live="polite"></div>
+    <div id="rewrite" hidden>
+      <label class="field" for="rw">Now rewrite the sentence about who the role suits, using inclusive language.</label>
+      <textarea id="rw" placeholder="This role would suit..."></textarea>
+      <p class="small">Example: This role would suit someone with strong practical skills who enjoys solving mechanical problems.</p>
+    </div>
+    ${nextButton()}
+  </div>`;
+  const phrases = [...app.querySelectorAll(".phrase")];
+  let locked = false;
+  phrases.forEach(b=>b.onclick=()=>{ if(locked) return; b.setAttribute("aria-pressed", b.classList.toggle("flagged")); });
+  $("check").onclick = function(){
+    locked = true; this.disabled = true;
+    let list = "";
+    phrases.forEach(b=>{
+      const p = AD.parts[+b.dataset.i], flagged = b.classList.contains("flagged"), ok = flagged === p.bad;
+      award(ok, st.id);
+      b.classList.remove("flagged");
+      b.classList.add(p.bad ? (flagged ? "flagged" : "missed") : (flagged ? "okay" : "x"));
+      if(p.bad || flagged) list += `<li><b>${esc(p.t)}</b>: ${ok ? "" : "<em>"+(p.bad ? "Missed. " : "This one is fine. ")+"</em>"}${esc(p.why)}</li>`;
+    });
+    const t = S.tally[st.id];
+    $("fb").innerHTML = `<strong>${t.got} of ${t.of} phrases judged correctly.</strong> Solid red is a problem you caught, a red outline is one you missed, and green is a phrase you flagged that is actually okay.<ul>${list}</ul>`;
+    $("fb").classList.add("show");
+    $("rewrite").hidden = false;
+    showNext();
+  };
+}
+
+function renderSwipe(st){
+  const items = shuffle(st.items);
+  let i = 0, busy = false;
+  app.innerHTML = `${head(st)}
+  <div class="task">
+    <div class="small" id="count"></div>
+    <div class="deck" id="deck"></div>
+    <div class="swipebtns">
+      <button class="btn bin" id="binBtn">Bin it</button>
+      <button class="btn keep" id="keepBtn">Fine to ask</button>
+    </div>
+    <div class="feedback" id="fb" aria-live="polite"></div>
+    ${nextButton()}
+  </div>`;
+  const deck = $("deck");
+
+  function draw(){
+    $("count").textContent = i < items.length ? `Question ${i+1} of ${items.length}` : "";
+    deck.innerHTML = "";
+    if(items[i+1]) deck.insertAdjacentHTML("beforeend", `<div class="card under"><div class="who">Interview panel</div>${esc(items[i+1].q)}</div>`);
+    if(items[i]){
+      deck.insertAdjacentHTML("beforeend", `<div class="card" id="top"><div class="who">Interview panel asks</div>${esc(items[i].q)}</div>`);
+      wireCard($("top"));
+    }
+  }
+  function answer(keep){
+    if(busy || i >= items.length) return;
+    busy = true;
+    const it = items[i], ok = (keep ? 1 : 0) === it.a, card = $("top");
+    award(ok, st.id);
+    card.classList.add("fly");
+    card.style.transform = `translateX(${keep ? 140 : -140}%) rotate(${keep ? 18 : -18}deg)`;
+    card.style.opacity = "0";
+    $("fb").innerHTML = `<strong>${ok ? "Correct." : "Not quite."}</strong> “${esc(it.q)}” ${it.a ? "is fine to ask." : "should be binned."} ${esc(it.why)}`;
+    $("fb").classList.add("show");
+    setTimeout(()=>{
+      i++; busy = false; draw();
+      if(i >= items.length){
+        const t = S.tally[st.id];
+        deck.innerHTML = `<div class="card" style="cursor:default;text-align:center"><div class="who">Panel finished</div>${t.got} of ${t.of} correct</div>`;
+        $("binBtn").disabled = $("keepBtn").disabled = true;
+        showNext();
+      }
+    }, 380);
+  }
+  function wireCard(card){
+    let sx = null, dx = 0;
+    card.addEventListener("pointerdown", e=>{ sx = e.clientX; dx = 0; card.setPointerCapture(e.pointerId); });
+    card.addEventListener("pointermove", e=>{
+      if(sx === null) return;
+      dx = e.clientX - sx;
+      card.style.transform = `translateX(${dx}px) rotate(${dx/18}deg)`;
+    });
+    const end = () => {
+      if(sx === null) return; sx = null;
+      if(Math.abs(dx) > 90) answer(dx > 0);
+      else card.style.transform = "";
+    };
+    card.addEventListener("pointerup", end);
+    card.addEventListener("pointercancel", end);
+  }
+  $("binBtn").onclick = () => answer(false);
+  $("keepBtn").onclick = () => answer(true);
+  const keys = e => {
+    if(S.stage < 0 || STAGES[S.stage].id !== st.id){ document.removeEventListener("keydown", keys); return; }
+    if(e.key === "ArrowLeft") answer(false);
+    if(e.key === "ArrowRight") answer(true);
+  };
+  document.addEventListener("keydown", keys);
+  draw();
+}
+
+function renderMemory(st){
+  const cards = shuffle(st.pairs.flatMap((p,i)=>[{k:i,t:p.term,term:true},{k:i,t:p.def,term:false}]));
+  app.innerHTML = `${head(st)}
+  <div class="task">
+    <div class="small">Flips: <b id="flips">0</b> &nbsp; Pairs found: <b id="found">0</b> of ${st.pairs.length}</div>
+    <div class="mem" id="mem" style="margin-top:.8rem">
+      ${cards.map((c,i)=>`<button class="mcard ${c.term?'term':''}" data-i="${i}" aria-label="Hidden card ${i+1}"></button>`).join("")}
+    </div>
+    <div class="feedback" id="fb" aria-live="polite"></div>
+    ${nextButton()}
+  </div>`;
+  let open = [], flips = 0, found = 0, wait = false;
+  const btns = [...app.querySelectorAll(".mcard")];
+  const show = (b,up) => { const c = cards[+b.dataset.i]; b.classList.toggle("up",up); b.textContent = up ? c.t : ""; b.setAttribute("aria-label", up ? c.t : "Hidden card"); };
+  btns.forEach(b=>b.onclick=()=>{
+    if(wait || b.classList.contains("up") || b.classList.contains("found")) return;
+    show(b,true); open.push(b);
+    if(open.length === 2){
+      flips++; $("flips").textContent = flips;
+      const [a,c] = open.map(x=>cards[+x.dataset.i]);
+      if(a.k === c.k && a.term !== c.term){
+        open.forEach(x=>{x.classList.add("found");x.classList.remove("up");});
+        open = []; found++; $("found").textContent = found;
+        award(true, st.id);
+        if(found === st.pairs.length){
+          const bonus = Math.max(0, (st.pairs.length*2 - flips)) * 5;
+          S.points += bonus; updateStats();
+          $("fb").innerHTML = `<strong>All pairs in ${flips} flips.</strong> ${bonus ? "Efficiency bonus: "+bonus+" points." : "Try for fewer flips next time."}`;
+          $("fb").classList.add("show"); showNext();
+        }
+      } else {
+        wait = true;
+        setTimeout(()=>{ open.forEach(x=>show(x,false)); open = []; wait = false; }, 1000);
+      }
+    }
+  });
+}
+
+function renderClock(st){
+  const items = shuffle(st.items);
+  let i = 0, left = st.seconds, done = false, timer = null;
+  const wrong = [];
+  app.innerHTML = `${head(st)}
+  <div class="task" id="qbox">
+    <div class="row" style="margin-top:0"><button class="btn hivis" id="go">Start the timer</button></div>
+  </div>
+  <div class="feedback" id="fb" aria-live="polite"></div>${nextButton()}`;
+  $("go").onclick = () => {
+    timer = setInterval(()=>{
+      left--; const bar = $("tbar"); if(bar) bar.style.width = (100*left/st.seconds)+"%";
+      const lbl = $("tleft"); if(lbl) lbl.textContent = left;
+      if(left <= 0) end();
+    }, 1000);
+    drawQ();
+  };
+  function drawQ(){
+    if(done) return;
+    if(i >= items.length) return end();
+    const it = items[i];
+    $("qbox").innerHTML = `<div class="small">Question ${i+1} of ${items.length} &nbsp; <b id="tleft">${left}</b> seconds left</div>
+      <div class="timerbar"><div id="tbar" style="width:${100*left/st.seconds}%"></div></div>
+      <div class="prompt">${esc(it.q)}...</div>
+      <div class="choices">${it.c.map((c,k)=>`<button class="choice" data-k="${k}">${esc(c)}</button>`).join("")}</div>`;
+    $("qbox").querySelectorAll(".choice").forEach(b=>b.onclick=()=>{
+      if(done) return;
+      const k = +b.dataset.k, ok = k === it.a;
+      $("qbox").querySelectorAll(".choice").forEach(x=>{ x.disabled = true; if(+x.dataset.k === it.a) x.classList.add("right"); else if(x===b) x.classList.add("wrong"); });
+      award(ok, st.id);
+      if(!ok) wrong.push(it);
+      setTimeout(()=>{ i++; drawQ(); }, 650);
+    });
+    $("qbox").querySelector(".choice").focus();
+  }
+  function end(){
+    if(done) return; done = true; clearInterval(timer);
+    const t = S.tally[st.id] || {got:0,of:0};
+    $("qbox").innerHTML = `<div class="prompt">${left <= 0 ? "Time's up." : "Finished with "+left+" seconds to spare."}</div>
+      <p>You answered ${t.of} of ${items.length} and got ${t.got} right.</p>`;
+    if(wrong.length){
+      $("fb").innerHTML = `<strong>Review these</strong><ul>${wrong.map(w=>`<li><b>${esc(w.q)}</b> ${esc(w.c[w.a])}. ${esc(w.why)}</li>`).join("")}</ul>`;
+      $("fb").classList.add("show");
+    }
+    showNext();
+  }
+}
+
+function renderEvaluate(st){
+  app.innerHTML = `${head(st)}
+  <p>VCE questions often ask you to evaluate a staffing strategy from the perspective of the employer and the employee. Discuss with your team first, then write.</p>
+  <div class="task">
+    <div class="prompt">${esc(EVALUATE.scenario)}</div>
+    <p>Evaluate this strategy from both perspectives, then make a judgement.</p>
+    <div class="sides">
+      <div><label class="field" for="emp">Priya, the employer</label><textarea id="emp" placeholder="Advantages and disadvantages for the business"></textarea></div>
+      <div><label class="field" for="wkr">The staff</label><textarea id="wkr" placeholder="Advantages and disadvantages for employees"></textarea></div>
+    </div>
+    <label class="field" for="judge">Your judgement</label>
+    <textarea id="judge" style="min-height:4.5rem" placeholder="Overall, is this a good strategy? Why?"></textarea>
+    <div class="row"><button class="btn hivis" id="reveal">Compare with the model answer</button></div>
+    <div class="model" id="model">
+      <h3>Self-check: 5 points for each idea your team covered</h3>
+      <p><b>Employer perspective</b></p><ul>${EVALUATE.employer.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+      <p><b>Employee perspective</b></p><ul>${EVALUATE.employee.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+      <p><b>Judgement</b></p><p>${esc(EVALUATE.judgement)}</p>
+      <label class="field" for="self">How many ideas did you cover, including a judgement? (0 to 9)</label>
+      <input type="text" id="self" inputmode="numeric" style="max-width:6rem">
+      <div class="row"><button class="btn" id="done">Clock off for the week</button></div>
+    </div>
+  </div>`;
+  $("reveal").onclick = function(){ this.hidden = true; $("model").classList.add("show"); $("self").focus(); };
+  $("done").onclick = () => {
+    let n = parseInt($("self").value,10); if(isNaN(n)) n = 0; n = Math.max(0,Math.min(9,n));
+    S.tally[st.id] = {got:n, of:9, self:true};
+    S.points += n*5; updateStats();
+    S.stage++; renderStage();
+  };
+}
+
+/* ===================================================================
+   Start and finish
+   =================================================================== */
+function start(){
+  clearInterval(tick); $("clockWrap").hidden = true;
+  drawShift();
+  const total = STAGES.reduce((a,s)=>a+s.mins,0);
+  app.innerHTML = `
+  <section class="hero">
+    <div>
+      <h1>Hire week</h1>
+      <p>You've just been made the HR team at Loop &amp; Spoke Cycles. The owner is opening a new shop and needs a mechanic planned for, hired, signed and trained by Friday. Get it wrong and it could cost the business money, reputation or a court case.</p>
+      <label class="field" for="team">Your team name</label>
+      <input type="text" id="team" maxlength="28" placeholder="e.g. The Chain Gang" autocomplete="off">
+      <div class="row"><button class="btn hivis" id="go" disabled>Start the week</button></div>
+    </div>
+    <div class="badge" aria-label="Staff name badge preview">
+      <div class="clip"></div>
+      <div class="top">Loop &amp; Spoke Cycles</div>
+      <div class="name" id="badgeName">Your team</div>
+      <div class="role">Human resource management</div>
+    </div>
+  </section>
+  <div class="brief">
+    <h3>The week ahead</h3>
+    <p class="small" style="margin:0">About ${total + 2} minutes including this intro. The timer in the top bar shows how long you've spent on each shift. It turns yellow when you go over, but it won't stop you.</p>
+    <table class="run"><tbody>
+      ${STAGES.map((s,i)=>`<tr><td>${i+1}</td><td>${esc(s.title)} <span class="small">(${esc(s.how)})</span></td><td>${s.mins} min</td></tr>`).join("")}
+    </tbody></table>
+  </div>`;
+  const inp = $("team"), go = $("go"), bn = $("badgeName");
+  inp.addEventListener("input", ()=>{ bn.textContent = inp.value.trim() || "Your team"; go.disabled = !inp.value.trim(); });
+  inp.addEventListener("keydown", e=>{ if(e.key==="Enter" && inp.value.trim()) go.click(); });
+  go.onclick = () => { S.team = inp.value.trim(); S.stage = 0; renderStage(); };
+  inp.focus();
+}
+
+function finish(){
+  clearInterval(tick); $("clockWrap").hidden = true;
+  $("shift").innerHTML = STAGES.map(()=>`<div class="done"></div>`).join("");
+  const acc = S.of ? Math.round(100*S.got/S.of) : 0;
+  let title, line;
+  if(acc >= 85){ title="Employer of choice"; line="People will queue up to work at Loop & Spoke. Your staffing decisions were legal, fair and smart."; }
+  else if(acc >= 70){ title="Promoted to HR manager"; line="Solid week. Look at the shifts where you dropped marks before the SAC."; }
+  else if(acc >= 50){ title="Kept on after probation"; line="You got the mechanic hired, but a few decisions could have landed Priya in trouble. Revisit those sections of the topic."; }
+  else { title="See me in my office"; line="Tough week. Go back through the topic summary and have another go."; }
+  const rows = STAGES.map(s=>{ const t = S.tally[s.id]; return t ? `<tr><td>${esc(s.title)}</td><td>${t.got} / ${t.of}${t.self ? " (self-rated)" : ""}</td></tr>` : ""; }).join("");
+  app.innerHTML = `
+    <div class="step">End of the week</div>
+    <h2>${esc(S.team)}</h2>
+    <div class="result-title">${title}</div>
+    <p>${line}</p>
+    <p><b>${S.points} points &nbsp; ${acc}% accuracy</b></p>
+    <table class="tally"><tbody>${rows}</tbody></table>
+    <div class="brief">
+      <h3>Exit ticket</h3>
+      <p>Write one sentence for each: the difference between recruitment and selection, one question an employer can't ask in an interview and why, and one benefit of induction for the employer and one for the employee.</p>
+    </div>
+    <div class="row"><button class="btn hivis" id="again">Play again</button></div>`;
+  $("again").onclick = () => { Object.assign(S,{team:"",stage:-1,points:0,got:0,of:0,tally:{}}); updateStats(); start(); };
+}
+
+start();
 </script>
 </body>
 </html>
